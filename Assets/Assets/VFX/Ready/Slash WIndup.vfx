@@ -37,7 +37,7 @@ MonoBehaviour:
     x: -200
     y: -1507
     width: 2119
-    height: 1780
+    height: 1576
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: Lightning_Asset
+  m_Name: Light
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -83,7 +83,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lightning_Asset
+  m_Name: Slash
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 865, y: -447}
+  m_UIPosition: {x: 865, y: -591}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -670,7 +670,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.0,"y":0.0,"z":90.0}'
+      m_SerializableObject: '{"x":90.0,"y":0.0,"z":90.0}'
     m_Space: -1
   m_Property:
     name: _Angle
@@ -910,7 +910,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":4536773283001372330,"guid":"4b13949d241218c46aa7d6b2c54b4c6d","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":4536773283001372330,"guid":"6a3605724c39b2b4390da77400785cd4","type":3}}'
     m_Space: -1
   m_Property:
     name: mesh
@@ -1322,7 +1322,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661615146}
-  m_UIPosition: {x: 390, y: -183}
+  m_UIPosition: {x: 344, y: -430}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -1404,7 +1404,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Mesh, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":4536773283001372330,"guid":"4b13949d241218c46aa7d6b2c54b4c6d","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":4536773283001372330,"guid":"6a3605724c39b2b4390da77400785cd4","type":3}}'
     m_Space: -1
   m_Property:
     name: mesh
@@ -1740,7 +1740,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: 2
     m_Space: -1
   m_Property:
     name: _Size
@@ -3523,7 +3523,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615207}
   - {fileID: 8926484042661615208}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661615205}
   m_MasterData:
