@@ -253,7 +253,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":23.9686279296875,"g":1.756861925125122,"b":13.417511940002442,"a":1.0}'
+      m_SerializableObject: '{"r":47.937255859375,"g":3.513723850250244,"b":26.835023880004884,"a":1.0}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -946,7 +946,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":23.9686279296875,"g":1.756861925125122,"b":13.417511940002442,"a":1.0}'
+      m_SerializableObject: '{"r":47.937255859375,"g":3.513723850250244,"b":26.835023880004884,"a":1.0}'
     m_Space: -1
   m_Property:
     name: o
@@ -1623,7 +1623,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-0.10000000149011612,"y":0.20000000298023225,"z":-0.10000000149011612}}'
+      m_SerializableObject: '{"vector":{"x":-0.10000000149011612,"y":0.10000000149011612,"z":-0.10000000149011612}}'
     m_Space: 0
   m_Property:
     name: A
@@ -1793,7 +1793,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.10000000149011612,"y":0.5,"z":0.10000000149011612}}'
+      m_SerializableObject: '{"vector":{"x":0.10000000149011612,"y":0.4000000059604645,"z":0.10000000149011612}}'
     m_Space: 0
   m_Property:
     name: B
