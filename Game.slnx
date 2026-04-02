@@ -1,7 +1,7 @@
 ﻿<Solution>
   <Project Path="Unity.VisualEffectGraph.Editor.csproj" />
   <Project Path="Unity.VisualEffectGraph.Runtime.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.VisualEffectGraph.Runtime.Tests.csproj" />
   <Project Path="Unity.VisualEffectGraph.Editor.Tests.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
 </Solution>
