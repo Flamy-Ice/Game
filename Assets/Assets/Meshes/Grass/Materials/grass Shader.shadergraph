@@ -5435,7 +5435,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"a59422c5a8c5710489a3fba2fc6d22ce\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"65e7451d73df401418112be3fa834ea4\",\"type\":3}}",
         "m_Guid": ""
     },
     "m_DefaultType": 0
