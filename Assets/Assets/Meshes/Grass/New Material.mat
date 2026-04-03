@@ -124,7 +124,7 @@ Material:
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
-    - _bits: 1
+    - _bits: 16
     m_Colors:
     - _BaseColor: {r: 0.25787646, g: 0.5754717, b: 0.4326042, a: 1}
     - _Color: {r: 0, g: 0.5, b: 0.27499998, a: 1}
