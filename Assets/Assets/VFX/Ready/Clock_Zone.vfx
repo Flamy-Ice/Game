@@ -838,7 +838,18 @@ MonoBehaviour:
     - model: {fileID: 8926484042661615514}
       id: 0
       isStickyNote: 0
-  stickyNoteInfos: []
+  stickyNoteInfos:
+  - title: Time
+    position:
+      serializedVersion: 2
+      x: 6983
+      y: 583
+      width: 378
+      height: 409
+    contents: "15 sekund i mo\u017Cna usun\u0105\u0107\n"
+    theme: Classic
+    textSize: Small
+    colorTheme: 1
   categories: []
   uiBounds:
     serializedVersion: 2
@@ -22331,7 +22342,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 2
     m_Space: -1
   m_Property:
     name: A
@@ -22365,7 +22376,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 6
+      m_SerializableObject: 5
     m_Space: -1
   m_Property:
     name: B
@@ -44564,7 +44575,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 20
+      m_SerializableObject: 50
     m_Space: -1
   m_Property:
     name: Rate
