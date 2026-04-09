@@ -73,6 +73,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        // Prevent jump buffering if we are currently dashing
+        if (_isDashing) return;
+
         if (context.started)
         {
             _jumpBufferCounter = _jumpBufferTime; // Mark that we want to jump
@@ -96,6 +99,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleGroundCheck()
     {
+        // Don't process jumps or ground logic while dashing
+        if (_isDashing) return;
+
         // If touching the ground, reset the jump counts
         if (_controller.isGrounded && _velocity.y < 0)
         {
@@ -187,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
         _canDash = false;
         _isDashing = true;
         IsInvulnerable = true;
+        _jumpBufferCounter = 0; // Clear any jumps that were queued right before the dash
 
         // Decide which way to dash (face forward, or follow movement keys)
         Vector3 dashDir = transform.forward;
