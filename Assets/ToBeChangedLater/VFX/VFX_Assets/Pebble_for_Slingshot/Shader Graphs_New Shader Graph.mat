@@ -57,23 +57,34 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
+    - _Bits: 8
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
     - _DstBlendAlpha: 10
+    - _Glow_Intensity: 1000
+    - _Pulse_Intensity: 50000
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 1
+    - _Time_Pulse: 3
+    - _Time_Pulsing: 2
+    - _Time_of_pulse: 4
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color_1: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_1: {r: 0, g: 0, b: 1, a: 1}
+    - _Color_Shine: {r: 0, g: 0.023376942, b: 1, a: 1}
+    - _How_far_Glow_goes_on_the_object: {r: 10, g: -0.5, b: 0, a: 0}
+    - _I_Dont_understand_what_i_made_but_it_works_i_guess: {r: 0, g: 3, b: 0, a: 0}
+    - _Rock_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+    - _Time_FROM_TO_pulse: {r: 1, g: 201, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
