@@ -1,29 +1,75 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // Ważne dla obsługi myszki
+using UnityEngine.EventSystems;
 
-public class MenuButtonHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+// This script moves and toggles "highlight" UI elements when the mouse hovers over menu buttons
+public class MenuButtonHighlight : MonoBehaviour, IPointerEnterHandler
 {
-    // Tutaj wrzucimy naszą gwiazdkę w inspektorze
-    public GameObject highlightElement;
+    public enum Side { Left, Right }
 
+    [Header("Highlight References")]
+    public RectTransform highlightLeft;  // The UI element that appears on the left side
+    public RectTransform highlightRight; // The UI element that appears on the right side
+
+    [Header("Button Settings")]
+    public Side sideForThisButton;       // Which side should show the highlight for this specific button?
+    public float moveSpeed = 5f;        // How fast the highlight slides to the new position
+
+    // These are static so all buttons share the same target and initialization state
+    private static float targetY;
+    private static bool isInitialized = false;
+
+    // Runs when the game starts
     void Start()
     {
-        // Na wszelki wypadek chowamy gwiazdkę na początku gry
-        if (highlightElement != null)
-            highlightElement.SetActive(false);
+        // Only run this setup once for all buttons
+        if (!isInitialized)
+        {
+            // Set the initial target position based on where the highlights are currently placed
+            if (highlightLeft != null) targetY = highlightLeft.position.y;
+            else if (highlightRight != null) targetY = highlightRight.position.y;
+
+            // Hide both highlights at the very beginning
+            if (highlightLeft != null) highlightLeft.gameObject.SetActive(false);
+            if (highlightRight != null) highlightRight.gameObject.SetActive(false);
+
+            isInitialized = true;
+        }
     }
 
-    // Wywołuje się, gdy myszka najedzie na przycisk
+    // Runs every frame to handle smooth movement
+    void Update()
+    {
+        // Smoothly slide the Left highlight toward the target Y position
+        if (highlightLeft != null)
+        {
+            float newY = Mathf.Lerp(highlightLeft.position.y, targetY, Time.deltaTime * moveSpeed);
+            highlightLeft.position = new Vector3(highlightLeft.position.x, newY, highlightLeft.position.z);
+        }
+
+        // Smoothly slide the Right highlight toward the target Y position
+        if (highlightRight != null)
+        {
+            float newY = Mathf.Lerp(highlightRight.position.y, targetY, Time.deltaTime * moveSpeed);
+            highlightRight.position = new Vector3(highlightRight.position.x, newY, highlightRight.position.z);
+        }
+    }
+
+    // This is automatically called by Unity when the mouse enters the button area
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (highlightElement != null)
-            highlightElement.SetActive(true);
-    }
+        // Tell the highlights to move to this button's vertical position
+        targetY = transform.position.y;
 
-    // Wywołuje się, gdy myszka zjedzie z przycisku
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (highlightElement != null)
-            highlightElement.SetActive(false);
+        // Switch which highlight is visible based on this button's settings
+        if (sideForThisButton == Side.Left)
+        {
+            if (highlightLeft != null) highlightLeft.gameObject.SetActive(true);
+            if (highlightRight != null) highlightRight.gameObject.SetActive(false);
+        }
+        else
+        {
+            if (highlightLeft != null) highlightLeft.gameObject.SetActive(false);
+            if (highlightRight != null) highlightRight.gameObject.SetActive(true);
+        }
     }
 }
