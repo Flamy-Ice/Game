@@ -621,9 +621,10 @@ GameObject:
   - component: {fileID: 599249070}
   - component: {fileID: 599249069}
   - component: {fileID: 599249068}
+  - component: {fileID: 599249076}
   - component: {fileID: 599249075}
   m_Layer: 3
-  m_Name: Player
+  m_Name: Kaira
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -879,12 +880,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 599249067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c09417900d69a24a83ae1702c61839b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0621f1ff14751d943b2afcb0a5ba0ccb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementDebug
-  _showGui: 1
-  _showGizmos: 1
-  _gizmoColor: {r: 0, g: 1, b: 1, a: 1}
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  _stats: {fileID: 11400000, guid: fcc50b1fd135b9d439310dfcb4a84ad8, type: 2}
+--- !u!114 &599249076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599249067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29b8540d0d92d94aa30c801bdaa4b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  _baseStats: {fileID: 11400000, guid: fcc50b1fd135b9d439310dfcb4a84ad8, type: 2}
 --- !u!1 &790448272
 GameObject:
   m_ObjectHideFlags: 0
