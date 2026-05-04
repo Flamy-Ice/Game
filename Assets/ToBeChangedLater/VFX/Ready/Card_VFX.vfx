@@ -217,7 +217,7 @@ MonoBehaviour:
     x: 680
     y: -492
     width: 475
-    height: 1995
+    height: 1996
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_Children:
   - {fileID: 8926484042661614567}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614566}
   m_MasterData:
@@ -1430,7 +1430,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-1.0,"y":0.0,"z":-0.05000000074505806}}'
+      m_SerializableObject: '{"vector":{"x":-1.0,"y":0.0,"z":-0.0005000000237487257}}'
     m_Space: 0
   m_Property:
     name: A
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614569}
   - {fileID: 8926484042661614570}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614566}
   m_MasterData:
@@ -1600,7 +1600,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-2.0,"y":0.0,"z":0.05000000074505806}}'
+      m_SerializableObject: '{"vector":{"x":-1.5,"y":0.0,"z":0.0005000000237487257}}'
     m_Space: 0
   m_Property:
     name: B
@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_Disabled: 0
   m_ActivationSlot: {fileID: 8926484042661614591}
   attribute: color
-  Composition: 0
+  Composition: 2
   Source: 0
   Random: 0
   channels: 6
@@ -1898,7 +1898,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":9.825560569763184,"y":11.582526206970215,"z":30.188678741455079}'
+      m_SerializableObject: '{"x":56.273895263671878,"y":5.0095086097717289,"z":4.5125298500061039}'
     m_Space: -1
   m_Property:
     name: _Color
