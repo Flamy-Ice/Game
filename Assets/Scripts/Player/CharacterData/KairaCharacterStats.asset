@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf3a37985a74564db8d170e41e3e907, type: 3}
-  m_Name: KairaStats
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  maxHealth: 80
-  healthRegen: 0.2
-  maxShield: 0
-  armor: 2
-  dodgeChance: 0.05
-  lifeSteal: 0
-  thorns: 0
+  m_Script: {fileID: 11500000, guid: 0e6d045ea73f7814b95b4fd44380528d, type: 3}
+  m_Name: KairaCharacterStats
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStatsData
+  moveSpeed: 10
+  jumpHeightMultiplier: 1
+  extraJumps: 0
+  dodgeChance: 0

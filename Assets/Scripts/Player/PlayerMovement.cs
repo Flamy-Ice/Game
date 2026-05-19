@@ -1,231 +1,208 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// This script controls how your player moves, jumps, and dashes.
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(PlayerStats))]
 public class PlayerMovement : MonoBehaviour
 {
-    // Internal references to components
-    private CharacterController _controller; // The "physical" body of the player
-    private Transform _cameraTransform;      // Where the camera is looking
-    private Vector2 _moveInput;             // Stores joystick or WASD input
-    private Vector3 _moveDirection;         // The direction we are currently moving
-    private Vector3 _velocity;              // Used for falling and jumping (vertical speed)
+    [Header("Input Actions")]
+    [SerializeField] private InputActionAsset reference;
 
-    // These settings appear in the Unity Inspector so you can tweak them
+    [Header("Camera")]
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private float rotationSpeed = 20f;
+
     [Header("Walk")]
-    [SerializeField] private float _moveSpeed = 12f;         // How fast we run
-    [SerializeField][Range(0f, 1f)] private float _walkModifier = 0.4f; // Slower speed when walking
-    [SerializeField] private float _acceleration = 10f;     // How fast we reach top speed
-    private bool _isWalking = false;
+    [SerializeField][Range(0f, 1f)] private float walkSpeedMultiplier = 0.4f;
+    [SerializeField] private float acceleration = 25f;
+    [SerializeField] private float deceleration = 25f;
 
     [Header("Jump")]
-    [SerializeField] private float _gravity = -35f;         // How hard the world pulls us down
-    [SerializeField] private int _maxJumps = 2;             // How many times we can jump (Double Jump)
-    [SerializeField] private float _jumpCooldown = 0.2f;    // Pause between jumps
-    [SerializeField] private float _jumpHeight = 2.5f;      // How high the jump goes
-    [SerializeField][Range(0f, 1f)] private float _airControl = 0.6f; // How much we can steer in mid-air
-    [SerializeField][Range(0f, 1f)] private float _coyoteTime = 0.15f; // "Grace period" to jump after leaving a ledge
-    [SerializeField][Range(0f, 1f)] private float _jumpBufferTime = 0.2f; // Remembers your jump tap if you hit it early
+    [SerializeField] private float gravity = -20f;
+    [SerializeField] private float baseJumpHeight = 2f;
+    [SerializeField] private float jumpCooldown = 0.2f;
+    [SerializeField][Range(0f, 1f)] private float airControl = 0.6f;
+    [SerializeField][Range(0f, 1f)] private float coyoteTime = 0.15f;
+    [SerializeField][Range(0f, 1f)] private float jumpBufferTime = 0.2f;
 
-    private int _jumpsLeft;
-    private float _coyoteCounter;
-    private float _jumpBufferCounter;
-    private float _lastJumpTime;
+    private InputAction moveAction;
+    private InputAction jumpAction;
+    private InputAction walkAction;
 
-    [Header("Dash")]
-    [SerializeField] private float _dashDistance = 12f;
-    [SerializeField] private float _dashCooldown = 3f;
-    [SerializeField] private float _dashTime = 0.25f;       // How long the dash lasts
-    [Tooltip("How the speed changes during the dash (e.g., fast start, slow end)")]
-    [SerializeField] private AnimationCurve _dashCurve = AnimationCurve.EaseInOut(0, 1, 1, 0);
+    private CharacterController controller;
+    private PlayerStats stats;
 
-    private bool _isDashing;
-    private bool _canDash = true;
-    public bool IsInvulnerable { get; private set; } // Can be used to make player immortal during dash
+    private Vector3 currentHorizontalVelocity;
+    private float verticalVelocity;
+    private bool isGrounded;
 
-    [Header("Rotation")]
-    [SerializeField] private float _rotationSpeed = 20f;    // How fast the player turns to face the move direction
+    private int remainingJumps;
+    private bool hasJumped;
+    private float jumpCooldownTimer;
+    private float coyoteTimeCounter;
+    private float jumpBufferCounter;
 
-    // This runs once when the game starts
     private void Awake()
     {
-        _controller = GetComponent<CharacterController>();
-        if (Camera.main != null) _cameraTransform = Camera.main.transform;
-        _jumpsLeft = _maxJumps;
-    }
+        controller = GetComponent<CharacterController>();
+        stats = GetComponent<PlayerStats>();
 
-    // This runs every single frame (the "brain" of the player)
-    private void Update()
-    {
-        HandleGroundCheck(); // Check if we are on the floor
-        HandleRotation();    // Rotate player to face where they move
-        HandleMovement();    // Move left/right/forward/back
-        HandleGravity();     // Pull player down to the ground
-    }
-
-    #region Input Methods (These react to your button presses)
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        _moveInput = context.ReadValue<Vector2>(); // Get WASD or Joystick values
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        // Prevent jump buffering if we are currently dashing
-        if (_isDashing) return;
-
-        if (context.started)
+        if (reference != null)
         {
-            _jumpBufferCounter = _jumpBufferTime; // Mark that we want to jump
-        }
-    }
-
-    public void OnWalkToggle(InputAction.CallbackContext context)
-    {
-        if (context.performed) _isWalking = true;
-        else if (context.canceled) _isWalking = false;
-    }
-
-    public void OnDash(InputAction.CallbackContext context)
-    {
-        if (context.started && _canDash && !_isDashing)
-        {
-            StartCoroutine(PerformDash()); // Start the special Dash sequence
-        }
-    }
-    #endregion
-
-    private void HandleGroundCheck()
-    {
-        // We allow ground check during dash to ensure proper landing logic
-        // If touching the ground, reset the jump counts
-        if (_controller.isGrounded && _velocity.y < 0)
-        {
-            _velocity.y = -2f; // Slight downward force to keep us stuck to the floor
-            _jumpsLeft = _maxJumps;
-            _coyoteCounter = _coyoteTime;
+            moveAction = reference.FindAction("Player/Move");
+            jumpAction = reference.FindAction("Player/Jump");
+            walkAction = reference.FindAction("Player/Walk");
         }
         else
         {
-            _coyoteCounter -= Time.deltaTime; // Start the "falling off ledge" timer
+            Debug.LogError($"[PlayerMovement] Missing 'Reference' (Input Actions Asset) on object {gameObject.name}!");
         }
 
-        _jumpBufferCounter -= Time.deltaTime; // Decrease the "early jump" timer
-
-        // Decide if it's okay to jump now
-        if (_jumpBufferCounter > 0 && (_coyoteCounter > 0 || _jumpsLeft > 0))
+        if (cameraTransform == null && Camera.main != null)
         {
-            if (Time.time >= _lastJumpTime + _jumpCooldown)
+            cameraTransform = Camera.main.transform;
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (moveAction != null) moveAction.Enable();
+        if (walkAction != null) walkAction.Enable();
+
+        if (jumpAction != null)
+        {
+            jumpAction.Enable();
+            jumpAction.started += OnJumpPerformed;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (moveAction != null) moveAction.Disable();
+        if (walkAction != null) walkAction.Disable();
+
+        if (jumpAction != null)
+        {
+            jumpAction.Disable();
+            jumpAction.started -= OnJumpPerformed;
+        }
+    }
+
+    private void Update()
+    {
+        isGrounded = controller.isGrounded;
+        UpdateTimers();
+        HandleJumpLogic();
+        CalculateHorizontalMovement();
+
+        verticalVelocity += gravity * Time.deltaTime;
+        Vector3 finalVelocity = currentHorizontalVelocity + new Vector3(0f, verticalVelocity, 0f);
+        controller.Move(finalVelocity * Time.deltaTime);
+    }
+
+    private void UpdateTimers()
+    {
+        if (jumpCooldownTimer > 0) jumpCooldownTimer -= Time.deltaTime;
+        if (jumpBufferCounter > 0) jumpBufferCounter -= Time.deltaTime;
+
+        if (isGrounded)
+        {
+            if (verticalVelocity < 0) verticalVelocity = -2f;
+            coyoteTimeCounter = coyoteTime;
+            remainingJumps = stats.CurrentExtraJumps;
+            hasJumped = false;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+    }
+
+    private void OnJumpPerformed(InputAction.CallbackContext context)
+    {
+        jumpBufferCounter = jumpBufferTime;
+    }
+
+    private void HandleJumpLogic()
+    {
+        if (jumpBufferCounter > 0f && jumpCooldownTimer <= 0f)
+        {
+            bool canNormalJump = !hasJumped && (isGrounded || coyoteTimeCounter > 0f);
+
+            if (canNormalJump)
             {
-                Jump();
+                ExecuteJump();
+                hasJumped = true;
+            }
+            else if (remainingJumps > 0)
+            {
+                ExecuteJump();
+                remainingJumps--;
             }
         }
     }
 
-    private void HandleMovement()
+    private void ExecuteJump()
     {
-        if (_isDashing) return; // Don't allow normal movement while dashing
+        float effectiveJumpHeight = baseJumpHeight * stats.CurrentJumpHeightMultiplier;
+        verticalVelocity = Mathf.Sqrt(effectiveJumpHeight * -2f * gravity);
 
-        // Calculate direction based on where the camera is looking
-        Vector3 forward = _cameraTransform.forward;
-        Vector3 right = _cameraTransform.right;
-        forward.y = 0; // Keep movement on the flat ground
-        right.y = 0;
-        forward.Normalize();
-        right.Normalize();
-
-        Vector3 targetDirection = (forward * _moveInput.y + right * _moveInput.x).normalized;
-
-        // Choose speed (Walking vs Running)
-        float currentSpeed = _isWalking ? _moveSpeed * _walkModifier : _moveSpeed;
-
-        // Make it harder to steer if we are in the air
-        float controlModifier = _controller.isGrounded ? 1f : _airControl;
-
-        // Smoothly speed up or slow down
-        _moveDirection = Vector3.Lerp(_moveDirection, targetDirection * currentSpeed, _acceleration * controlModifier * Time.deltaTime);
-
-        // Tell the controller to actually move the player
-        _controller.Move(_moveDirection * Time.deltaTime);
+        jumpBufferCounter = 0f;
+        jumpCooldownTimer = jumpCooldown;
+        coyoteTimeCounter = 0f;
     }
 
-    private void HandleRotation()
+    private void CalculateHorizontalMovement()
     {
-        if (_moveDirection.sqrMagnitude < 0.01f || _isDashing) return;
+        Vector2 inputVector = moveAction != null ? moveAction.ReadValue<Vector2>() : Vector2.zero;
+        Vector3 targetMoveDirection = Vector3.zero;
 
-        // Face the direction we are walking
-        Vector3 lookDir = new Vector3(_moveDirection.x, 0, _moveDirection.z);
-        if (lookDir != Vector3.zero)
+        if (cameraTransform != null)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(lookDir);
-            // Smoothly turn toward the target
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+            Vector3 camForward = cameraTransform.forward;
+            Vector3 camRight = cameraTransform.right;
+
+            camForward.y = 0f;
+            camRight.y = 0f;
+
+            camForward.Normalize();
+            camRight.Normalize();
+
+            targetMoveDirection = (camForward * inputVector.y) + (camRight * inputVector.x);
         }
-    }
-
-    private void HandleGravity()
-    {
-        // Gravity is now applied even while dashing so the player can fall
-        // Build up falling speed over time
-        _velocity.y += _gravity * Time.deltaTime;
-        // Apply that falling speed
-        _controller.Move(_velocity * Time.deltaTime);
-    }
-
-    private void Jump()
-    {
-        // Math formula to calculate how much "push" is needed to reach a specific height
-        _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
-        _jumpsLeft--;
-        _jumpBufferCounter = 0; // Reset timers so we don't jump twice instantly
-        _coyoteCounter = 0;
-        _lastJumpTime = Time.time;
-    }
-
-    // A special "Coroutine" to handle the dash over a period of time
-    private IEnumerator PerformDash()
-    {
-        _canDash = false;
-        _isDashing = true;
-        IsInvulnerable = true;
-        _jumpBufferCounter = 0; // Clear any jumps that were queued right before the dash
-
-        // Decide which way to dash (face forward, or follow movement keys)
-        Vector3 dashDir = transform.forward;
-        if (_moveInput.magnitude > 0.1f)
+        else
         {
-            Vector3 forward = _cameraTransform.forward;
-            Vector3 right = _cameraTransform.right;
-            forward.y = 0; right.y = 0;
-            dashDir = (forward * _moveInput.y + right * _moveInput.x).normalized;
+            targetMoveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
         }
 
-        float elapsed = 0f;
-        float baseSpeed = _dashDistance / _dashTime;
-
-        // The Dash Loop: runs every frame until the dash time is up
-        while (elapsed < _dashTime)
+        if (targetMoveDirection.magnitude > 1f)
         {
-            float normalizedTime = elapsed / _dashTime;
-            // Use the "Curve" to decide if we are zooming or slowing down
-            float speedModifier = _dashCurve.Evaluate(normalizedTime);
-
-            _controller.Move(dashDir * baseSpeed * speedModifier * Time.deltaTime);
-
-            elapsed += Time.deltaTime;
-            yield return null; // Wait for the next frame
+            targetMoveDirection.Normalize();
         }
 
-        // Keep a little bit of momentum after the dash ends
-        _moveDirection = dashDir * (_moveSpeed * 0.5f);
+        if (targetMoveDirection.sqrMagnitude > 0.001f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(targetMoveDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
 
-        _isDashing = false;
-        IsInvulnerable = false;
+        float targetSpeed = stats.CurrentMoveSpeed;
 
-        // Wait for the cooldown before allowing another dash
-        yield return new WaitForSeconds(_dashCooldown);
-        _canDash = true;
+        if (walkAction != null && walkAction.IsPressed())
+        {
+            targetSpeed *= walkSpeedMultiplier;
+        }
+
+        Vector3 targetVelocity = targetMoveDirection * targetSpeed;
+
+        bool isTryingToMove = targetVelocity.magnitude > 0f;
+        float currentRate = isTryingToMove ? acceleration : deceleration;
+
+        if (!isGrounded)
+        {
+            currentRate *= airControl;
+        }
+
+        currentHorizontalVelocity = Vector3.MoveTowards(currentHorizontalVelocity, targetVelocity, currentRate * Time.deltaTime);
     }
 }
