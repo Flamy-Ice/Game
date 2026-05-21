@@ -40,14 +40,14 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RippleDensity: 300
-    - _RippleSize: 6
+    - _RippleDensity: 350
+    - _RippleSize: 7
     - _RippleSpeed: 1
     - _WaveSize: 100
     - _WaveSpeed: 0.001
     m_Colors:
-    - _RippleColor: {r: 0, g: 0.8381572, b: 1, a: 1}
-    - _WaterColor: {r: 0.34420612, g: 0.6341697, b: 0.8584906, a: 1}
+    - _RippleColor: {r: 1, g: 0.33333334, b: 0.6745098, a: 1}
+    - _WaterColor: {r: 0.6509804, g: 0.019607844, b: 0.2, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5989899448886858207
