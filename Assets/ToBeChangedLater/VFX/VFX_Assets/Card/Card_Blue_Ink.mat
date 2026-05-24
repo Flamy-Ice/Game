@@ -71,9 +71,9 @@ Material:
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    - _color_intensity: 1e-10
+    - _color_intensity: 1e-20
     m_Colors:
-    - _CardColor: {r: 0, g: 0, b: 85.445015, a: 1}
+    - _CardColor: {r: 0, g: 0, b: 42.722507, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6344292819728244107
