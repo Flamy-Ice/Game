@@ -10,24 +10,17 @@ public class PlayerHealth : MonoBehaviour
 
     private float shieldRegenTimer;
 
-    // Eventy, dzięki którym UI dowie się o zmianach bez ciągłego sprawdzania w Update
     public event Action OnHealthChanged;
     public event Action OnShieldChanged;
 
     private void Start()
     {
         stats = GetComponent<PlayerStats>();
-        if (stats == null)
-        {
-            Debug.LogError($"[PlayerHealth] Brak komponentu PlayerStats na {gameObject.name}!");
-            return;
-        }
+        if (stats == null) return;
 
-        // Ustawiamy startowe wartości na podstawie statystyk postaci
         CurrentHealth = stats.CurrentMaxHealth;
         CurrentShield = stats.CurrentMaxShield;
 
-        // Wywołujemy eventy na start, żeby UI się zainicjalizowało
         OnHealthChanged?.Invoke();
         OnShieldChanged?.Invoke();
     }
@@ -41,14 +34,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (rawDamage <= 0 || CurrentHealth <= 0) return;
 
-        // Wzór na pancerz: mnożnik obrażeń = 100 / (100 + pancerz)
-        // Przy 0 pancerza: 100/100 = 1 (100% obrażeń)
-        // Przy 100 pancerza: 100/200 = 0.5 (50% obrażeń)
-        // Przy 300 pancerza: 100/400 = 0.25 (25% obrażeń)
         float damageMultiplier = 100f / (100f + stats.CurrentArmor);
         float finalDamage = rawDamage * damageMultiplier;
 
-        // 1. Najpierw obrażenia przyjmuje Tarcza
         if (CurrentShield > 0)
         {
             if (finalDamage <= CurrentShield)
@@ -64,7 +52,6 @@ public class PlayerHealth : MonoBehaviour
             OnShieldChanged?.Invoke();
         }
 
-        // 2. Reszta obrażeń idzie w HP
         if (finalDamage > 0)
         {
             CurrentHealth -= finalDamage;
@@ -82,7 +69,6 @@ public class PlayerHealth : MonoBehaviour
     {
         if (CurrentHealth <= 0) return;
 
-        // Regeneracja HP co sekundę
         if (CurrentHealth < stats.CurrentMaxHealth)
         {
             CurrentHealth += stats.CurrentHealthRegen * Time.deltaTime;
@@ -90,7 +76,6 @@ public class PlayerHealth : MonoBehaviour
             OnHealthChanged?.Invoke();
         }
 
-        // Odnawianie tarczy: 5% co 5 sekund
         if (stats.CurrentMaxShield > 0 && CurrentShield < stats.CurrentMaxShield)
         {
             shieldRegenTimer += Time.deltaTime;
@@ -110,7 +95,5 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Gracz zginął!");
-        // Tutaj dodasz ekran Game Over, restart poziomu itp.
     }
 }
