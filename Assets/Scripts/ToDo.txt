@@ -1,3 +1,11 @@
+ORGANIZACJA FOLDERU
+ROZPISANIE
+
+
+
+
+
+
 Enemy
 	Scripts
 		EnemyData
