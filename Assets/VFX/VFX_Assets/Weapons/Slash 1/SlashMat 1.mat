@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SlashMat 1
+  m_Shader: {fileID: -6465566751694194690, guid: c868c3a1c03b90a43b63cd32ca17b30a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CoreHeight: 0.18
+    - _CoreWidth: 4.48
+    - _Distortion: 0.139
+    - _Hight: 1.04
+    - _MaskSize: 0.177
+    - _Movement: -0.028
+    - _NoiseScale: 16.6
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _StartColorBool: 1
+    - _StartColorBool_Z: 0
+    - _StartColorLerp: 0
+    - _UvScrollBool: 1
+    - _UvScrollBool_W: 0
+    - _Width: 0.26
+    m_Colors:
+    - _DistortionSpeed: {r: -1, g: 0, b: 0, a: 0}
+    - _DistortionTiling: {r: -0.73, g: 6.19, b: 0, a: 0}
+    - _InnerColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OuterColor: {r: 4, g: 4, b: 4, a: 1}
+    - _StartColor: {r: 95.87451, g: 95.87451, b: 95.87451, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &2400818175409384590
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
+  version: 10
