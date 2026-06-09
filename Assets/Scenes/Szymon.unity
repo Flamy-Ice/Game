@@ -1686,18 +1686,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86ccfd318f13b5841a72b6a62466c3c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  reference: {fileID: 0}
-  cameraTransform: {fileID: 0}
-  rotationSpeed: 20
-  walkSpeedMultiplier: 0.4
-  acceleration: 25
-  deceleration: 25
-  gravity: -20
-  baseJumpHeight: 2
-  jumpCooldown: 0.2
-  airControl: 0.6
-  coyoteTime: 0.15
-  jumpBufferTime: 0.2
 --- !u!114 &2083956823
 MonoBehaviour:
   m_ObjectHideFlags: 0
