@@ -90,9 +90,9 @@ Material:
     - _ZWriteControl: 0
     - _ZoomScale: 3.97
     m_Colors:
-    - _BackgroundColor: {r: 0.2434387, g: 0, b: 3.9999995, a: 1}
-    - _LettersColor: {r: 4, g: 0, b: 3.6776104, a: 1}
-    - _SphereColor: {r: 1.789099, g: 0, b: 1.8039216, a: 1}
+    - _BackgroundColor: {r: 0.24343863, g: 0, b: 3.9999986, a: 1}
+    - _LettersColor: {r: 3.9999988, g: 0, b: 3.6776094, a: 1}
+    - _SphereColor: {r: 1.7890989, g: 0, b: 1.8039215, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7325495657666518452
