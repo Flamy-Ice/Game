@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InitialPush
   centerAnchor: {fileID: 431266939}
-  outwardForce: 100
+  outwardForce: 150
   upwardForce: 100
   sideForce: 40
   maxSideSpeed: 10
@@ -1381,7 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48ba8c4cd0219648b79553cb426804c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpinFirstLink
-  spinSpeed: 400
+  spinSpeed: 100
   spinAxis: {x: 0, y: 0, z: 1}
 --- !u!1001 &437568304
 PrefabInstance:
