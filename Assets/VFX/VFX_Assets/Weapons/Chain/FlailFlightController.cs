@@ -59,7 +59,7 @@ public class FlailFlightController : MonoBehaviour
         }
 
         // Measure how fast the head is moving strictly in the sideways direction
-        float currentSideSpeed = Vector3.Dot(rb.velocity, sideDir);
+        float currentSideSpeed = Vector3.Dot(rb.linearVelocity, sideDir);
 
         // Only add sideways force if it hasn't hit the orbital speed limit
         if (currentSideSpeed < maxSideSpeed)
