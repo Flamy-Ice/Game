@@ -1,4 +1,6 @@
 Main Menu
+	Włącz muzykę
+		Dodaj dźwięki przycisków
 	Zmiana Light w Scene
 	Play
 		Wklejenie postaci z animacją idle oraz teksturami
