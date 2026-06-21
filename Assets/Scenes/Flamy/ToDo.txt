@@ -1,17 +1,15 @@
 Main Menu
-	Zmiana Light w Scene?
+	Zmiana Light w Scene
 	Play
-		Gameplay Scene - Informacje o postaci
+		Wklejenie postaci z animacją idle oraz teksturami
 		Alex - Dodanie 3 postaci
-		Confirm
-			Gameplay Scene - Ładowanie Character Data
-	Options
-	After Gameplay Scene:
-		Unlocks
-		Quests
 	Stwór Tasks:
 		Skybox
 		Oświetlenie
-	Alex Tasks:
-		Enemies w tle
-		Animacja Oddychania
+
+Gameplay
+	Czy Character Data i modele się odpowiednio ładują?
+	Scripts
+		Player
+			CharactersData
+				Zmień nazwę na 3 postaci

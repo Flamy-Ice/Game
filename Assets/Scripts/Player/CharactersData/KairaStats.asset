@@ -10,12 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e6d045ea73f7814b95b4fd44380528d, type: 3}
-  m_Name: KairaCharacterStats
+  m_Name: KairaStats
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStatsData
-  moveSpeed: 10
+  movementSpeed: 5
   jumpHeightMultiplier: 1
   extraJumps: 0
-  maxHealth: 100
-  healthRegen: 0
-  maxShield: 0
-  armor: 0
+  maxHp: 100
+  hpRegen: 0.5
+  shield: 0
+  armor: 10
+  damage: 15
+  attackSpeedMultiplier: 1
+  critChance: 0.05
+  critDamageMultiplier: 1.5
+  dodgeChance: 0
+  lifesteal: 0
+  thorns: 0
+  projectileSizeMultiplier: 1
+  projectileSpeedMultiplier: 1
+  knockbackMultiplier: 1
+  durationMultiplier: 1
+  luckMultiplier: 1
+  pickupRangeMultiplier: 1
+  xpGainMultiplier: 1
+  currencyGainMultiplier: 1

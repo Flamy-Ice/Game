@@ -1,8 +1,22 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelector : MonoBehaviour
 {
-    [SerializeField] private GameObject[] characterModels;
+    [System.Serializable]
+    public struct CharacterData
+    {
+        public string characterName;
+        public GameObject model;
+        public CharacterStatsData stats;
+        public GameObject characterCanvas;
+    }
+
+    [SerializeField] private CharacterData[] characters;
+    [SerializeField] private PlayerStatsUI statsUI;
+    [SerializeField] private string gameSceneName = "GameScene";
+
+    private int currentSelectedIndex = 0;
 
     void Start()
     {
@@ -11,22 +25,43 @@ public class CharacterSelector : MonoBehaviour
 
     public void SelectCharacter(int index)
     {
-        if (index < 0 || index >= characterModels.Length) return;
+        if (index < 0 || index >= characters.Length) return;
 
-        for (int i = 0; i < characterModels.Length; i++)
+        currentSelectedIndex = index;
+
+        for (int i = 0; i < characters.Length; i++)
         {
-            if (characterModels[i] != null)
+            bool isActive = (i == index);
+
+            if (characters[i].model != null) characters[i].model.SetActive(isActive);
+            if (characters[i].characterCanvas != null) characters[i].characterCanvas.SetActive(isActive);
+
+            if (isActive && statsUI != null && characters[i].stats != null)
             {
-                characterModels[i].SetActive(i == index);
+                statsUI.DisplayStats(characters[i].stats);
             }
+        }
+    }
+
+    public void ConfirmSelection()
+    {
+        if (characters[currentSelectedIndex].stats != null)
+        {
+            CharacterTransfer.SelectedStats = characters[currentSelectedIndex].stats;
+
+            SceneManager.LoadScene(gameSceneName);
+        }
+        else
+        {
         }
     }
 
     public void HideAllCharacters()
     {
-        for (int i = 0; i < characterModels.Length; i++)
+        for (int i = 0; i < characters.Length; i++)
         {
-            if (characterModels[i] != null) characterModels[i].SetActive(false);
+            if (characters[i].model != null) characters[i].model.SetActive(false);
+            if (characters[i].characterCanvas != null) characters[i].characterCanvas.SetActive(false);
         }
     }
 }

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6d045ea73f7814b95b4fd44380528d, type: 3}
+  m_Name: KaleriaStats
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterStatsData
+  movementSpeed: 7.5
+  jumpHeightMultiplier: 1.25
+  extraJumps: 1
+  maxHp: 65
+  hpRegen: 0.1
+  shield: 0
+  armor: 2
+  damage: 12
+  attackSpeedMultiplier: 1.4
+  critChance: 0.25
+  critDamageMultiplier: 2.2
+  dodgeChance: 0.15
+  lifesteal: 0.05
+  thorns: 0
+  projectileSizeMultiplier: 0.8
+  projectileSpeedMultiplier: 1.5
+  knockbackMultiplier: 0.7
+  durationMultiplier: 0.8
+  luckMultiplier: 1.2
+  pickupRangeMultiplier: 1.1
+  xpGainMultiplier: 1
+  currencyGainMultiplier: 1.1

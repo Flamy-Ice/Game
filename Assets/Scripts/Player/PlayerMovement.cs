@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (verticalVelocity < 0) verticalVelocity = -2f;
             coyoteTimeCounter = coyoteTime;
-            remainingJumps = stats.CurrentExtraJumps;
+            remainingJumps = stats.ExtraJumps;
             hasJumped = false;
         }
         else
@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ExecuteJump()
     {
-        float effectiveJumpHeight = baseJumpHeight * stats.CurrentJumpHeightMultiplier;
+        float effectiveJumpHeight = baseJumpHeight * stats.JumpHeightMultiplier;
         verticalVelocity = Mathf.Sqrt(effectiveJumpHeight * -2f * gravity);
 
         jumpBufferCounter = 0f;
@@ -186,7 +186,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
 
-        float targetSpeed = stats.CurrentMoveSpeed;
+        float targetSpeed = stats.MovementSpeed;
 
         if (walkAction != null && walkAction.IsPressed())
         {
