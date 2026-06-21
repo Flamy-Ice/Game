@@ -9,7 +9,19 @@ Main Menu
 		Alex - Animacja idle postaci z teksturami
 
 Gameplay
-	Ładowanie modeli
+	Canvas
+		HUD
+			EXP Bar - Podłącz
+			Health - Podłącz
+			Shield - Podłącz
+			Currency - Podłącz
+			Enemies - Podłącz
+			Bronie
+		Game Over Screen
+		Weapon Pick Screen
+
+
+
 	Scripts
 		Player
 			CharactersData
