@@ -411,7 +411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Optimization
+  m_text: AI Behaviours
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d94f013a3a3217c49afb925688ba47e5, type: 2}
   m_sharedMaterial: {fileID: 5830635529299400582, guid: d94f013a3a3217c49afb925688ba47e5, type: 2}
@@ -15929,7 +15929,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1436998567
 MonoBehaviour:
   m_ObjectHideFlags: 0
