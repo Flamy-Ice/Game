@@ -1702,6 +1702,7 @@ GameObject:
   - component: {fileID: 522118635}
   - component: {fileID: 522118636}
   - component: {fileID: 522118637}
+  - component: {fileID: 522118638}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1769,6 +1770,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurrencyManager
   currencyText: {fileID: 891174542}
+--- !u!114 &522118638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522118633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 140e16caa7bbbb241bbbf44bcb9dc3d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelManager
+  xpFillImage: {fileID: 316832388}
+  baseXp: 100
+  xpExponent: 1.5
+  smoothSpeed: 5
 --- !u!1 &539762186
 GameObject:
   m_ObjectHideFlags: 0

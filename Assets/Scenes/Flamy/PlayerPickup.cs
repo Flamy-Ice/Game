@@ -47,6 +47,16 @@ public class PlayerPickup : MonoBehaviour
                 CurrencyManager.Instance.AddCurrency(finalAmount);
             }
         }
+        else if (item.itemType == DroppedItem.ItemType.Exp)
+        {
+            int randomAmount = Random.Range(item.minAmount, item.maxAmount + 1);
+            int finalAmount = Mathf.RoundToInt(randomAmount * playerStats.XpGainMultiplier);
+
+            if (LevelManager.Instance != null)
+            {
+                LevelManager.Instance.AddXp(finalAmount);
+            }
+        }
 
         Destroy(item.gameObject);
     }

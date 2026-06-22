@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DroppedItem
   itemType: 1
-  minAmount: 1
-  maxAmount: 3
+  minAmount: 10
+  maxAmount: 20
   lifetime: 30
   hopHeight: 1.2
   scatterDistance: 1.5

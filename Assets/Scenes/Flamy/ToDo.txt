@@ -9,7 +9,6 @@ Main Menu
 Gameplay
 	Canvas
 		HUD
-			EXP Bar - Podłącz
 			Enemies - Podłącz
 			Bronie
 		Game Over Screen
@@ -46,5 +45,3 @@ STATS
 
 • Czas Trwania (np. Efektu) - Wydłużanie np. krwawienia u przeciwników (Mnożnik)
 • Szczęście - Większa szansa Na Lepszy Drop Rate (Mnożnik)
-
-• Zwiększenie XP - Mnożnik o ile więcej dostajemy XP (Mnożnik)
