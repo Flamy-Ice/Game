@@ -865,9 +865,45 @@ MonoBehaviour:
   healthBarImage: {fileID: 162178876}
   healthText: {fileID: 134263505}
   lerpSpeed: 7
+--- !u!1 &197750973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 197750974}
+  m_Layer: 3
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &197750974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197750973}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 599249074}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &280624096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 374600806520641432, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
+  m_PrefabInstance: {fileID: 4530195176673544640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &280624097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1042875639940287778, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
   m_PrefabInstance: {fileID: 4530195176673544640}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &306504047
@@ -1880,6 +1916,7 @@ GameObject:
   - component: {fileID: 599249075}
   - component: {fileID: 599249076}
   - component: {fileID: 599249077}
+  - component: {fileID: 599249078}
   m_Layer: 3
   m_Name: PlayerManager
   m_TagString: Player
@@ -1982,6 +2019,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 197750974}
   - {fileID: 1950954978}
   - {fileID: 1769905110}
   - {fileID: 543879049}
@@ -2036,6 +2074,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eced7d087004414ba4874ba11f875cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+--- !u!114 &599249078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599249067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86faffd4bd23bcf43ace29a024eda27d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
+  projectilePrefab: {fileID: 3114657433287641871, guid: 70b879720f7a37540a3da5d7d13067a2, type: 3}
+  firePoint: {fileID: 197750974}
+  range: 10
 --- !u!1 &686294237
 GameObject:
   m_ObjectHideFlags: 0
@@ -5558,6 +5611,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2083381004}
   m_Mesh: {fileID: 6853595858808526307, guid: bf7ce18fe873b2648b0f7e1cb8cd4f4b, type: 3}
+--- !u!114 &594362347964096271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280624097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d694e95243b98d4e802ad69818dddf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 30
 --- !u!1001 &4530195176673544640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5610,10 +5676,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_BZR_MadMarchHare
       objectReference: {fileID: 0}
+    - target: {fileID: 1042875639940287778, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042875639940287778, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042875639940287778, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1042875639940287778, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 594362347964096271}
   m_SourcePrefab: {fileID: 100100000, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

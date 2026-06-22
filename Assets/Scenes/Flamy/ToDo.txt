@@ -17,7 +17,19 @@ Gameplay
 		Weapon Pick Screen
 	Enemy
 		Wspinanie się
-
+		HP
+		Dropi EXP
+		Dropi Currency
+		Połączenie do Stats
+		Warianty Bossów
+		Warianty od strony
+		Spawner
+	Player
+		Projectile
+			Lifetime?
+		Death
+	Mechanics
+		Zmiana mapy
 
 
 	Scripts
