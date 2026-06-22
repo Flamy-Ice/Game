@@ -4,6 +4,9 @@ using TMPro;
 
 public class HealthUI : MonoBehaviour
 {
+    private enum BarType { Health, Shield }
+
+    [SerializeField] private BarType barType;
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private Image healthBarImage;
     [SerializeField] private TextMeshProUGUI healthText;
@@ -15,8 +18,15 @@ public class HealthUI : MonoBehaviour
     {
         if (playerHealth != null)
         {
-            playerHealth.OnHpChanged += UpdateHealthUI;
-            UpdateHealthUI();
+            if (barType == BarType.Health)
+            {
+                playerHealth.OnHpChanged += UpdateUI;
+            }
+            else
+            {
+                playerHealth.OnShieldChanged += UpdateUI;
+            }
+            UpdateUI();
         }
     }
 
@@ -24,7 +34,14 @@ public class HealthUI : MonoBehaviour
     {
         if (playerHealth != null)
         {
-            playerHealth.OnHpChanged -= UpdateHealthUI;
+            if (barType == BarType.Health)
+            {
+                playerHealth.OnHpChanged -= UpdateUI;
+            }
+            else
+            {
+                playerHealth.OnShieldChanged -= UpdateUI;
+            }
         }
     }
 
@@ -36,15 +53,18 @@ public class HealthUI : MonoBehaviour
         }
     }
 
-    private void UpdateHealthUI()
+    private void UpdateUI()
     {
         if (playerHealth == null) return;
 
-        targetFill = playerHealth.MaxHp > 0 ? playerHealth.CurrentHp / playerHealth.MaxHp : 0f;
+        float current = barType == BarType.Health ? playerHealth.CurrentHp : playerHealth.CurrentShield;
+        float max = barType == BarType.Health ? playerHealth.MaxHp : playerHealth.MaxShield;
+
+        targetFill = max > 0 ? current / max : 0f;
 
         if (healthText != null)
         {
-            healthText.text = $"{Mathf.CeilToInt(playerHealth.CurrentHp)} / {Mathf.CeilToInt(playerHealth.MaxHp)}";
+            healthText.text = $"{Mathf.CeilToInt(current)} / {Mathf.CeilToInt(max)}";
         }
     }
 }

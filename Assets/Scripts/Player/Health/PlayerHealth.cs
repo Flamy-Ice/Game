@@ -4,12 +4,17 @@ using System;
 public class PlayerHealth : MonoBehaviour
 {
     private PlayerStats playerStats;
-    private float regenTimer;
+    private float hpRegenTimer;
+    private float shieldRegenTimer;
 
     public event Action OnHpChanged;
+    public event Action OnShieldChanged;
 
     public float CurrentHp { get; private set; }
     public float MaxHp => playerStats != null ? playerStats.MaxHp : 0f;
+
+    public float CurrentShield { get; private set; }
+    public float MaxShield => playerStats != null ? playerStats.Shield : 0f;
 
     private void Awake()
     {
@@ -19,30 +24,60 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         CurrentHp = MaxHp;
+        CurrentShield = MaxShield;
         OnHpChanged?.Invoke();
+        OnShieldChanged?.Invoke();
     }
 
     private void Update()
     {
-        if (playerStats == null || CurrentHp >= MaxHp)
+        if (playerStats == null) return;
+
+        if (CurrentHp < MaxHp)
         {
-            regenTimer = 0f;
-            return;
+            shieldRegenTimer = 0f;
+            hpRegenTimer += Time.deltaTime;
+
+            if (hpRegenTimer >= 1f)
+            {
+                CurrentHp = Mathf.Clamp(CurrentHp + playerStats.HpRegen, 0f, MaxHp);
+                OnHpChanged?.Invoke();
+                hpRegenTimer -= 1f;
+            }
         }
-
-        regenTimer += Time.deltaTime;
-
-        if (regenTimer >= 1f)
+        else if (CurrentShield < MaxShield)
         {
-            CurrentHp = Mathf.Clamp(CurrentHp + playerStats.HpRegen, 0f, MaxHp);
-            OnHpChanged?.Invoke();
-            regenTimer -= 1f;
+            hpRegenTimer = 0f;
+            shieldRegenTimer += Time.deltaTime;
+
+            if (shieldRegenTimer >= 3f)
+            {
+                CurrentShield = Mathf.Clamp(CurrentShield + playerStats.HpRegen, 0f, MaxShield);
+                OnShieldChanged?.Invoke();
+                shieldRegenTimer -= 3f;
+            }
+        }
+        else
+        {
+            hpRegenTimer = 0f;
+            shieldRegenTimer = 0f;
         }
     }
 
     public void TakeDamage(float amount)
     {
-        CurrentHp = Mathf.Clamp(CurrentHp - amount, 0f, MaxHp);
-        OnHpChanged?.Invoke();
+        if (CurrentShield > 0f)
+        {
+            float shieldDamage = Mathf.Min(amount, CurrentShield);
+            CurrentShield -= shieldDamage;
+            amount -= shieldDamage;
+            OnShieldChanged?.Invoke();
+        }
+
+        if (amount > 0f)
+        {
+            CurrentHp = Mathf.Clamp(CurrentHp - amount, 0f, MaxHp);
+            OnHpChanged?.Invoke();
+        }
     }
 }

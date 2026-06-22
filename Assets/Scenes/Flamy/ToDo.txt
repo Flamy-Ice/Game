@@ -10,8 +10,9 @@ Main Menu
 Gameplay
 	Canvas
 		HUD
+			HP
+				Podłącz Defence
 			EXP Bar - Podłącz
-			Shield - Podłącz
 			Currency - Podłącz
 			Enemies - Podłącz
 			Bronie
