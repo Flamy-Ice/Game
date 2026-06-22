@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class DroppedItem : MonoBehaviour
 {
+    public enum ItemType { Currency, Exp }
+    public ItemType itemType;
+
+    public int minAmount = 1;
+    public int maxAmount = 5;
+
     public float lifetime = 10f;
     public float hopHeight = 1.2f;
     public float scatterDistance = 1.5f;

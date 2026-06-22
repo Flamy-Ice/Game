@@ -10,7 +10,6 @@ Gameplay
 	Canvas
 		HUD
 			EXP Bar - Podłącz
-			Currency - Podłącz
 			Enemies - Podłącz
 			Bronie
 		Game Over Screen
@@ -49,4 +48,3 @@ STATS
 • Szczęście - Większa szansa Na Lepszy Drop Rate (Mnożnik)
 
 • Zwiększenie XP - Mnożnik o ile więcej dostajemy XP (Mnożnik)
-• Zwiększenie Waluty - Mnożnik o ile więcej dostajemy XP (Mnożnik)

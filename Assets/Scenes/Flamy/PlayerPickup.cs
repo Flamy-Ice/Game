@@ -29,10 +29,26 @@ public class PlayerPickup : MonoBehaviour
 
                 if (distance < 0.4f)
                 {
-                    Destroy(item.gameObject);
+                    CollectItem(item);
                 }
             }
         }
+    }
+
+    void CollectItem(DroppedItem item)
+    {
+        if (item.itemType == DroppedItem.ItemType.Currency)
+        {
+            int randomAmount = Random.Range(item.minAmount, item.maxAmount + 1);
+            int finalAmount = Mathf.RoundToInt(randomAmount * playerStats.CurrencyGainMultiplier);
+
+            if (CurrencyManager.Instance != null)
+            {
+                CurrencyManager.Instance.AddCurrency(finalAmount);
+            }
+        }
+
+        Destroy(item.gameObject);
     }
 
     void OnDrawGizmosSelected()
