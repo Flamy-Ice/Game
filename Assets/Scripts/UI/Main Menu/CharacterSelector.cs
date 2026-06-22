@@ -48,11 +48,9 @@ public class CharacterSelector : MonoBehaviour
         if (characters[currentSelectedIndex].stats != null)
         {
             CharacterTransfer.SelectedStats = characters[currentSelectedIndex].stats;
+            CharacterTransfer.SelectedIndex = currentSelectedIndex;
 
             SceneManager.LoadScene(gameSceneName);
-        }
-        else
-        {
         }
     }
 

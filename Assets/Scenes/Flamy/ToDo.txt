@@ -1,17 +1,28 @@
 Main Menu
-	Włącz muzykę
-		Dodaj dźwięki przycisków
-	Zmiana Light w Scene
-	Play
-		Wklejenie postaci z animacją idle oraz teksturami
+	Inne Taski:
+		Flamy - Zmień Credits
+		Flamy - Spróbuj wgrać animację Stwora
+		Tvar - Skybox
+		Tvar - Oświetlenie
+		Kuba - Dźwięki
 		Alex - Dodanie 3 postaci
-	Stwór Tasks:
-		Skybox
-		Oświetlenie
+		Alex - Animacja idle postaci z teksturami
 
 Gameplay
-	Czy Character Data i modele się odpowiednio ładują?
+	Canvas
+		HUD
+			EXP Bar - Podłącz
+			Health - Podłącz
+			Shield - Podłącz
+			Currency - Podłącz
+			Enemies - Podłącz
+			Bronie
+		Game Over Screen
+		Weapon Pick Screen
+
+
+
 	Scripts
 		Player
 			CharactersData
-				Zmień nazwę na 3 postaci
+				Alex - Zmień nazwę na 3 postaci

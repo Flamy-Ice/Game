@@ -3,22 +3,21 @@ using UnityEngine.EventSystems;
 
 public class UIHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [Header("Ustawienia Skalowania")]
     [SerializeField] private Vector3 hoveredScale = new Vector3(1.05f, 1.05f, 1.05f);
     [SerializeField] private float transitionSpeed = 12f;
 
     private Vector3 originalScale;
     private Vector3 targetScale;
 
-    void Start()
+    private void Start()
     {
         originalScale = transform.localScale;
         targetScale = originalScale;
     }
 
-    void Update()
+    private void Update()
     {
-        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, transitionSpeed * Time.deltaTime);
+        transform.localScale = Vector3.Lerp(transform.localScale, targetScale, transitionSpeed * Time.unscaledDeltaTime);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -31,7 +30,7 @@ public class UIHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         targetScale = originalScale;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         transform.localScale = originalScale;
         targetScale = originalScale;
