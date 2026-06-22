@@ -1,6 +1,5 @@
 Main Menu
 	Inne Taski:
-		Flamy - Zmień Credits
 		Flamy - Spróbuj wgrać animację Stwora
 		Tvar - Skybox
 		Tvar - Oświetlenie
