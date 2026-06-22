@@ -1,5 +1,5 @@
 Main Menu
-	Inne Taski:
+	Inne Taski
 		Flamy - Spróbuj wgrać animację Stwora
 		Tvar - Skybox
 		Tvar - Oświetlenie
@@ -11,7 +11,6 @@ Gameplay
 	Canvas
 		HUD
 			EXP Bar - Podłącz
-			Health - Podłącz
 			Shield - Podłącz
 			Currency - Podłącz
 			Enemies - Podłącz

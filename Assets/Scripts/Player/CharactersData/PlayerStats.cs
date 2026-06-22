@@ -9,7 +9,6 @@ public class PlayerStats : MonoBehaviour
     public int ExtraJumps { get; private set; }
 
     public float MaxHp { get; private set; }
-    public float CurrentHp { get; private set; }
     public float HpRegen { get; private set; }
     public float Shield { get; private set; }
     public float Armor { get; private set; }
@@ -57,7 +56,6 @@ public class PlayerStats : MonoBehaviour
         ExtraJumps = data.extraJumps;
 
         MaxHp = data.maxHp;
-        CurrentHp = data.maxHp;
         HpRegen = data.hpRegen;
         Shield = data.shield;
         Armor = data.armor;
