@@ -17,7 +17,6 @@ Gameplay
 		Weapon Pick Screen
 	Enemy
 		Wspinanie się
-		HP
 		Dropi EXP
 		Dropi Currency
 		Połączenie do Stats
@@ -36,3 +35,19 @@ Gameplay
 		Player
 			CharactersData
 				Alex - Zmień nazwę na 3 postaci
+
+STATS
+• Unik - Procentowe szanse na zignorowanie obrażeń (Procent)
+• Kradzież życia - Konwersja zadanych obrażeń na odnowienie HP (Procent)
+• Ciernie - Procentowo ile “oddajemy” obrażeń wrogowi (Procent)
+
+• Rozmiar - Wielkość pocisku (Zwiększa hitbox) (Mnożnik)
+• Prędkość pocisków - Jak szybko lecą projectile (Mnożnik)
+• Odrzut - Jak daleko przeciwnicy odlecą (Mnożnik)
+
+• Czas Trwania (np. Efektu) - Wydłużanie np. krwawienia u przeciwników (Mnożnik)
+• Szczęście - Większa szansa Na Lepszy Drop Rate (Mnożnik)
+
+• Zasięg zbierania - Z jakiej odległości możemy zbierać np. exp lub monety (Mnożnik)
+• Zwiększenie XP - Mnożnik o ile więcej dostajemy XP (Mnożnik)
+• Zwiększenie Waluty - Mnożnik o ile więcej dostajemy XP (Mnożnik)

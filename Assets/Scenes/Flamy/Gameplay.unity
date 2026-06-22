@@ -5626,8 +5626,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d694e95243b98d4e802ad69818dddf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 10000
+  maxHealth: 30
   damagePopupPrefab: {fileID: 4300437831753770049, guid: be4816ad89b89cb48a4a2242aebe1c55, type: 3}
+  currencyPrefab: {fileID: 1239031477274173526, guid: 001b968da4a19a140b296598016effb0, type: 3}
+  expPrefab: {fileID: 7555916218587421259, guid: 505bf160ac1da984d960939ef58bf333, type: 3}
 --- !u!1001 &4530195176673544640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5642,7 +5644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 374600806520641432, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.77
+      value: 20.22
       objectReference: {fileID: 0}
     - target: {fileID: 374600806520641432, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
       propertyPath: m_LocalPosition.z

@@ -4,6 +4,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 30f;
     public GameObject damagePopupPrefab;
+    public GameObject currencyPrefab;
+    public GameObject expPrefab;
     private float currentHealth;
 
     void Start()
@@ -41,6 +43,18 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        Vector3 spawnPosition = transform.position + Vector3.up * 0.2f;
+
+        if (currencyPrefab != null)
+        {
+            Instantiate(currencyPrefab, spawnPosition, Quaternion.identity);
+        }
+
+        if (expPrefab != null)
+        {
+            Instantiate(expPrefab, spawnPosition, Quaternion.identity);
+        }
+
         Destroy(gameObject);
     }
 }
