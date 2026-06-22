@@ -1,11 +1,10 @@
 Main Menu
-	Inne Taski
-		Flamy - Spróbuj wgrać animację Stwora
-		Tvar - Skybox
-		Tvar - Oświetlenie
-		Kuba - Dźwięki
-		Alex - Dodanie 3 postaci
-		Alex - Animacja idle postaci z teksturami
+	Flamy - Spróbuj wgrać animację Stwora
+	Tvar - Skybox
+	Tvar - Oświetlenie
+	Kuba - Dźwięki
+	Alex - Dodanie 3 postaci
+	Alex - Animacja idle postaci z teksturami
 
 Gameplay
 	Canvas
@@ -16,6 +15,8 @@ Gameplay
 			Bronie
 		Game Over Screen
 		Weapon Pick Screen
+	Enemy
+		Wspinanie się
 
 
 
