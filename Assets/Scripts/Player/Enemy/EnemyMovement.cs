@@ -3,7 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed = 3.0f;
     public float rotationSpeed = 5.0f;
     public float gravity = -20f;
     public float highJumpForce = 12.0f;
@@ -11,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
 
     private CharacterController controller;
     private Transform playerTransform;
+    private EnemyStats enemyStats;
     private float verticalVelocity;
 
     private bool wasClimbing = false;
@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        enemyStats = GetComponent<EnemyStats>();
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
@@ -31,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform == null) return;
+        if (playerTransform == null || enemyStats == null) return;
 
         Vector3 direction = playerTransform.position - transform.position;
         direction.y = 0;
@@ -67,11 +68,11 @@ public class EnemyMovement : MonoBehaviour
                     isJumping = true;
                     wasClimbing = false;
                     stuckTimer = 0f;
-                    targetVelocity = direction * speed + Vector3.up * verticalVelocity;
+                    targetVelocity = direction * enemyStats.WalkSpeed + Vector3.up * verticalVelocity;
                 }
                 else
                 {
-                    verticalVelocity = speed * 1.5f;
+                    verticalVelocity = enemyStats.WalkSpeed * 1.5f;
                     targetVelocity = direction * 0.2f + Vector3.up * verticalVelocity;
                     wasClimbing = true;
                 }
@@ -98,7 +99,7 @@ public class EnemyMovement : MonoBehaviour
                     }
                 }
 
-                targetVelocity = direction * speed;
+                targetVelocity = direction * enemyStats.WalkSpeed;
                 targetVelocity.y = verticalVelocity;
             }
 

@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float maxHealth = 30f;
     public GameObject damagePopupPrefab;
     public GameObject currencyPrefab;
     public GameObject expPrefab;
+
+    private EnemyStats enemyStats;
     private float currentHealth;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        enemyStats = GetComponent<EnemyStats>();
+        if (enemyStats != null)
+        {
+            currentHealth = enemyStats.MaxHp;
+        }
     }
 
     public void TakeDamage(float amount, bool isCrit)

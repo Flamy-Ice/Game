@@ -17,10 +17,10 @@ Gameplay
 		Wspinanie się
 			Sprawdź jak działa na modelach stwora
 
-		Połączenie do Stats
 		Warianty Bossów
 			Sprawdź jak działa zadawanie obrażeń u dużych enemy (Text)
 		Warianty od strony
+		Skalowanie się enemy wraz z poziomem
 		Spawner
 	Player
 		Numerki odejmowanego hp

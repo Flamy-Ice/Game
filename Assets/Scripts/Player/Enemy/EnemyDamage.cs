@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public float damageAmount = 10f;
-    public float attackCooldown = 0.5f;
-
+    private EnemyStats enemyStats;
     private float nextAttackTime;
+
+    private void Start()
+    {
+        enemyStats = GetComponent<EnemyStats>();
+    }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -14,10 +17,10 @@ public class EnemyDamage : MonoBehaviour
             if (Time.time >= nextAttackTime)
             {
                 PlayerHealth playerHealth = hit.gameObject.GetComponent<PlayerHealth>();
-                if (playerHealth != null)
+                if (playerHealth != null && enemyStats != null)
                 {
-                    playerHealth.TakeDamage(damageAmount);
-                    nextAttackTime = Time.time + attackCooldown;
+                    playerHealth.TakeDamage(enemyStats.Damage);
+                    nextAttackTime = Time.time + enemyStats.AttackCooldown;
                 }
             }
         }
