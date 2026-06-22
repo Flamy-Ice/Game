@@ -66,6 +66,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (playerStats != null)
+        {
+            amount *= 100f / (100f + (playerStats.Armor * 4f));
+        }
+
         if (CurrentShield > 0f)
         {
             float shieldDamage = Mathf.Min(amount, CurrentShield);
