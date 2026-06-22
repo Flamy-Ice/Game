@@ -9,19 +9,19 @@ Main Menu
 Gameplay
 	Canvas
 		HUD
-			Enemies - Podłącz
 			Bronie
 		Game Over Screen
 		Weapon Pick Screen
 	Enemy
+		Tvar/Alex - Model currency orb i exp orb
 		Wspinanie się
-		Dropi EXP
-		Dropi Currency
+			Sprawdź jak działa na modelach stwora
+
 		Połączenie do Stats
 		Warianty Bossów
+			Sprawdź jak działa zadawanie obrażeń u dużych enemy (Text)
 		Warianty od strony
 		Spawner
-		Sprawdź jak działa zadawanie obrażeń u dużych enemy (Text)
 	Player
 		Numerki odejmowanego hp
 		Death

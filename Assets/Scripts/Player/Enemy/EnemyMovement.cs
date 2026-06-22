@@ -6,10 +6,17 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 3.0f;
     public float rotationSpeed = 5.0f;
     public float gravity = -20f;
+    public float highJumpForce = 12.0f;
+    public float wallCheckDistance = 0.8f;
 
     private CharacterController controller;
     private Transform playerTransform;
     private float verticalVelocity;
+
+    private bool wasClimbing = false;
+    private bool isJumping = false;
+    private float lastYPosition;
+    private float stuckTimer = 0f;
 
     void Start()
     {
@@ -19,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
         {
             playerTransform = player.transform;
         }
+        lastYPosition = transform.position.y;
     }
 
     void Update()
@@ -32,18 +40,67 @@ public class EnemyMovement : MonoBehaviour
         {
             direction.Normalize();
 
-            Vector3 targetVelocity = direction * speed;
+            Vector3 targetVelocity = Vector3.zero;
 
-            if (controller.isGrounded)
+            if (controller.isGrounded && verticalVelocity <= 0)
             {
-                verticalVelocity = -2f;
+                isJumping = false;
+            }
+
+            bool isWallAhead = Physics.Raycast(transform.position + Vector3.up * 0.5f, direction, wallCheckDistance);
+
+            if (isWallAhead && !isJumping)
+            {
+                if (Mathf.Abs(transform.position.y - lastYPosition) < 0.01f)
+                {
+                    stuckTimer += Time.deltaTime;
+                }
+                else
+                {
+                    stuckTimer = 0f;
+                }
+                lastYPosition = transform.position.y;
+
+                if (stuckTimer > 0.3f)
+                {
+                    verticalVelocity = highJumpForce;
+                    isJumping = true;
+                    wasClimbing = false;
+                    stuckTimer = 0f;
+                    targetVelocity = direction * speed + Vector3.up * verticalVelocity;
+                }
+                else
+                {
+                    verticalVelocity = speed * 1.5f;
+                    targetVelocity = direction * 0.2f + Vector3.up * verticalVelocity;
+                    wasClimbing = true;
+                }
             }
             else
             {
-                verticalVelocity += gravity * Time.deltaTime;
-            }
+                stuckTimer = 0f;
 
-            targetVelocity.y = verticalVelocity;
+                if (wasClimbing)
+                {
+                    verticalVelocity = highJumpForce;
+                    isJumping = true;
+                    wasClimbing = false;
+                }
+                else
+                {
+                    if (controller.isGrounded)
+                    {
+                        verticalVelocity = -2f;
+                    }
+                    else
+                    {
+                        verticalVelocity += gravity * Time.deltaTime;
+                    }
+                }
+
+                targetVelocity = direction * speed;
+                targetVelocity.y = verticalVelocity;
+            }
 
             controller.Move(targetVelocity * Time.deltaTime);
 
