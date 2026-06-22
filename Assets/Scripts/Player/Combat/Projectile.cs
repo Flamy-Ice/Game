@@ -3,25 +3,34 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 15f;
+    public float lifetime = 5f;
+    public float heightOffset = 1f;
     private float damage;
+    private bool isCritical;
     private Transform target;
     private Vector3 lastTargetPosition;
 
-    public void Setup(Transform targetEnemy, float damageAmount)
+    public void Setup(Transform targetEnemy, float damageAmount, bool isCrit)
     {
         target = targetEnemy;
         damage = damageAmount;
+        isCritical = isCrit;
         if (target != null)
         {
-            lastTargetPosition = target.position;
+            lastTargetPosition = target.position + Vector3.up * heightOffset;
         }
+    }
+
+    void Start()
+    {
+        Destroy(gameObject, lifetime);
     }
 
     void Update()
     {
         if (target != null)
         {
-            lastTargetPosition = target.position;
+            lastTargetPosition = target.position + Vector3.up * heightOffset;
         }
 
         Vector3 direction = (lastTargetPosition - transform.position).normalized;
@@ -40,7 +49,7 @@ public class Projectile : MonoBehaviour
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, isCritical);
             }
             Destroy(gameObject);
         }
@@ -53,7 +62,7 @@ public class Projectile : MonoBehaviour
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, isCritical);
             }
             Destroy(gameObject);
         }

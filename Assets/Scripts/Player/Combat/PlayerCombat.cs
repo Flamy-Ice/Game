@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    public GameObject projectilePrefab;
+    public GameObject[] projectilePrefabs;
     public Transform firePoint;
     public float range = 10f;
 
@@ -49,11 +49,27 @@ public class PlayerCombat : MonoBehaviour
 
     void Shoot(Transform target)
     {
-        GameObject projGO = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        if (projectilePrefabs == null || projectilePrefabs.Length == 0) return;
+
+        int randomIndex = Random.Range(0, projectilePrefabs.Length);
+        GameObject selectedPrefab = projectilePrefabs[randomIndex];
+
+        if (selectedPrefab == null) return;
+
+        GameObject projGO = Instantiate(selectedPrefab, firePoint.position, firePoint.rotation);
         Projectile projectile = projGO.GetComponent<Projectile>();
         if (projectile != null)
         {
-            projectile.Setup(target, playerStats.Damage);
+            float finalDamage = playerStats.Damage;
+            bool isCrit = false;
+
+            if (Random.value <= playerStats.CritChance)
+            {
+                finalDamage *= playerStats.CritDamageMultiplier;
+                isCrit = true;
+            }
+
+            projectile.Setup(target, finalDamage, isCrit);
         }
     }
 }

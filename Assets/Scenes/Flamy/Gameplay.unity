@@ -890,7 +890,7 @@ Transform:
   m_GameObject: {fileID: 197750973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.57}
+  m_LocalPosition: {x: 0, y: 0.519, z: 0.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2086,7 +2086,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86faffd4bd23bcf43ace29a024eda27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  projectilePrefab: {fileID: 3114657433287641871, guid: 70b879720f7a37540a3da5d7d13067a2, type: 3}
+  projectilePrefabs:
+  - {fileID: 5122108029853479113, guid: b9947e159ded63e43b4003b0eac97eb8, type: 3}
+  - {fileID: 5460445485362497243, guid: dcd65d4bc83f2c9448831c02c71f9312, type: 3}
+  - {fileID: 9083051896724687671, guid: c586c3aa4d91e6e4a8ebe28c342f578c, type: 3}
   firePoint: {fileID: 197750974}
   range: 10
 --- !u!1 &686294237
@@ -5623,7 +5626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d694e95243b98d4e802ad69818dddf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 30
+  maxHealth: 10000
+  damagePopupPrefab: {fileID: 4300437831753770049, guid: be4816ad89b89cb48a4a2242aebe1c55, type: 3}
 --- !u!1001 &4530195176673544640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5634,11 +5638,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 374600806520641432, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.6506395
+      value: -10.39
       objectReference: {fileID: 0}
     - target: {fileID: 374600806520641432, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.145
+      value: 4.77
       objectReference: {fileID: 0}
     - target: {fileID: 374600806520641432, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
       propertyPath: m_LocalPosition.z

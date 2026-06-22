@@ -24,9 +24,9 @@ Gameplay
 		Warianty Bossów
 		Warianty od strony
 		Spawner
+		Sprawdź jak działa zadawanie obrażeń u dużych enemy (Text)
 	Player
-		Projectile
-			Lifetime?
+		Numerki odejmowanego hp
 		Death
 	Mechanics
 		Zmiana mapy
