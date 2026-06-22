@@ -1917,6 +1917,7 @@ GameObject:
   - component: {fileID: 599249076}
   - component: {fileID: 599249077}
   - component: {fileID: 599249078}
+  - component: {fileID: 599249079}
   m_Layer: 3
   m_Name: PlayerManager
   m_TagString: Player
@@ -2092,6 +2093,20 @@ MonoBehaviour:
   - {fileID: 9083051896724687671, guid: c586c3aa4d91e6e4a8ebe28c342f578c, type: 3}
   firePoint: {fileID: 197750974}
   range: 10
+--- !u!114 &599249079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599249067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49eb7b5aae994a8418b6eff1072f06ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPickup
+  basePickupRange: 3
+  attractionSpeed: 10
 --- !u!1 &686294237
 GameObject:
   m_ObjectHideFlags: 0
