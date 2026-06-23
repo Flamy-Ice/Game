@@ -9,6 +9,13 @@ Main Menu
 Gameplay
 	Canvas
 		Game Over Screen
+				Wywołanie go
+				Don't Freeze Screen
+				Hide HUD
+				Time
+				Currency
+				Enemies
+				Avatar
 		Weapon Pick Screen
 		HUD
 			Bronie - Połącz
@@ -19,6 +26,8 @@ Gameplay
 
 		Warianty Bossów
 			Sprawdź jak działa zadawanie obrażeń u dużych enemy (Text)
+			Bigger EXP
+			HP BAR
 		Warianty od strony
 		Skalowanie się enemy wraz z poziomem
 		Spawner
@@ -27,8 +36,9 @@ Gameplay
 		Death
 	Mechanics
 		Zmiana mapy
-	Bronie
+	Money Orb
 	Tomy
+	Bronie
 	Itemy
 	Statystki - Ulepszenia
 
