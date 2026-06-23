@@ -1,27 +1,47 @@
 Main Menu
-	Inne Taski:
-		Flamy - Spróbuj wgrać animację Stwora
-		Tvar - Skybox
-		Tvar - Oświetlenie
-		Kuba - Dźwięki
-		Alex - Dodanie 3 postaci
-		Alex - Animacja idle postaci z teksturami
+	Flamy - Spróbuj wgrać animację Stwora
+	Tvar - Skybox
+	Tvar - Oświetlenie
+	Kuba - Dźwięki
+	Alex - Dodanie 3 postaci
+	Alex - Animacja idle postaci z teksturami
 
 Gameplay
 	Canvas
 		HUD
-			EXP Bar - Podłącz
-			Health - Podłącz
-			Shield - Podłącz
-			Currency - Podłącz
-			Enemies - Podłącz
 			Bronie
 		Game Over Screen
 		Weapon Pick Screen
+	Enemy
+		Tvar/Alex - Model currency orb i exp orb
+		Wspinanie się
+			Sprawdź jak działa na modelach stwora
 
+		Warianty Bossów
+			Sprawdź jak działa zadawanie obrażeń u dużych enemy (Text)
+		Warianty od strony
+		Skalowanie się enemy wraz z poziomem
+		Spawner
+	Player
+		Numerki odejmowanego hp
+		Death
+	Mechanics
+		Zmiana mapy
 
 
 	Scripts
 		Player
 			CharactersData
 				Alex - Zmień nazwę na 3 postaci
+
+STATS
+• Unik - Procentowe szanse na zignorowanie obrażeń (Procent)
+• Kradzież życia - Konwersja zadanych obrażeń na odnowienie HP (Procent)
+• Ciernie - Procentowo ile “oddajemy” obrażeń wrogowi (Procent)
+
+• Rozmiar - Wielkość pocisku (Zwiększa hitbox) (Mnożnik)
+• Prędkość pocisków - Jak szybko lecą projectile (Mnożnik)
+• Odrzut - Jak daleko przeciwnicy odlecą (Mnożnik)
+
+• Czas Trwania (np. Efektu) - Wydłużanie np. krwawienia u przeciwników (Mnożnik)
+• Szczęście - Większa szansa Na Lepszy Drop Rate (Mnożnik)
