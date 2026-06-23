@@ -8,10 +8,10 @@ Main Menu
 
 Gameplay
 	Canvas
-		HUD
-			Bronie
 		Game Over Screen
 		Weapon Pick Screen
+		HUD
+			Bronie - Połącz
 	Enemy
 		Tvar/Alex - Model currency orb i exp orb
 		Wspinanie się
@@ -27,6 +27,10 @@ Gameplay
 		Death
 	Mechanics
 		Zmiana mapy
+	Bronie
+	Tomy
+	Itemy
+	Statystki - Ulepszenia
 
 
 	Scripts
