@@ -3,6 +3,9 @@ using System;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] private GameObject damagePopupPrefab;
+    [SerializeField] private float damagePopupYOffset = 1.0f;
+
     private PlayerStats playerStats;
     private float hpRegenTimer;
     private float shieldRegenTimer;
@@ -75,6 +78,8 @@ public class PlayerHealth : MonoBehaviour
             amount *= 100f / (100f + (playerStats.Armor * 4f));
         }
 
+        float totalDamageTaken = amount;
+
         if (CurrentShield > 0f)
         {
             float shieldDamage = Mathf.Min(amount, CurrentShield);
@@ -93,6 +98,25 @@ public class PlayerHealth : MonoBehaviour
                 isDead = true;
                 OnPlayerDeath?.Invoke();
             }
+        }
+
+        if (totalDamageTaken > 0f)
+        {
+            SpawnDamagePopup(totalDamageTaken);
+        }
+    }
+
+    private void SpawnDamagePopup(float damageAmount)
+    {
+        if (damagePopupPrefab == null) return;
+
+        Vector3 spawnPosition = transform.position + Vector3.up * damagePopupYOffset;
+        GameObject popupGO = Instantiate(damagePopupPrefab, spawnPosition, Quaternion.identity);
+        DamagePopup popup = popupGO.GetComponent<DamagePopup>();
+
+        if (popup != null)
+        {
+            popup.Setup(damageAmount, false, true);
         }
     }
 }

@@ -2971,6 +2971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eced7d087004414ba4874ba11f875cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  damagePopupPrefab: {fileID: 4300437831753770049, guid: be4816ad89b89cb48a4a2242aebe1c55, type: 3}
+  damagePopupYOffset: -1
 --- !u!114 &599249078
 MonoBehaviour:
   m_ObjectHideFlags: 0

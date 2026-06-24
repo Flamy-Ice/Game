@@ -2,60 +2,75 @@ Taski dla Szymona:
 	- Prefab enemy od Alexa z animacją i teksturami
 	- Prefaby postaci (Tekstury + Animacje)
 	- Poprawa mapy (Anioł)
+	- Rozstawienie punktów ze skrzynkami
 	- Colliders dla mapy
+	- Money Orb Prefab
 	- Postać Jim Teacher (Kapsułka)
+	- Pomoc Kubie z dzwiękami
 
 Main Menu
-	Flamy - Spróbuj wgrać animację Stwora
-	Szymon - Dodanie 3 postaci
-	Szymon -> Flamy - Podmianka postaci
-	Szymon -> Flamy - Podmianka Mapy
+	Szymon - Podmiana Mapy
 	Tvar - Skybox
 	Tvar - Oświetlenie
+	Play
+		Szymon - Kaira Model and Animations Prefab
+		Szymon - Kaleria Model and Animations Prefab
+		Szymon - Jim Teacher Model
+			Flamy - Floating Script
+			Flamy - Jim Avatar
 	Kuba - Dźwięki
 
 Gameplay
-	Canvas
-		Weapon Pick Screen
-		Chest Screen
-		HUD
-			Bronie - Połącz
-	Enemy
-		Tvar/Alex - Model currency orb i exp orb
-		Wspinanie się
-			Zignoruj Orby
-			Orby niech spadaja na ziemie
-			Sprawdź jak działa na modelach stwora
-		Enemies
-			Alex - Neko
-			Bizzare Boss
-			Chaos Boss
-
-		Warianty Bossów
-			Bigger EXP
-			HP BAR for Boss
-		Warianty od strony
-		Skalowanie się enemy wraz z poziomem
-		Spawner
 	Player
-		Numerki odejmowanego hp
-		Tekstury i modele postaci z Animacjami
-
-
-
-	Mechanics
-		Zmiana mapy
-	Money Orb
-	Tomy
-	Bronie
-	Itemy
-	Statystki - Ulepszenia
-
-
-	Scripts
-		Player
-			CharactersData
-				Alex - Zmień nazwę na 3 postaci
+		Models and Animations
+			Szymon - Kaira Model and Animations Prefab
+			Szymon - Kaleria Model and Animations Prefab
+				Flamy - Kaleria Avatar
+			Szymon - Jim Teacher Model
+				Flamy - Floating Script
+				Flamy - Jim Avatar
+		Scripts
+			Flamy - Add Stats
+	Enemies
+		Models
+			Flamy - Bizzare Boss
+				Flamy - Change Orb Variants
+				Flamy - Boss Health and Title on Spawn
+			Flamy - Chaos Boss
+			Szymon - Neko Enemy Prefab
+				Flamy - Add Components and Colliders
+				Flamy - Code Jumping
+				Flamy - Add Variants
+			Flamy - Different Variants depend on map site
+		Orbs
+			Flamy - Orbs Gravity Script
+			Flamy - Ignore Orbs while Jumping Script
+			Szymon - Money Orb Prefab
+				Flamy - Money Orb Replacement
+			Alex/Tvar - Exp Orb
+				Szymon - Exp Orb Prefab
+					Flamy - Exp Orb Replacement
+		Jump Mechanic
+			Szymon - Map Prefab and Colliders
+				Flamy - Check How Enemies Act on Tvar Map
+				Flamy - Check How Enemies Act Each Other
+		Scripts
+			Flamy - Enemy Scaling per Player Lvl
+			Flamy - Enemy Spawner Script
+			Flamy - Map Change Script
+		Tomes
+			Flamy - Add Tomes
+		Weapons
+			Flamy - Add Weapons
+		Items
+			Flamy - Add Items
+	Canvas
+		Flamy - Weapon pick screen
+			Flamy - Weapons HUD (Link)
+		Szymon - Confetti Animation
+			Szymon - Chest Placement
+				Flamy - Chest Screen
+					Flamy - Random Chest Counter and Replacement Script
 
 STATS
 • Unik - Procentowe szanse na zignorowanie obrażeń (Procent)

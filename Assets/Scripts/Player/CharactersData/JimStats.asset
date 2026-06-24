@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e6d045ea73f7814b95b4fd44380528d, type: 3}
-  m_Name: ThirdStats
+  m_Name: JimStats
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStatsData
   movementSpeed: 3.8
   jumpHeightMultiplier: 0.8

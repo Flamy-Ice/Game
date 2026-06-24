@@ -20,18 +20,27 @@ public class DamagePopup : MonoBehaviour
         }
     }
 
-    public void Setup(float damageAmount, bool isCrit)
+    public void Setup(float damageAmount, bool isCrit, bool isPlayerDamage = false)
     {
         if (mainCameraTransform != null)
         {
             transform.position -= mainCameraTransform.forward * cameraOffset;
         }
 
-        textMesh.SetText(Mathf.RoundToInt(damageAmount).ToString());
+        int roundedDamage = Mathf.RoundToInt(damageAmount);
 
-        if (isCrit)
+        if (isPlayerDamage)
         {
-            textMesh.color = Color.yellow;
+            textMesh.SetText("-" + roundedDamage.ToString());
+            textMesh.color = Color.red;
+        }
+        else
+        {
+            textMesh.SetText(roundedDamage.ToString());
+            if (isCrit)
+            {
+                textMesh.color = Color.yellow;
+            }
         }
 
         textColor = textMesh.color;
