@@ -1,17 +1,18 @@
 Taski dla Szymona:
 	- Prefab enemy od Alexa z animacją i teksturami
+	- Prefaby postaci (Tekstury + Animacje)
 	- Poprawa mapy (Anioł)
 	- Colliders dla mapy
 	- Postać Jim Teacher (Kapsułka)
-	- Prefaby postaci (Tekstury + Animacje)
 
 Main Menu
 	Flamy - Spróbuj wgrać animację Stwora
+	Szymon - Dodanie 3 postaci
+	Szymon -> Flamy - Podmianka postaci
 	Szymon -> Flamy - Podmianka Mapy
 	Tvar - Skybox
 	Tvar - Oświetlenie
 	Kuba - Dźwięki
-	Szymon - Dodanie 3 postaci
 
 Gameplay
 	Canvas
