@@ -56,6 +56,14 @@ public class PlayerCombat : MonoBehaviour
 
         if (selectedPrefab == null) return;
 
+        Transform attackTarget = target;
+        Transform customTargetPoint = target.Find("TargetPoint");
+
+        if (customTargetPoint != null)
+        {
+            attackTarget = customTargetPoint;
+        }
+
         GameObject projGO = Instantiate(selectedPrefab, firePoint.position, firePoint.rotation);
         Projectile projectile = projGO.GetComponent<Projectile>();
         if (projectile != null)
@@ -69,7 +77,7 @@ public class PlayerCombat : MonoBehaviour
                 isCrit = true;
             }
 
-            projectile.Setup(target, finalDamage, isCrit);
+            projectile.Setup(attackTarget, finalDamage, isCrit);
         }
     }
 }

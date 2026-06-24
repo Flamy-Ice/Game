@@ -15,10 +15,7 @@ public class Projectile : MonoBehaviour
         target = targetEnemy;
         damage = damageAmount;
         isCritical = isCrit;
-        if (target != null)
-        {
-            lastTargetPosition = target.position + Vector3.up * heightOffset;
-        }
+        UpdateTargetPosition();
     }
 
     void Start()
@@ -28,43 +25,78 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        if (target != null)
-        {
-            lastTargetPosition = target.position + Vector3.up * heightOffset;
-        }
+        UpdateTargetPosition();
 
         Vector3 direction = (lastTargetPosition - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
+        float distanceThisFrame = speed * Time.deltaTime;
+        float distanceToTarget = Vector3.Distance(transform.position, lastTargetPosition);
 
-        if (Vector3.Distance(transform.position, lastTargetPosition) < 0.2f && target == null)
+        if (distanceToTarget <= distanceThisFrame)
         {
+            transform.position = lastTargetPosition;
+            OnTargetReached();
+            return;
+        }
+
+        transform.position += direction * distanceThisFrame;
+    }
+
+    private void UpdateTargetPosition()
+    {
+        if (target != null)
+        {
+            Vector3 targetPos = target.position;
+            if (target.name != "TargetPoint")
+            {
+                targetPos += Vector3.up * heightOffset;
+            }
+            lastTargetPosition = targetPos;
+        }
+    }
+
+    private void OnTargetReached()
+    {
+        if (target != null)
+        {
+            EnemyHealth enemy = target.GetComponent<EnemyHealth>();
+            if (enemy == null)
+            {
+                enemy = target.GetComponentInParent<EnemyHealth>();
+            }
+
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage, isCritical);
+            }
+        }
+        Destroy(gameObject);
+    }
+
+    private void ProcessCollision(GameObject contactedObject)
+    {
+        EnemyHealth enemy = contactedObject.GetComponent<EnemyHealth>();
+        if (enemy == null)
+        {
+            enemy = contactedObject.GetComponentInParent<EnemyHealth>();
+        }
+
+        if (enemy != null || contactedObject.CompareTag("Enemy"))
+        {
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage, isCritical);
+            }
             Destroy(gameObject);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage, isCritical);
-            }
-            Destroy(gameObject);
-        }
+        ProcessCollision(other.gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage, isCritical);
-            }
-            Destroy(gameObject);
-        }
+        ProcessCollision(other.gameObject);
     }
 }

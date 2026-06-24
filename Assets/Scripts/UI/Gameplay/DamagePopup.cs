@@ -3,6 +3,8 @@ using TMPro;
 
 public class DamagePopup : MonoBehaviour
 {
+    [SerializeField] private float cameraOffset = 1.2f;
+
     private TextMeshPro textMesh;
     private float disappearTimer = 0.6f;
     private Color textColor;
@@ -20,6 +22,11 @@ public class DamagePopup : MonoBehaviour
 
     public void Setup(float damageAmount, bool isCrit)
     {
+        if (mainCameraTransform != null)
+        {
+            transform.position -= mainCameraTransform.forward * cameraOffset;
+        }
+
         textMesh.SetText(Mathf.RoundToInt(damageAmount).ToString());
 
         if (isCrit)

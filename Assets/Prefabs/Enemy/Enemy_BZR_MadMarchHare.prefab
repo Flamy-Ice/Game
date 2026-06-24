@@ -67,15 +67,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8234bd4f3568cd45aa61ae7eed83c77, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6069475883963161406}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8234bd4f3568cd45aa61ae7eed83c77, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2548772633825404871}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8234bd4f3568cd45aa61ae7eed83c77, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5814422267439169148}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c8234bd4f3568cd45aa61ae7eed83c77, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6568702354657356544}
   m_SourcePrefab: {fileID: 100100000, guid: c8234bd4f3568cd45aa61ae7eed83c77, type: 3}
 --- !u!1 &1042875639940287778 stripped
 GameObject:
@@ -104,57 +95,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!143 &2548772633825404871
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042875639940287778}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1.99
-  m_Radius: 0.62
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.05, z: -0.07}
---- !u!114 &5814422267439169148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042875639940287778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cc38fb2f964fbc4e8c54e13473f983f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
-  speed: 3
-  rotationSpeed: 5
-  gravity: -20
---- !u!114 &6568702354657356544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042875639940287778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1db767c05a66fc64f8bfff5fa1c85d3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
-  damageAmount: 10
-  attackCooldown: 0.5
