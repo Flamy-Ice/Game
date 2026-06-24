@@ -8,6 +8,8 @@ public class CurrencyManager : MonoBehaviour
     public TextMeshProUGUI currencyText;
     private int totalCurrency = 0;
 
+    public int TotalCurrency => totalCurrency;
+
     private void Awake()
     {
         if (Instance == null)

@@ -1,5 +1,6 @@
 Main Menu
 	Flamy - Spróbuj wgrać animację Stwora
+	Flamy - Podmianka Mapy
 	Tvar - Skybox
 	Tvar - Oświetlenie
 	Kuba - Dźwięki
@@ -8,15 +9,8 @@ Main Menu
 
 Gameplay
 	Canvas
-		Game Over Screen
-				Wywołanie go
-				Don't Freeze Screen
-				Hide HUD
-				Time
-				Currency
-				Enemies
-				Avatar
 		Weapon Pick Screen
+		Chest Screen
 		HUD
 			Bronie - Połącz
 	Enemy

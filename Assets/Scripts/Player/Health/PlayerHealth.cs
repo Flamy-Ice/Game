@@ -6,9 +6,11 @@ public class PlayerHealth : MonoBehaviour
     private PlayerStats playerStats;
     private float hpRegenTimer;
     private float shieldRegenTimer;
+    private bool isDead = false;
 
     public event Action OnHpChanged;
     public event Action OnShieldChanged;
+    public event Action OnPlayerDeath;
 
     public float CurrentHp { get; private set; }
     public float MaxHp => playerStats != null ? playerStats.MaxHp : 0f;
@@ -31,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        if (playerStats == null) return;
+        if (playerStats == null || isDead) return;
 
         if (CurrentHp < MaxHp)
         {
@@ -66,6 +68,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
+
         if (playerStats != null)
         {
             amount *= 100f / (100f + (playerStats.Armor * 4f));
@@ -83,6 +87,12 @@ public class PlayerHealth : MonoBehaviour
         {
             CurrentHp = Mathf.Clamp(CurrentHp - amount, 0f, MaxHp);
             OnHpChanged?.Invoke();
+
+            if (CurrentHp <= 0f)
+            {
+                isDead = true;
+                OnPlayerDeath?.Invoke();
+            }
         }
     }
 }
