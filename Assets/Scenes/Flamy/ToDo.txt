@@ -74,7 +74,6 @@ Gameplay
 					Flamy - Random Chest Counter and Replacement Script
 
 STATS
-• Kradzież życia - Konwersja zadanych obrażeń na odnowienie HP (Procent)
 • Ciernie - Procentowo ile “oddajemy” obrażeń wrogowi (Procent)
 
 • Rozmiar - Wielkość pocisku (Zwiększa hitbox) (Mnożnik)

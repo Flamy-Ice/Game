@@ -71,6 +71,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        TakeDamage(amount, null);
+    }
+
+    public void TakeDamage(float amount, EnemyHealth attacker)
+    {
         if (isDead) return;
 
         if (playerStats != null && UnityEngine.Random.value <= playerStats.DodgeChance)
@@ -85,6 +90,15 @@ public class PlayerHealth : MonoBehaviour
         }
 
         float totalDamageTaken = amount;
+
+        if (attacker != null && playerStats != null && playerStats.Thorns > 0f)
+        {
+            float reflectedDamage = totalDamageTaken * playerStats.Thorns;
+            if (reflectedDamage > 0f)
+            {
+                attacker.TakeDamage(reflectedDamage, false);
+            }
+        }
 
         if (CurrentShield > 0f)
         {
