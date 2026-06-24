@@ -65,7 +65,6 @@ Gameplay
 				Flamy - Enemies Stop Jumping on player script
 				Flamy - Check How Enemies Act on Tvar Map
 		Scripts
-			Flamy - Enemy Scaling per Player Lvl
 			Flamy - Enemy Spawner Script
 				Flamy - One Boss at the time Mechanic
 			Flamy - Map Change Script

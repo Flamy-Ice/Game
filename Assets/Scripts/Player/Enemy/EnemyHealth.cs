@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
         enemyStats = GetComponent<EnemyStats>();
         if (enemyStats != null)
         {
+            enemyStats.ScaleStatsToPlayerLevel();
             currentHealth = enemyStats.MaxHp;
         }
 

@@ -28,4 +28,14 @@ public class EnemyStats : MonoBehaviour
         Damage = data.damage;
         AttackCooldown = data.attackCooldown;
     }
+
+    public void ScaleStatsToPlayerLevel()
+    {
+        if (baseStats == null || LevelManager.Instance == null) return;
+
+        int playerLevel = LevelManager.Instance.CurrentLevel;
+
+        MaxHp = baseStats.maxHp * (1f + (playerLevel - 1) * baseStats.hpGrowthPerLevel);
+        Damage = baseStats.damage * (1f + (playerLevel - 1) * baseStats.damageGrowthPerLevel);
+    }
 }
