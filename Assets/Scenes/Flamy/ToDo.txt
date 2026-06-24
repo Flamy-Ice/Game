@@ -1,7 +1,7 @@
 Taski dla Szymona:
 	- Prefab enemy od Alexa z animacją i teksturami
 	- Prefaby postaci (Tekstury + Animacje)
-	- Poprawa mapy (Anioł)
+	- Poprawa mapy (Anioł + SpawnLayer)
 	- Rozstawienie punktów ze skrzynkami
 	- Colliders dla mapy
 	- Money Orb Prefab
