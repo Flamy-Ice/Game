@@ -65,8 +65,8 @@ Gameplay
 				Flamy - Enemies Stop Jumping on player script
 				Flamy - Check How Enemies Act on Tvar Map
 		Scripts
-			Flamy - Enemy Spawner Script
-				Flamy - One Boss at the time Mechanic
+			Szymon - Map SpawnLayer
+				Flamy - Change Tags and Layers for Enemy Spawner Script
 			Flamy - Map Change Script
 				Flamy - Different Variants depend on map site
 		Gambling

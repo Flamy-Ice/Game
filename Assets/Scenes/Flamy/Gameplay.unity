@@ -2635,9 +2635,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   xpFillImage: {fileID: 316832388}
-  baseXp: 100
+  baseXp: 50
   xpExponent: 1.5
-  smoothSpeed: 5
+  smoothSpeed: 7
 --- !u!114 &522118639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2660,41 +2660,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 522118633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2076e654ec53f74439cce49b5bef89f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 72588664baf90bb4abe210d86d4ee666, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveSpawner
-  waves:
-  - waveName: Early Game
-    enemyPrefabs:
-    - {fileID: 757684665641491754, guid: 85b0f292f6a732a48a6fa24aee81c403, type: 3}
-    spawnInterval: 1.5
-    waveDuration: 30
-  - waveName: Early-Mid Game
-    enemyPrefabs: []
-    spawnInterval: 0
-    waveDuration: 0
-  - waveName: Mid Game
-    enemyPrefabs: []
-    spawnInterval: 0
-    waveDuration: 0
-  - waveName: Mid-Late Game
-    enemyPrefabs: []
-    spawnInterval: 0
-    waveDuration: 0
-  - waveName: LateGame
-    enemyPrefabs: []
-    spawnInterval: 0
-    waveDuration: 0
-  minSpawnDistance: 18
-  maxSpawnDistance: 28
-  groundLayer:
-    m_Bits: 1
-  maxTotalEnemies: 150
-  playerTransform: {fileID: 0}
-  currentWaveIndex: 0
-  waveTimer: 0
-  spawnTimer: 0
-  activeEnemies: []
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  playerTransform: {fileID: 599249074}
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 403
+  minSpawnDistance: 16
+  maxSpawnDistance: 26
+  spawnInterval: 5
+  baseWaveSize: 2
+  maxWaveSize: 18
+  waveGrowthRate: 0.05
+  basicNormalPrefab: {fileID: 757684665641491754, guid: 85b0f292f6a732a48a6fa24aee81c403, type: 3}
+  basicBuffedPrefab: {fileID: 887582230528774577, guid: 7cf90c4f042bc3b408d8896c6e93a855, type: 3}
+  commonNormalPrefab: {fileID: 4738378936942436316, guid: 71fcfc98d746a544884470ebe8aaead5, type: 3}
+  commonBuffedPrefab: {fileID: 1871369957382418423, guid: 673e001cb99e3884da1cb0dd3f96f57e, type: 3}
+  uncommonNormalPrefab: {fileID: 0}
+  uncommonBuffedPrefab: {fileID: 0}
+  bossPrefabs:
+  - {fileID: 7213993497981062865, guid: c246bf297a1461642bebbf982076d698, type: 3}
+  - {fileID: 6728601404377325335, guid: 6dc9589fdafbdf04cbaa7114e66d298b, type: 3}
+  timeBetweenBosses: 240
+  bossCooldownAfterDeath: 30
+  buffedVariantChance: 15
 --- !u!1 &539762186
 GameObject:
   m_ObjectHideFlags: 0
