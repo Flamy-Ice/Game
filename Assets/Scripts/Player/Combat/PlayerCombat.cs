@@ -85,7 +85,7 @@ public class PlayerCombat : MonoBehaviour
                 isCrit = true;
             }
 
-            projectile.Setup(attackTarget, finalDamage, isCrit, playerHealth, playerStats.Lifesteal, playerStats.ProjectileSpeedMultiplier);
+            projectile.Setup(attackTarget, finalDamage, isCrit, playerHealth, playerStats.Lifesteal, playerStats.ProjectileSpeedMultiplier, playerStats.KnockbackMultiplier);
         }
     }
 }

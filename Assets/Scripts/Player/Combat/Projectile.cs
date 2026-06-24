@@ -5,20 +5,24 @@ public class Projectile : MonoBehaviour
     public float speed = 15f;
     public float lifetime = 5f;
     public float heightOffset = 1f;
+    public float baseKnockbackForce = 10f;
+
     private float damage;
     private bool isCritical;
     private Transform target;
     private Vector3 lastTargetPosition;
     private PlayerHealth playerHealth;
     private float lifestealChance;
+    private float knockbackMultiplier;
 
-    public void Setup(Transform targetEnemy, float damageAmount, bool isCrit, PlayerHealth playerHP, float lifesteal, float speedMultiplier)
+    public void Setup(Transform targetEnemy, float damageAmount, bool isCrit, PlayerHealth playerHP, float lifesteal, float speedMultiplier, float knockbackMult)
     {
         target = targetEnemy;
         damage = damageAmount;
         isCritical = isCrit;
         playerHealth = playerHP;
         lifestealChance = lifesteal;
+        knockbackMultiplier = knockbackMult;
         speed *= speedMultiplier;
         UpdateTargetPosition();
     }
@@ -39,7 +43,7 @@ public class Projectile : MonoBehaviour
         if (distanceToTarget <= distanceThisFrame)
         {
             transform.position = lastTargetPosition;
-            OnTargetReached();
+            OnTargetReached(direction);
             return;
         }
 
@@ -59,7 +63,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnTargetReached()
+    private void OnTargetReached(Vector3 hitDirection)
     {
         if (target != null)
         {
@@ -73,6 +77,7 @@ public class Projectile : MonoBehaviour
             {
                 enemy.TakeDamage(damage, isCritical);
                 ApplyLifesteal();
+                ApplyKnockbackToEnemy(target.gameObject, hitDirection);
             }
         }
         Destroy(gameObject);
@@ -88,11 +93,16 @@ public class Projectile : MonoBehaviour
 
         if (enemy != null || contactedObject.CompareTag("Enemy"))
         {
+            Vector3 hitDirection = (lastTargetPosition - transform.position).normalized;
+            if (hitDirection == Vector3.zero) hitDirection = transform.forward;
+
             if (enemy != null)
             {
                 enemy.TakeDamage(damage, isCritical);
                 ApplyLifesteal();
             }
+
+            ApplyKnockbackToEnemy(contactedObject, hitDirection);
             Destroy(gameObject);
         }
     }
@@ -103,6 +113,20 @@ public class Projectile : MonoBehaviour
         {
             float healAmount = damage * lifestealChance;
             playerHealth.Heal(healAmount);
+        }
+    }
+
+    private void ApplyKnockbackToEnemy(GameObject enemyObject, Vector3 direction)
+    {
+        EnemyMovement movement = enemyObject.GetComponent<EnemyMovement>();
+        if (movement == null)
+        {
+            movement = enemyObject.GetComponentInParent<EnemyMovement>();
+        }
+
+        if (movement != null)
+        {
+            movement.ApplyKnockback(direction, baseKnockbackForce * knockbackMultiplier);
         }
     }
 

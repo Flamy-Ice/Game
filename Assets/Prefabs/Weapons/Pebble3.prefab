@@ -274,3 +274,4 @@ MonoBehaviour:
   speed: 15
   lifetime: 5
   heightOffset: 1
+  baseKnockbackForce: 5

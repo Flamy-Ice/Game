@@ -269,6 +269,7 @@ MonoBehaviour:
   speed: 15
   lifetime: 5
   heightOffset: 1
+  baseKnockbackForce: 5
 --- !u!4 &5503032271967873651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e50904d0917b5464f8b4ab766e6ebd47, type: 3}
