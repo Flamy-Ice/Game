@@ -73,6 +73,12 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead) return;
 
+        if (playerStats != null && UnityEngine.Random.value <= playerStats.DodgeChance)
+        {
+            SpawnDodgePopup();
+            return;
+        }
+
         if (playerStats != null)
         {
             amount *= 100f / (100f + (playerStats.Armor * 4f));
@@ -116,7 +122,21 @@ public class PlayerHealth : MonoBehaviour
 
         if (popup != null)
         {
-            popup.Setup(damageAmount, false, true);
+            popup.Setup(damageAmount, false, true, false);
+        }
+    }
+
+    private void SpawnDodgePopup()
+    {
+        if (damagePopupPrefab == null) return;
+
+        Vector3 spawnPosition = transform.position + Vector3.up * damagePopupYOffset;
+        GameObject popupGO = Instantiate(damagePopupPrefab, spawnPosition, Quaternion.identity);
+        DamagePopup popup = popupGO.GetComponent<DamagePopup>();
+
+        if (popup != null)
+        {
+            popup.Setup(0f, false, false, true);
         }
     }
 }

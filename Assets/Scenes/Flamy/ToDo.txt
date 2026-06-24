@@ -52,8 +52,9 @@ Gameplay
 					Flamy - Exp Orb Replacement
 		Jump Mechanic
 			Szymon - Map Prefab and Colliders
+				Flamy - Enemies Stop Jumping on each other script
+				Flamy - Enemies Stop Jumping on player script
 				Flamy - Check How Enemies Act on Tvar Map
-				Flamy - Check How Enemies Act Each Other
 		Scripts
 			Flamy - Enemy Scaling per Player Lvl
 			Flamy - Enemy Spawner Script
