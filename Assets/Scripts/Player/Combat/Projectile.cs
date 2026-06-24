@@ -12,13 +12,14 @@ public class Projectile : MonoBehaviour
     private PlayerHealth playerHealth;
     private float lifestealChance;
 
-    public void Setup(Transform targetEnemy, float damageAmount, bool isCrit, PlayerHealth playerHP, float lifesteal)
+    public void Setup(Transform targetEnemy, float damageAmount, bool isCrit, PlayerHealth playerHP, float lifesteal, float speedMultiplier)
     {
         target = targetEnemy;
         damage = damageAmount;
         isCritical = isCrit;
         playerHealth = playerHP;
         lifestealChance = lifesteal;
+        speed *= speedMultiplier;
         UpdateTargetPosition();
     }
 
