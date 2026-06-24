@@ -67,6 +67,12 @@ public class PlayerCombat : MonoBehaviour
         }
 
         GameObject projGO = Instantiate(selectedPrefab, firePoint.position, firePoint.rotation);
+
+        if (playerStats != null)
+        {
+            projGO.transform.localScale *= playerStats.ProjectileSizeMultiplier;
+        }
+
         Projectile projectile = projGO.GetComponent<Projectile>();
         if (projectile != null)
         {

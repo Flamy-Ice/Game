@@ -74,8 +74,6 @@ Gameplay
 					Flamy - Random Chest Counter and Replacement Script
 
 STATS
-• Ciernie - Procentowo ile “oddajemy” obrażeń wrogowi (Procent)
-
 • Rozmiar - Wielkość pocisku (Zwiększa hitbox) (Mnożnik)
 • Prędkość pocisków - Jak szybko lecą projectile (Mnożnik)
 • Odrzut - Jak daleko przeciwnicy odlecą (Mnożnik)
