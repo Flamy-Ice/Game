@@ -49,15 +49,10 @@ Gameplay
 				Flamy - Jim Avatar
 	Enemies
 		Models
-			Flamy - Bizzare Boss
-				Flamy - Boss Health and Title on Spawn
-			Flamy - Chaos Boss
-				Flamy - Boss Health and Title on Spawn
 			Szymon - Neko Enemy Prefab
 				Flamy - Add Components and Colliders
 				Flamy - Code Jumping
 				Flamy - Add Variants
-			Flamy - Different Variants depend on map site
 		Orbs
 			Flamy - Orbs Gravity Script
 			Flamy - Ignore Orbs while Jumping Script
@@ -76,6 +71,7 @@ Gameplay
 			Flamy - Enemy Spawner Script
 				Flamy - One Boss at the time Mechanic
 			Flamy - Map Change Script
+				Flamy - Different Variants depend on map site
 		Gambling
 			Tomes
 				Flamy - Add Tomes
