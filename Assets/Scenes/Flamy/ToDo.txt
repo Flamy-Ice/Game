@@ -74,7 +74,6 @@ Gameplay
 					Flamy - Random Chest Counter and Replacement Script
 
 STATS
-• Unik - Procentowe szanse na zignorowanie obrażeń (Procent)
 • Kradzież życia - Konwersja zadanych obrażeń na odnowienie HP (Procent)
 • Ciernie - Procentowo ile “oddajemy” obrażeń wrogowi (Procent)
 

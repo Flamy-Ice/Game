@@ -8725,6 +8725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Raven
       objectReference: {fileID: 0}
+    - target: {fileID: 4738378936942436316, guid: 71fcfc98d746a544884470ebe8aaead5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8527110283286116236, guid: 71fcfc98d746a544884470ebe8aaead5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -8749,6 +8753,10 @@ PrefabInstance:
     - target: {fileID: 1871369957382418423, guid: 673e001cb99e3884da1cb0dd3f96f57e, type: 3}
       propertyPath: m_Name
       value: Raven_Buffed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871369957382418423, guid: 673e001cb99e3884da1cb0dd3f96f57e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6386260605054108081, guid: 673e001cb99e3884da1cb0dd3f96f57e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8863,6 +8871,10 @@ PrefabInstance:
     - target: {fileID: 757684665641491754, guid: 85b0f292f6a732a48a6fa24aee81c403, type: 3}
       propertyPath: m_Name
       value: MadMarchHare
+      objectReference: {fileID: 0}
+    - target: {fileID: 757684665641491754, guid: 85b0f292f6a732a48a6fa24aee81c403, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4496537967647618762, guid: 85b0f292f6a732a48a6fa24aee81c403, type: 3}
       propertyPath: m_LocalPosition.x

@@ -112,6 +112,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void Heal(float amount)
+    {
+        if (isDead || amount <= 0f) return;
+
+        CurrentHp = Mathf.Clamp(CurrentHp + amount, 0f, MaxHp);
+        OnHpChanged?.Invoke();
+    }
+
     private void SpawnDamagePopup(float damageAmount)
     {
         if (damagePopupPrefab == null) return;

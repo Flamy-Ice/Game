@@ -9,12 +9,16 @@ public class Projectile : MonoBehaviour
     private bool isCritical;
     private Transform target;
     private Vector3 lastTargetPosition;
+    private PlayerHealth playerHealth;
+    private float lifestealChance;
 
-    public void Setup(Transform targetEnemy, float damageAmount, bool isCrit)
+    public void Setup(Transform targetEnemy, float damageAmount, bool isCrit, PlayerHealth playerHP, float lifesteal)
     {
         target = targetEnemy;
         damage = damageAmount;
         isCritical = isCrit;
+        playerHealth = playerHP;
+        lifestealChance = lifesteal;
         UpdateTargetPosition();
     }
 
@@ -67,6 +71,7 @@ public class Projectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage, isCritical);
+                ApplyLifesteal();
             }
         }
         Destroy(gameObject);
@@ -85,8 +90,18 @@ public class Projectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage, isCritical);
+                ApplyLifesteal();
             }
             Destroy(gameObject);
+        }
+    }
+
+    private void ApplyLifesteal()
+    {
+        if (playerHealth != null && lifestealChance > 0f)
+        {
+            float healAmount = damage * lifestealChance;
+            playerHealth.Heal(healAmount);
         }
     }
 

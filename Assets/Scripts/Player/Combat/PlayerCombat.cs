@@ -7,11 +7,13 @@ public class PlayerCombat : MonoBehaviour
     public float range = 10f;
 
     private PlayerStats playerStats;
+    private PlayerHealth playerHealth;
     private float fireCooldown = 0f;
 
     void Start()
     {
         playerStats = GetComponent<PlayerStats>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     void Update()
@@ -77,7 +79,7 @@ public class PlayerCombat : MonoBehaviour
                 isCrit = true;
             }
 
-            projectile.Setup(attackTarget, finalDamage, isCrit);
+            projectile.Setup(attackTarget, finalDamage, isCrit, playerHealth, playerStats.Lifesteal);
         }
     }
 }
