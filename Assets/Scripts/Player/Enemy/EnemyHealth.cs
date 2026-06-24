@@ -6,6 +6,9 @@ public class EnemyHealth : MonoBehaviour
     public GameObject currencyPrefab;
     public GameObject expPrefab;
 
+    [SerializeField] private float popupYOffset = 1f;
+    [SerializeField] private float popupCameraOffset = 0.5f;
+
     private EnemyStats enemyStats;
     private float currentHealth;
 
@@ -24,12 +27,12 @@ public class EnemyHealth : MonoBehaviour
 
         if (damagePopupPrefab != null)
         {
-            Vector3 spawnOffset = new Vector3(0, 1f, 0);
+            Vector3 spawnOffset = new Vector3(0, popupYOffset, 0);
 
             if (Camera.main != null)
             {
                 Vector3 directionToCamera = (Camera.main.transform.position - transform.position).normalized;
-                spawnOffset += directionToCamera * 0.5f;
+                spawnOffset += directionToCamera * popupCameraOffset;
             }
 
             GameObject popupGO = Instantiate(damagePopupPrefab, transform.position + spawnOffset, Quaternion.identity);

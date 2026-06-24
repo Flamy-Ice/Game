@@ -20,6 +20,24 @@ Main Menu
 			Flamy - Jim Avatar
 	Kuba - Dźwięki
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Gameplay
 	Player
 		Models and Animations
@@ -29,14 +47,12 @@ Gameplay
 			Szymon - Jim Teacher Model
 				Flamy - Floating Script
 				Flamy - Jim Avatar
-		Scripts
-			Flamy - Add Stats
 	Enemies
 		Models
 			Flamy - Bizzare Boss
-				Flamy - Change Orb Variants
 				Flamy - Boss Health and Title on Spawn
 			Flamy - Chaos Boss
+				Flamy - Boss Health and Title on Spawn
 			Szymon - Neko Enemy Prefab
 				Flamy - Add Components and Colliders
 				Flamy - Code Jumping
@@ -58,6 +74,7 @@ Gameplay
 		Scripts
 			Flamy - Enemy Scaling per Player Lvl
 			Flamy - Enemy Spawner Script
+				Flamy - One Boss at the time Mechanic
 			Flamy - Map Change Script
 		Gambling
 			Tomes
