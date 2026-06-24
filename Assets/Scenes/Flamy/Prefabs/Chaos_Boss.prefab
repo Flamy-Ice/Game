@@ -93,6 +93,9 @@ MonoBehaviour:
   highJumpForce: 12
   wallCheckDistance: 0.8
   knockbackDecay: 100000
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 439
 --- !u!114 &248118020543408993
 MonoBehaviour:
   m_ObjectHideFlags: 0

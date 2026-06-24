@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
     public float wallCheckDistance = 0.8f;
     public float knockbackDecay = 8f;
 
+    [SerializeField] private LayerMask obstacleLayers;
+
     private CharacterController controller;
     private Transform playerTransform;
     private EnemyStats enemyStats;
@@ -52,7 +54,7 @@ public class EnemyMovement : MonoBehaviour
                 isJumping = false;
             }
 
-            bool isWallAhead = Physics.Raycast(transform.position + Vector3.up * 0.5f, direction, wallCheckDistance);
+            bool isWallAhead = Physics.Raycast(transform.position + Vector3.up * 0.5f, direction, wallCheckDistance, obstacleLayers);
 
             if (isWallAhead && !isJumping)
             {

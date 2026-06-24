@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8573909198561619473}
   - component: {fileID: 2983388041042713131}
   - component: {fileID: 5672097042871755092}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ExpSphere_Buffed
-  m_TagString: Untagged
+  m_TagString: IgnoreRaycast
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,3 +132,4 @@ MonoBehaviour:
   hopHeight: 1.2
   scatterDistance: 1.5
   animationDuration: 0.5
+  gravity: -20

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4731872467652903568}
   - component: {fileID: 434500902936182246}
   - component: {fileID: 8089538782587305907}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CurrencySphere_Boss
-  m_TagString: Untagged
+  m_TagString: IgnoreRaycast
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,3 +132,4 @@ MonoBehaviour:
   hopHeight: 1.2
   scatterDistance: 1.5
   animationDuration: 0.5
+  gravity: -20

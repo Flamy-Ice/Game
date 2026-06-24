@@ -183,6 +183,10 @@ MonoBehaviour:
   gravity: -20
   highJumpForce: 12
   wallCheckDistance: 0.8
+  knockbackDecay: 8
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 439
 --- !u!114 &2246864030411459659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +214,10 @@ MonoBehaviour:
   damagePopupPrefab: {fileID: 4300437831753770049, guid: be4816ad89b89cb48a4a2242aebe1c55, type: 3}
   currencyPrefab: {fileID: 1239031477274173526, guid: 001b968da4a19a140b296598016effb0, type: 3}
   expPrefab: {fileID: 7555916218587421259, guid: 505bf160ac1da984d960939ef58bf333, type: 3}
+  popupYOffset: 1
+  popupCameraOffset: 0.5
+  isBoss: 0
+  bossName: Boss
 --- !u!1001 &3174076160204699783
 PrefabInstance:
   m_ObjectHideFlags: 0

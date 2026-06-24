@@ -54,8 +54,6 @@ Gameplay
 				Flamy - Code Jumping
 				Flamy - Add Variants
 		Orbs
-			Flamy - Orbs Gravity Script
-			Flamy - Ignore Orbs while Jumping Script
 			Szymon - Money Orb Prefab
 				Flamy - Money Orb Replacement
 			Alex/Tvar - Exp Orb
