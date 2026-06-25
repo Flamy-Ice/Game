@@ -5,17 +5,12 @@ Taski dla Szymona:
 	- Postać Jim Teacher (Kapsułka)
 	- Prefab enemy od Alexa z animacją i teksturami
 	- Money Orb Prefab
-	- Rozstawienie punktów ze skrzynkami
 
 Main Menu
-	Szymon - Podmiana Mapy
-	Tvar - Skybox
-	Tvar - Oświetlenie
 	Play
 		Szymon - Kaira Model and Animations Prefab
 		Szymon - Kaleria Model and Animations Prefab
 		Szymon - Jim Teacher Model
-			Flamy - Floating Script
 			Flamy - Jim Avatar
 	Kuba - Dźwięki
 
@@ -78,8 +73,7 @@ Gameplay
 				Flamy - Add Weapons
 				Flamy - Implement Luck Mechanic
 			Items
-				Flamy - Add Items
-				Flamy - Implement Luck Mechanic
+				Flamy - Just Next Level and Animation
 	Canvas
 		Flamy - Weapon pick screen
 		Szymon - Confetti Animation
