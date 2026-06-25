@@ -1,61 +1,88 @@
+Taski dla Szymona:
+	- Prefab enemy od Alexa z animacją i teksturami
+	- Prefaby postaci (Tekstury + Animacje)
+	- Poprawa mapy (Anioł + SpawnLayer)
+	- Rozstawienie punktów ze skrzynkami
+	- Colliders dla mapy
+	- Money Orb Prefab
+	- Postać Jim Teacher (Kapsułka)
+	- Pomoc Kubie z dzwiękami
+
 Main Menu
-	Flamy - Spróbuj wgrać animację Stwora
+	Szymon - Podmiana Mapy
 	Tvar - Skybox
 	Tvar - Oświetlenie
+	Play
+		Szymon - Kaira Model and Animations Prefab
+		Szymon - Kaleria Model and Animations Prefab
+		Szymon - Jim Teacher Model
+			Flamy - Floating Script
+			Flamy - Jim Avatar
 	Kuba - Dźwięki
-	Alex - Dodanie 3 postaci
-	Alex - Animacja idle postaci z teksturami
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Gameplay
-	Canvas
-		Game Over Screen
-				Wywołanie go
-				Don't Freeze Screen
-				Hide HUD
-				Time
-				Currency
-				Enemies
-				Avatar
-		Weapon Pick Screen
-		HUD
-			Bronie - Połącz
-	Enemy
-		Tvar/Alex - Model currency orb i exp orb
-		Wspinanie się
-			Sprawdź jak działa na modelach stwora
-
-		Warianty Bossów
-			Sprawdź jak działa zadawanie obrażeń u dużych enemy (Text)
-			Bigger EXP
-			HP BAR
-		Warianty od strony
-		Skalowanie się enemy wraz z poziomem
-		Spawner
 	Player
-		Numerki odejmowanego hp
-		Death
-	Mechanics
-		Zmiana mapy
-	Money Orb
-	Tomy
-	Bronie
-	Itemy
-	Statystki - Ulepszenia
-
-
-	Scripts
-		Player
-			CharactersData
-				Alex - Zmień nazwę na 3 postaci
-
-STATS
-• Unik - Procentowe szanse na zignorowanie obrażeń (Procent)
-• Kradzież życia - Konwersja zadanych obrażeń na odnowienie HP (Procent)
-• Ciernie - Procentowo ile “oddajemy” obrażeń wrogowi (Procent)
-
-• Rozmiar - Wielkość pocisku (Zwiększa hitbox) (Mnożnik)
-• Prędkość pocisków - Jak szybko lecą projectile (Mnożnik)
-• Odrzut - Jak daleko przeciwnicy odlecą (Mnożnik)
-
-• Czas Trwania (np. Efektu) - Wydłużanie np. krwawienia u przeciwników (Mnożnik)
-• Szczęście - Większa szansa Na Lepszy Drop Rate (Mnożnik)
+		Models and Animations
+			Szymon - Kaira Model and Animations Prefab
+			Szymon - Kaleria Model and Animations Prefab
+				Flamy - Kaleria Avatar
+			Szymon - Jim Teacher Model
+				Flamy - Floating Script
+				Flamy - Jim Avatar
+	Enemies
+		Models
+			Szymon - Neko Enemy Prefab
+				Flamy - Add Components and Colliders
+				Flamy - Code Jumping
+				Flamy - Add Variants
+		Orbs
+			Szymon - Money Orb Prefab
+				Flamy - Money Orb Replacement
+			Alex/Tvar - Exp Orb
+				Szymon - Exp Orb Prefab
+					Flamy - Exp Orb Replacement
+		Jump Mechanic
+			Szymon - Map Prefab and Colliders
+				Flamy - Enemies Stop Jumping on each other script
+				Flamy - Enemies Stop Jumping on player script
+				Flamy - Check How Enemies Act on Tvar Map
+		Scripts
+			Szymon - Map SpawnLayer
+				Flamy - Change Tags and Layers for Enemy Spawner Script
+			Flamy - Map Change Script
+				Flamy - Different Variants depend on map site
+		Gambling
+			Tomes
+				Flamy - Add Tomes
+				Flamy - Implement Luck Mechanic
+			Weapons
+				Flamy - Add Weapons
+				Flamy - Implement Luck Mechanic
+			Items
+				Flamy - Add Items
+				Flamy - Implement Luck Mechanic
+	Canvas
+		Flamy - Weapon pick screen
+			Flamy - Weapons HUD (Link)
+		Szymon - Confetti Animation
+			Szymon - Chest Placement
+				Flamy - Chest Screen
+					Flamy - Random Chest Counter and Replacement Script

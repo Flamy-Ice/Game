@@ -7,6 +7,9 @@ public class EnemyMovement : MonoBehaviour
     public float gravity = -20f;
     public float highJumpForce = 12.0f;
     public float wallCheckDistance = 0.8f;
+    public float knockbackDecay = 8f;
+
+    [SerializeField] private LayerMask obstacleLayers;
 
     private CharacterController controller;
     private Transform playerTransform;
@@ -17,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
     private bool isJumping = false;
     private float lastYPosition;
     private float stuckTimer = 0f;
+    private Vector3 knockbackVelocity = Vector3.zero;
 
     void Start()
     {
@@ -32,6 +36,8 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        knockbackVelocity = Vector3.MoveTowards(knockbackVelocity, Vector3.zero, knockbackDecay * Time.deltaTime);
+
         if (playerTransform == null || enemyStats == null) return;
 
         Vector3 direction = playerTransform.position - transform.position;
@@ -48,7 +54,7 @@ public class EnemyMovement : MonoBehaviour
                 isJumping = false;
             }
 
-            bool isWallAhead = Physics.Raycast(transform.position + Vector3.up * 0.5f, direction, wallCheckDistance);
+            bool isWallAhead = Physics.Raycast(transform.position + Vector3.up * 0.5f, direction, wallCheckDistance, obstacleLayers);
 
             if (isWallAhead && !isJumping)
             {
@@ -103,7 +109,8 @@ public class EnemyMovement : MonoBehaviour
                 targetVelocity.y = verticalVelocity;
             }
 
-            controller.Move(targetVelocity * Time.deltaTime);
+            Vector3 finalMovement = targetVelocity + knockbackVelocity;
+            controller.Move(finalMovement * Time.deltaTime);
 
             Vector3 lookDirection = -direction;
             Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
@@ -111,5 +118,12 @@ public class EnemyMovement : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(0f, nextRotation.eulerAngles.y, 0f);
         }
+    }
+
+    public void ApplyKnockback(Vector3 direction, float force)
+    {
+        direction.y = 0;
+        direction.Normalize();
+        knockbackVelocity = direction * force;
     }
 }

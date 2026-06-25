@@ -3,6 +3,8 @@ using TMPro;
 
 public class DamagePopup : MonoBehaviour
 {
+    [SerializeField] private float cameraOffset = 1.2f;
+
     private TextMeshPro textMesh;
     private float disappearTimer = 0.6f;
     private Color textColor;
@@ -18,13 +20,32 @@ public class DamagePopup : MonoBehaviour
         }
     }
 
-    public void Setup(float damageAmount, bool isCrit)
+    public void Setup(float damageAmount, bool isCrit, bool isPlayerDamage = false, bool isDodge = false)
     {
-        textMesh.SetText(Mathf.RoundToInt(damageAmount).ToString());
-
-        if (isCrit)
+        if (mainCameraTransform != null)
         {
-            textMesh.color = Color.yellow;
+            transform.position -= mainCameraTransform.forward * cameraOffset;
+        }
+
+        if (isDodge)
+        {
+            textMesh.SetText("Dodge");
+            textMesh.color = Color.blue;
+        }
+        else if (isPlayerDamage)
+        {
+            int roundedDamage = Mathf.RoundToInt(damageAmount);
+            textMesh.SetText("-" + roundedDamage.ToString());
+            textMesh.color = Color.red;
+        }
+        else
+        {
+            int roundedDamage = Mathf.RoundToInt(damageAmount);
+            textMesh.SetText(roundedDamage.ToString());
+            if (isCrit)
+            {
+                textMesh.color = Color.yellow;
+            }
         }
 
         textColor = textMesh.color;

@@ -8,6 +8,8 @@ public class KillManager : MonoBehaviour
     public TextMeshProUGUI killText;
     private int totalKills = 0;
 
+    public int TotalKills => totalKills;
+
     private void Awake()
     {
         if (Instance == null)

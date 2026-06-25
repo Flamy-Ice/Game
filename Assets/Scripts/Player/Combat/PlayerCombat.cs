@@ -7,11 +7,13 @@ public class PlayerCombat : MonoBehaviour
     public float range = 10f;
 
     private PlayerStats playerStats;
+    private PlayerHealth playerHealth;
     private float fireCooldown = 0f;
 
     void Start()
     {
         playerStats = GetComponent<PlayerStats>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     void Update()
@@ -56,7 +58,21 @@ public class PlayerCombat : MonoBehaviour
 
         if (selectedPrefab == null) return;
 
+        Transform attackTarget = target;
+        Transform customTargetPoint = target.Find("TargetPoint");
+
+        if (customTargetPoint != null)
+        {
+            attackTarget = customTargetPoint;
+        }
+
         GameObject projGO = Instantiate(selectedPrefab, firePoint.position, firePoint.rotation);
+
+        if (playerStats != null)
+        {
+            projGO.transform.localScale *= playerStats.ProjectileSizeMultiplier;
+        }
+
         Projectile projectile = projGO.GetComponent<Projectile>();
         if (projectile != null)
         {
@@ -69,7 +85,7 @@ public class PlayerCombat : MonoBehaviour
                 isCrit = true;
             }
 
-            projectile.Setup(target, finalDamage, isCrit);
+            projectile.Setup(attackTarget, finalDamage, isCrit, playerHealth, playerStats.Lifesteal, playerStats.ProjectileSpeedMultiplier, playerStats.KnockbackMultiplier);
         }
     }
 }

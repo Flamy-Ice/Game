@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour
     private int xpToNextLevel;
     private float targetFillAmount = 0f;
 
+    public int CurrentLevel => currentLevel;
+
     private void Awake()
     {
         if (Instance == null)

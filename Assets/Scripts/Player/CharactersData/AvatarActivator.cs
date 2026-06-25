@@ -3,6 +3,7 @@ using UnityEngine;
 public class AvatarActivator : MonoBehaviour
 {
     [SerializeField] private GameObject[] avatarObjects;
+    [SerializeField] private GameObject[] gameOverAvatarObjects;
 
     void Start()
     {
@@ -13,6 +14,14 @@ public class AvatarActivator : MonoBehaviour
             if (avatarObjects[i] != null)
             {
                 avatarObjects[i].SetActive(i == index);
+            }
+        }
+
+        for (int i = 0; i < gameOverAvatarObjects.Length; i++)
+        {
+            if (gameOverAvatarObjects[i] != null)
+            {
+                gameOverAvatarObjects[i].SetActive(i == index);
             }
         }
     }
