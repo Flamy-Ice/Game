@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{405b5fb7-2529-4cca-8ee2-511d7d15b01d}">
+		<property name="assetPath">
+			<value>Abilities/Card_Throw/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{450ed01e-37c3-49ae-939c-0a3e20b70a02}</destination>
+		</relationship>
+	</object>
+</objects>
