@@ -70,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 0c5be56f9e4950f4dac5bd99bdd624d4, type: 2}
     - target: {fileID: 919132149155446097, guid: 00d7651a9738b4740a8d22fd7b2fa582, type: 3}
       propertyPath: m_Name
-      value: money_buffed 1
+      value: money_boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 00d7651a9738b4740a8d22fd7b2fa582, type: 3}
+      propertyPath: m_TagString
+      value: Orb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

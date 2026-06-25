@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - IgnoreRaycast
   - Ground
+  - Orb
   layers:
   - Default
   - TransparentFX
