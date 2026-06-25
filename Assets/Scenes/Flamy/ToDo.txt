@@ -1,14 +1,14 @@
 Taski dla Szymona:
 	- Poprawa mapy (Anioł + SpawnLayer)
 	- Colliders dla mapy
-	- Prefaby postaci (Tekstury + Animacje)
 	- Prefab enemy od Alexa z animacją i teksturami
 	- Money Orb Prefab
 
+	- Prefaby postaci (Kaleria Animacje)
+
 Main Menu
 	Play
-		Szymon - Kaira Model and Animations Prefab
-		Szymon - Kaleria Model and Animations Prefab
+		Szymon - Prefaby postaci (Kaleria Animacje)
 	Kuba - Dźwięki
 
 
@@ -32,9 +32,9 @@ Main Menu
 Gameplay
 	Player
 		Models and Animations
-			Szymon - Kaira Model and Animations Prefab
-			Szymon - Kaleria Model and Animations Prefab
-				Flamy - Kaleria Avatar
+			Alex - Kaleria Animations
+				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
+					Flamy - Animation Script
 	Enemies
 		Models
 			Szymon - Neko Enemy Prefab

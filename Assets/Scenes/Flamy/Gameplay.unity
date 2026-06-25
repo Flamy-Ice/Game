@@ -903,7 +903,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2b7a0bb04f075f74cba09cc78720b036, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 309ad4239d99dc84ea54ffba8612bb0a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2532,7 +2532,7 @@ MonoBehaviour:
   - {fileID: 6728601404377325335, guid: 6dc9589fdafbdf04cbaa7114e66d298b, type: 3}
   timeBetweenBosses: 240
   bossCooldownAfterDeath: 30
-  buffedVariantChance: 15
+  buffedVariantChance: 5
 --- !u!1 &539762186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5860,7 +5860,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2b7a0bb04f075f74cba09cc78720b036, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 309ad4239d99dc84ea54ffba8612bb0a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
