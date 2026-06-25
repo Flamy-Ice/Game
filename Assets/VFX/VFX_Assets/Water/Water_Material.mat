@@ -49,9 +49,9 @@ Material:
     - _WaveSize: 100
     - _WaveSpeed: 0.001
     m_Colors:
-    - _RippleColor: {r: 2, g: 0.6666667, b: 1.3490196, a: 1}
-    - _WaterColor: {r: 0.6509804, g: 0.019607844, b: 0.2, a: 1}
-    - _WaterDepthColor: {r: 0.6037736, g: 0, b: 0, a: 1}
+    - _RippleColor: {r: 0.37593406, g: 0.2509804, b: 0.7490196, a: 1}
+    - _WaterColor: {r: 0.4433962, g: 0.36601102, b: 0.42851442, a: 1}
+    - _WaterDepthColor: {r: 0.049563885, g: 0, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5989899448886858207
