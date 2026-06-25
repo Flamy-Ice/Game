@@ -1,8 +1,11 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField] private CharacterStatsData baseStats;
+
+    private List<TomeData> activeTomes = new List<TomeData>();
 
     public float MovementSpeed { get; private set; }
     public float JumpHeightMultiplier { get; private set; }
@@ -45,39 +48,109 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.OnLevelUp += RecalculateStats;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.OnLevelUp -= RecalculateStats;
+        }
+    }
+
+    private void Start()
+    {
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.OnLevelUp -= RecalculateStats;
+            LevelManager.Instance.OnLevelUp += RecalculateStats;
+        }
+    }
+
     public void ApplyStats(CharacterStatsData data)
     {
         if (data == null) return;
-
         baseStats = data;
+        RecalculateStats();
+    }
 
-        MovementSpeed = data.movementSpeed;
-        JumpHeightMultiplier = data.jumpHeightMultiplier;
-        ExtraJumps = data.extraJumps;
+    public bool AddTome(TomeData tome)
+    {
+        if (tome == null || activeTomes.Count >= 2 || activeTomes.Contains(tome)) return false;
+        activeTomes.Add(tome);
+        RecalculateStats();
+        return true;
+    }
 
-        MaxHp = data.maxHp;
-        HpRegen = data.hpRegen;
-        Shield = data.shield;
-        Armor = data.armor;
+    public void RecalculateStats()
+    {
+        if (baseStats == null) return;
 
-        Damage = data.damage;
-        AttackSpeedMultiplier = data.attackSpeedMultiplier;
-        CritChance = data.critChance;
-        CritDamageMultiplier = data.critDamageMultiplier;
+        MovementSpeed = GetModifiedValue(baseStats.movementSpeed, TomeStatType.MovementSpeed);
+        JumpHeightMultiplier = GetModifiedValue(baseStats.jumpHeightMultiplier, TomeStatType.JumpHeightMultiplier);
+        ExtraJumps = Mathf.RoundToInt(GetModifiedValue(baseStats.extraJumps, TomeStatType.ExtraJumps));
 
-        DodgeChance = data.dodgeChance;
-        Lifesteal = data.lifesteal;
-        Thorns = data.thorns;
+        MaxHp = GetModifiedValue(baseStats.maxHp, TomeStatType.MaxHp);
+        HpRegen = GetModifiedValue(baseStats.hpRegen, TomeStatType.HpRegen);
+        Shield = GetModifiedValue(baseStats.shield, TomeStatType.Shield);
+        Armor = GetModifiedValue(baseStats.armor, TomeStatType.Armor);
 
-        ProjectileSizeMultiplier = data.projectileSizeMultiplier;
-        ProjectileSpeedMultiplier = data.projectileSpeedMultiplier;
-        KnockbackMultiplier = data.knockbackMultiplier;
+        Damage = GetModifiedValue(baseStats.damage, TomeStatType.Damage);
+        AttackSpeedMultiplier = GetModifiedValue(baseStats.attackSpeedMultiplier, TomeStatType.AttackSpeedMultiplier);
+        CritChance = GetModifiedValue(baseStats.critChance, TomeStatType.CritChance);
+        CritDamageMultiplier = GetModifiedValue(baseStats.critDamageMultiplier, TomeStatType.CritDamageMultiplier);
 
-        DurationMultiplier = data.durationMultiplier;
-        LuckMultiplier = data.luckMultiplier;
+        DodgeChance = GetModifiedValue(baseStats.dodgeChance, TomeStatType.DodgeChance);
+        Lifesteal = GetModifiedValue(baseStats.lifesteal, TomeStatType.Lifesteal);
+        Thorns = GetModifiedValue(baseStats.thorns, TomeStatType.Thorns);
 
-        PickupRangeMultiplier = data.pickupRangeMultiplier;
-        XpGainMultiplier = data.xpGainMultiplier;
-        CurrencyGainMultiplier = data.currencyGainMultiplier;
+        ProjectileSizeMultiplier = GetModifiedValue(baseStats.projectileSizeMultiplier, TomeStatType.ProjectileSizeMultiplier);
+        ProjectileSpeedMultiplier = GetModifiedValue(baseStats.projectileSpeedMultiplier, TomeStatType.ProjectileSpeedMultiplier);
+        KnockbackMultiplier = GetModifiedValue(baseStats.knockbackMultiplier, TomeStatType.KnockbackMultiplier);
+
+        DurationMultiplier = GetModifiedValue(baseStats.durationMultiplier, TomeStatType.DurationMultiplier);
+        LuckMultiplier = GetModifiedValue(baseStats.luckMultiplier, TomeStatType.LuckMultiplier);
+
+        PickupRangeMultiplier = GetModifiedValue(baseStats.pickupRangeMultiplier, TomeStatType.PickupRangeMultiplier);
+        XpGainMultiplier = GetModifiedValue(baseStats.xpGainMultiplier, TomeStatType.XpGainMultiplier);
+        CurrencyGainMultiplier = GetModifiedValue(baseStats.currencyGainMultiplier, TomeStatType.CurrencyGainMultiplier);
+    }
+
+    private float GetModifiedValue(float baseValue, TomeStatType statType)
+    {
+        float flatBonus = 0f;
+        float percentBonus = 0f;
+
+        int playerLevel = LevelManager.Instance != null ? LevelManager.Instance.CurrentLevel : 1;
+
+        foreach (var tome in activeTomes)
+        {
+            if (tome.statToModify != statType) continue;
+
+            int effectiveLevel = playerLevel;
+            if (tome.isLimit)
+            {
+                effectiveLevel = Mathf.Min(effectiveLevel, tome.maxLevel);
+            }
+
+            float tomeValue = tome.baseValue + (tome.scaleByLevel * (effectiveLevel - 1));
+
+            if (tome.scalingType == TomeScalingType.Value)
+            {
+                flatBonus += tomeValue;
+            }
+            else if (tome.scalingType == TomeScalingType.Percentage)
+            {
+                percentBonus += tomeValue;
+            }
+        }
+
+        return (baseValue + flatBonus) * (1f + percentBonus);
     }
 }

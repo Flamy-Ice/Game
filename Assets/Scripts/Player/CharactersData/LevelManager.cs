@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class LevelManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class LevelManager : MonoBehaviour
     private float targetFillAmount = 0f;
 
     public int CurrentLevel => currentLevel;
+    public event Action OnLevelUp;
 
     private void Awake()
     {
@@ -61,6 +63,8 @@ public class LevelManager : MonoBehaviour
             {
                 xpFillImage.fillAmount = 0f;
             }
+
+            OnLevelUp?.Invoke();
         }
 
         targetFillAmount = (float)currentXp / xpToNextLevel;
