@@ -75,5 +75,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 00d7651a9738b4740a8d22fd7b2fa582, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3312517296937927170}
   m_SourcePrefab: {fileID: 100100000, guid: 00d7651a9738b4740a8d22fd7b2fa582, type: 3}
+--- !u!1 &6188583553726233563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 00d7651a9738b4740a8d22fd7b2fa582, type: 3}
+  m_PrefabInstance: {fileID: 6423023836167407242}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3312517296937927170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6188583553726233563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d31e9e4c6719e4b80a29c34309e3c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DroppedItem
+  itemType: 0
+  minAmount: 1
+  maxAmount: 3
+  lifetime: 30
+  hopHeight: 1.2
+  scatterDistance: 1.5
+  animationDuration: 0.5
+  gravity: -20

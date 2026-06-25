@@ -286,8 +286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   damagePopupPrefab: {fileID: 4300437831753770049, guid: be4816ad89b89cb48a4a2242aebe1c55, type: 3}
-  currencyPrefab: {fileID: 1239031477274173526, guid: b703e605769d98d449f81c0bf70c3814, type: 3}
-  expPrefab: {fileID: 7555916218587421259, guid: 20d965bfd73938441961825778f7d9fe, type: 3}
+  currencyPrefab: {fileID: 6188583553726233563, guid: 6d9954f75d05add4bb147eaf818c6916, type: 3}
+  expPrefab: {fileID: 7618675502673569514, guid: 4f8e6e13978480e48a2f903127c0c42e, type: 3}
   popupYOffset: 1
   popupCameraOffset: 0.5
   isBoss: 0

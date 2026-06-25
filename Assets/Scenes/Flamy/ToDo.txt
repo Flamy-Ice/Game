@@ -21,26 +21,6 @@ Gameplay
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	Enemies
-		Orbs
-			Flamy - Money Orb Replacement
-			Flamy - Exp Orb Replacement
-
-
 		Jump Mechanic
 			Szymon - Map Prefab and Colliders
 				Flamy - Enemies Stop Jumping on each other script
