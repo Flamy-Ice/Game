@@ -1,12 +1,11 @@
 Taski dla Szymona:
-	- Prefab enemy od Alexa z animacją i teksturami
-	- Prefaby postaci (Tekstury + Animacje)
 	- Poprawa mapy (Anioł + SpawnLayer)
-	- Rozstawienie punktów ze skrzynkami
 	- Colliders dla mapy
-	- Money Orb Prefab
+	- Prefaby postaci (Tekstury + Animacje)
 	- Postać Jim Teacher (Kapsułka)
-	- Pomoc Kubie z dzwiękami
+	- Prefab enemy od Alexa z animacją i teksturami
+	- Money Orb Prefab
+	- Rozstawienie punktów ze skrzynkami
 
 Main Menu
 	Szymon - Podmiana Mapy
@@ -67,12 +66,14 @@ Gameplay
 		Scripts
 			Szymon - Map SpawnLayer
 				Flamy - Change Tags and Layers for Enemy Spawner Script
-			Flamy - Map Change Script
-				Flamy - Different Variants depend on map site
+			Szymon - Map Prefabs
+				Flamy - Map Change Script
+					Flamy - Different Map depend on map site
+					Flamy - Different Enemy Variants depend on map site
+					Flamy - Different Skyboxes depend on map site
 		Gambling
 			Tomes
-				Flamy - Add Tomes
-				Flamy - Implement Luck Mechanic
+				Flamy - Dodanie Sprite Do Tomów
 			Weapons
 				Flamy - Add Weapons
 				Flamy - Implement Luck Mechanic
@@ -81,7 +82,6 @@ Gameplay
 				Flamy - Implement Luck Mechanic
 	Canvas
 		Flamy - Weapon pick screen
-			Flamy - Weapons HUD (Link)
 		Szymon - Confetti Animation
 			Szymon - Chest Placement
 				Flamy - Chest Screen

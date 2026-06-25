@@ -134,6 +134,15 @@ public class PlayerHealth : MonoBehaviour
         OnHpChanged?.Invoke();
     }
 
+    public void FullRestore()
+    {
+        if (isDead) return;
+        CurrentHp = MaxHp;
+        CurrentShield = MaxShield;
+        OnHpChanged?.Invoke();
+        OnShieldChanged?.Invoke();
+    }
+
     private void SpawnDamagePopup(float damageAmount)
     {
         if (damagePopupPrefab == null) return;
