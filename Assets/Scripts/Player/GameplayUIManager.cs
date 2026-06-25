@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class GameplayUIManager : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenuCanvas;
     [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private GameObject levelUpCanvas;
     [SerializeField] private GameObject hudCanvas;
     [SerializeField] private GameObject playerVisuals;
     [SerializeField] private PlayerHealth playerHealth;
@@ -22,6 +24,11 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private CanvasManager canvasManager;
     [SerializeField] private float gameOverDelay = 1.0f;
 
+    [Header("Level Up Settings")]
+    [SerializeField] private GameObject levelUpOptionPrefab;
+    [SerializeField] private Transform optionsContainer;
+    [SerializeField] private TomeData[] allTomesPool;
+
     [Header("Boss UI")]
     [SerializeField] private GameObject bossHealthBarContainer;
     [SerializeField] private Image bossHealthBarImage;
@@ -30,6 +37,7 @@ public class GameplayUIManager : MonoBehaviour
 
     private bool isPaused = false;
     private bool isGameOver = false;
+    private bool isLevelUpActive = false;
     private bool isDeathSequenceActive = false;
     private EnemyHealth activeBoss;
     private float bossTargetFill = 1f;
@@ -51,6 +59,24 @@ public class GameplayUIManager : MonoBehaviour
         if (bossHealthBarContainer != null)
         {
             bossHealthBarContainer.SetActive(false);
+        }
+
+        if (levelUpCanvas != null)
+        {
+            levelUpCanvas.SetActive(false);
+        }
+
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.OnLevelUp += ShowLevelUpScreen;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.OnLevelUp -= ShowLevelUpScreen;
         }
     }
 
@@ -92,16 +118,98 @@ public class GameplayUIManager : MonoBehaviour
 
     private void OnPausePerformed(InputAction.CallbackContext context)
     {
-        if (isGameOver || isDeathSequenceActive) return;
+        if (isGameOver || isDeathSequenceActive || isLevelUpActive) return;
         TogglePause();
     }
 
     public void TogglePause()
     {
-        if (isGameOver || isDeathSequenceActive) return;
+        if (isGameOver || isDeathSequenceActive || isLevelUpActive) return;
         isPaused = !isPaused;
         pauseMenuCanvas.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : 1f;
+    }
+
+    private void ShowLevelUpScreen()
+    {
+        if (isGameOver || isDeathSequenceActive) return;
+
+        PlayerStats playerStats = Object.FindFirstObjectByType<PlayerStats>();
+
+        isLevelUpActive = true;
+        if (levelUpCanvas != null)
+        {
+            levelUpCanvas.SetActive(true);
+        }
+        Time.timeScale = 0f;
+
+        foreach (Transform child in optionsContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        List<TomeData> availableTomes = new List<TomeData>();
+        foreach (var tome in allTomesPool)
+        {
+            if (tome != null && playerStats != null && !playerStats.HasTome(tome))
+            {
+                availableTomes.Add(tome);
+            }
+        }
+
+        int optionsCount = Mathf.Min(3, availableTomes.Count);
+        for (int i = 0; i < optionsCount; i++)
+        {
+            int randomIndex = Random.Range(0, availableTomes.Count);
+            TomeData selectedTome = availableTomes[randomIndex];
+            availableTomes.RemoveAt(randomIndex);
+
+            GameObject optionGO = Instantiate(levelUpOptionPrefab, optionsContainer);
+            LevelUpOptionButton optionButton = optionGO.GetComponent<LevelUpOptionButton>();
+            if (optionButton != null)
+            {
+                optionButton.Setup(selectedTome);
+            }
+        }
+
+        if (optionsCount == 0)
+        {
+            if (playerHealth != null)
+            {
+                playerHealth.FullRestore();
+            }
+            CloseLevelUpScreen();
+        }
+    }
+
+    public void OnTomeSelected(TomeData tome)
+    {
+        PlayerStats playerStats = Object.FindFirstObjectByType<PlayerStats>();
+        if (playerStats != null)
+        {
+            playerStats.AddTome(tome);
+        }
+
+        if (playerHealth != null)
+        {
+            playerHealth.FullRestore();
+        }
+
+        CloseLevelUpScreen();
+    }
+
+    public void CloseLevelUpScreen()
+    {
+        isLevelUpActive = false;
+        if (levelUpCanvas != null)
+        {
+            levelUpCanvas.SetActive(false);
+        }
+
+        if (!isPaused)
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     private void StartHandlePlayerDeathSequence()

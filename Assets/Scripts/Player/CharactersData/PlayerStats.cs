@@ -82,10 +82,15 @@ public class PlayerStats : MonoBehaviour
 
     public bool AddTome(TomeData tome)
     {
-        if (tome == null || activeTomes.Count >= 2 || activeTomes.Contains(tome)) return false;
+        if (tome == null || activeTomes.Contains(tome)) return false;
         activeTomes.Add(tome);
         RecalculateStats();
         return true;
+    }
+
+    public bool HasTome(TomeData tome)
+    {
+        return activeTomes.Contains(tome);
     }
 
     public void RecalculateStats()

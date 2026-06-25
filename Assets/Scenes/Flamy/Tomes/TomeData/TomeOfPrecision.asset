@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TomeData
   tomeName: Tome Of Precision
   description: Increasing Your Crit Chance per Lv. (45lvl cap)
+  icon: {fileID: 21300000, guid: 929ed0fa50a0e2f46992c53dfb1dd442, type: 3}
   statToModify: 9
   baseValue: 0.05
   scaleByLevel: 0.01

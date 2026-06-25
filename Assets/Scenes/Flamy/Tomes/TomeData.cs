@@ -14,6 +14,7 @@ public class TomeData : ScriptableObject
 {
     public string tomeName;
     public string description;
+    public Sprite icon;
     public TomeStatType statToModify;
     public float baseValue;
     public float scaleByLevel;

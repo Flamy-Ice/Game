@@ -73,8 +73,7 @@ Gameplay
 					Flamy - Different Skyboxes depend on map site
 		Gambling
 			Tomes
-				Flamy - Add Tomes
-				Flamy - Implement Luck Mechanic
+				Flamy - Dodanie Sprite Do Tomów
 			Weapons
 				Flamy - Add Weapons
 				Flamy - Implement Luck Mechanic
@@ -83,7 +82,6 @@ Gameplay
 				Flamy - Implement Luck Mechanic
 	Canvas
 		Flamy - Weapon pick screen
-			Flamy - Weapons HUD (Link)
 		Szymon - Confetti Animation
 			Szymon - Chest Placement
 				Flamy - Chest Screen
