@@ -2,7 +2,6 @@ Taski dla Szymona:
 	- Poprawa mapy (Anioł + SpawnLayer)
 	- Colliders dla mapy
 	- Prefaby postaci (Tekstury + Animacje)
-	- Postać Jim Teacher (Kapsułka)
 	- Prefab enemy od Alexa z animacją i teksturami
 	- Money Orb Prefab
 
@@ -10,8 +9,6 @@ Main Menu
 	Play
 		Szymon - Kaira Model and Animations Prefab
 		Szymon - Kaleria Model and Animations Prefab
-		Szymon - Jim Teacher Model
-			Flamy - Jim Avatar
 	Kuba - Dźwięki
 
 
@@ -38,9 +35,6 @@ Gameplay
 			Szymon - Kaira Model and Animations Prefab
 			Szymon - Kaleria Model and Animations Prefab
 				Flamy - Kaleria Avatar
-			Szymon - Jim Teacher Model
-				Flamy - Floating Script
-				Flamy - Jim Avatar
 	Enemies
 		Models
 			Szymon - Neko Enemy Prefab
