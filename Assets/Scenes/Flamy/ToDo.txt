@@ -7,14 +7,10 @@ Taski dla Szymona:
 	- Money Orb Prefab
 
 Main Menu
-	Szymon - Podmiana Mapy
-	Tvar - Skybox
-	Tvar - Oświetlenie
 	Play
 		Szymon - Kaira Model and Animations Prefab
 		Szymon - Kaleria Model and Animations Prefab
 		Szymon - Jim Teacher Model
-			Flamy - Floating Script
 			Flamy - Jim Avatar
 	Kuba - Dźwięki
 
