@@ -1,6 +1,5 @@
 Taski dla Szymona:
-	- Poprawa mapy (Anioł + SpawnLayer)
-	- Colliders dla mapy
+	- Wyłączenie animacji trawy lub jej zmiana
 
 Alex:
 	- Prefaby postaci (Kaleria Animacje)
@@ -17,18 +16,17 @@ Gameplay
 			Alex - Kaleria Animations
 				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
 					Flamy - Animation Script
+	Map
+		Szymon - Wyłączenie animacji trawy lub jej zmiana
 
 
 
 
-		Jump Mechanic
-			Szymon - Map Prefab and Colliders
-				Flamy - Enemies Stop Jumping on each other script
-				Flamy - Enemies Stop Jumping on player script
-				Flamy - Check How Enemies Act on Tvar Map
+
+
+
+
 		Scripts
-			Szymon - Map SpawnLayer
-				Flamy - Change Tags and Layers for Enemy Spawner Script
 			Szymon - Map Prefabs
 				Flamy - Map Change Script
 					Flamy - Different Map depend on map site

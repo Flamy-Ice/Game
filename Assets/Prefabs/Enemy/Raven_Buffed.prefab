@@ -258,9 +258,17 @@ MonoBehaviour:
   highJumpForce: 12
   wallCheckDistance: 0.8
   knockbackDecay: 8
+  separationRadius: 3
+  separationForce: 4
+  climbSpeed: 6
+  climbExitJumpForce: 9
+  wallLostBuffer: 0.8
   obstacleLayers:
     serializedVersion: 2
-    m_Bits: 439
+    m_Bits: 951
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &7600211172993859113
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,3 +16,6 @@ MonoBehaviour:
   walkSpeed: 3.5
   damage: 36
   attackCooldown: 1.3
+  hpGrowthPerLevel: 0.1
+  damageGrowthPerLevel: 0.1
+  speedGrowthPerLevel: 0.05

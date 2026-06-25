@@ -37,5 +37,6 @@ public class EnemyStats : MonoBehaviour
 
         MaxHp = baseStats.maxHp * (1f + (playerLevel - 1) * baseStats.hpGrowthPerLevel);
         Damage = baseStats.damage * (1f + (playerLevel - 1) * baseStats.damageGrowthPerLevel);
+        WalkSpeed = baseStats.walkSpeed * (1f + (playerLevel - 1) * baseStats.speedGrowthPerLevel);
     }
 }

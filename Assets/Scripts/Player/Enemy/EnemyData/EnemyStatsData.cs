@@ -12,4 +12,5 @@ public class EnemyStatsData : ScriptableObject
     [Header("Scaling Stats (Per Player Level)")]
     public float hpGrowthPerLevel = 0.1f;
     public float damageGrowthPerLevel = 0.1f;
+    public float speedGrowthPerLevel = 0.05f;
 }

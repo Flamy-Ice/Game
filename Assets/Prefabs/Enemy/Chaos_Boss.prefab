@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3854787075362974668}
   m_Layer: 0
   m_Name: Chaos_Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,9 +93,17 @@ MonoBehaviour:
   highJumpForce: 12
   wallCheckDistance: 0.8
   knockbackDecay: 100000
+  separationRadius: 3
+  separationForce: 4
+  climbSpeed: 6
+  climbExitJumpForce: 9
+  wallLostBuffer: 0.8
   obstacleLayers:
     serializedVersion: 2
-    m_Bits: 439
+    m_Bits: 951
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &248118020543408993
 MonoBehaviour:
   m_ObjectHideFlags: 0
