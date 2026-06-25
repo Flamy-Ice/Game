@@ -2525,8 +2525,8 @@ MonoBehaviour:
   basicBuffedPrefab: {fileID: 887582230528774577, guid: 7cf90c4f042bc3b408d8896c6e93a855, type: 3}
   commonNormalPrefab: {fileID: 4738378936942436316, guid: 71fcfc98d746a544884470ebe8aaead5, type: 3}
   commonBuffedPrefab: {fileID: 1871369957382418423, guid: 673e001cb99e3884da1cb0dd3f96f57e, type: 3}
-  uncommonNormalPrefab: {fileID: 0}
-  uncommonBuffedPrefab: {fileID: 0}
+  uncommonNormalPrefab: {fileID: 461405958117637236, guid: c9a1d171b61eda147b08a452136d76ef, type: 3}
+  uncommonBuffedPrefab: {fileID: 8512006060929322856, guid: a839fc6ec7eacc544b40096cad394a45, type: 3}
   bossPrefabs:
   - {fileID: 7213993497981062865, guid: c246bf297a1461642bebbf982076d698, type: 3}
   - {fileID: 6728601404377325335, guid: 6dc9589fdafbdf04cbaa7114e66d298b, type: 3}

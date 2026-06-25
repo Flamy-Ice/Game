@@ -1,33 +1,15 @@
 Taski dla Szymona:
 	- Poprawa mapy (Anioł + SpawnLayer)
 	- Colliders dla mapy
-	- Prefab enemy od Alexa z animacją i teksturami
-	- Money Orb Prefab
 
+Alex:
 	- Prefaby postaci (Kaleria Animacje)
 
 Main Menu
 	Play
-		Szymon - Prefaby postaci (Kaleria Animacje)
+		Alex - Kaleria Animations
+			Szymon - Prefaby postaci (Kaleria Animacje)
 	Kuba - Dźwięki
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Gameplay
 	Player
@@ -35,18 +17,30 @@ Gameplay
 			Alex - Kaleria Animations
 				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
 					Flamy - Animation Script
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	Enemies
-		Models
-			Szymon - Neko Enemy Prefab
-				Flamy - Add Components and Colliders
-				Flamy - Code Jumping
-				Flamy - Add Variants
 		Orbs
-			Szymon - Money Orb Prefab
-				Flamy - Money Orb Replacement
-			Alex/Tvar - Exp Orb
-				Szymon - Exp Orb Prefab
-					Flamy - Exp Orb Replacement
+			Flamy - Money Orb Replacement
+			Flamy - Exp Orb Replacement
+
+
 		Jump Mechanic
 			Szymon - Map Prefab and Colliders
 				Flamy - Enemies Stop Jumping on each other script
