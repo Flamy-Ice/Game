@@ -2609,13 +2609,16 @@ MonoBehaviour:
   maps:
   - {fileID: 61059058}
   - {fileID: 1746218298}
-  changeInterval: 3
+  changeInterval: 120
   player: {fileID: 599249074}
   playerHeightOffset: 0
   enemyTag: Enemy
   enemyHeightOffset: 0
   orbTag: Orb
   orbHeightOffset: 0
+  skyboxes:
+  - {fileID: 2100000, guid: 6475c86dc16762c44814cfbd8c9af5d2, type: 2}
+  - {fileID: 2100000, guid: 6816ee2792af6744ebf879ef9f851b81, type: 2}
 --- !u!1 &539762186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4331,6 +4334,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b0f292f6a732a48a6fa24aee81c403, type: 3}
+--- !u!1 &1310836204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1310836205}
+  - component: {fileID: 1310836206}
+  m_Layer: 0
+  m_Name: Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1310836205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310836204}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.36911, y: 231.34285, z: 472.47925}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1730115135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1310836206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310836204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 6b86df1527a88d642bbb093af6b1dc12, type: 2}
 --- !u!1 &1312758395
 GameObject:
   m_ObjectHideFlags: 0
@@ -6487,6 +6539,7 @@ Transform:
   - {fileID: 394656309}
   - {fileID: 863666323}
   - {fileID: 873904428}
+  - {fileID: 1310836205}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1746218298 stripped

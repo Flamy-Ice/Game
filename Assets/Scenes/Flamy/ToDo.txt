@@ -1,8 +1,10 @@
-Taski dla Szymona:
-	- Wyłączenie animacji trawy lub jej zmiana
-
-Alex:
-	- Prefaby postaci (Kaleria Animacje)
+Taski
+	Szymon
+		Wyłączenie animacji trawy lub jej zmiana
+		Zrobienie Zdjęć Tomów
+		Zrobienie Zdjęć Broni
+	Alex
+		Prefaby postaci (Kaleria Animacje)
 
 Main Menu
 	Play
@@ -18,29 +20,20 @@ Gameplay
 					Flamy - Animation Script
 	Map
 		Szymon - Wyłączenie animacji trawy lub jej zmiana
-
-
-
-
-
-
-
-
-		Scripts
-			Szymon - Map Prefabs
-				Flamy - Map Change Script
-					Flamy - Different Skyboxes depend on map site
-		Gambling
-			Tomes
-				Flamy - Dodanie Sprite Do Tomów
-			Weapons
-				Flamy - Add Weapons
-				Flamy - Implement Luck Mechanic
-			Items
-				Flamy - Just Next Level and Animation
+	Gambling
+		Tomes
+			Flamy - Dodanie Sprite Do Tomów
+		Weapons
+			Flamy - Add Weapons
+			Flamy - Implement Them To Canvas
+			Flamy - Implement Luck Mechanic
+		Items
+			Flamy - Random Drop
+			Flamy - Implement Luck Mechanic
 	Canvas
-		Flamy - Weapon pick screen
+		Flamy - Map Change Animation Screen
 		Szymon - Confetti Animation
 			Szymon - Chest Placement
 				Flamy - Chest Screen
 					Flamy - Random Chest Counter and Replacement Script
+	DODAJ DŹWIĘKI!!!

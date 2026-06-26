@@ -11,6 +11,7 @@ public class MapRotator : MonoBehaviour
     [SerializeField] private float enemyHeightOffset = 0f;
     [SerializeField] private string orbTag = "Orb";
     [SerializeField] private float orbHeightOffset = 0f;
+    [SerializeField] private List<Material> skyboxes;
 
     private int currentMapIndex = 0;
     private float timer = 0f;
@@ -18,6 +19,7 @@ public class MapRotator : MonoBehaviour
     private void Start()
     {
         InitializeMaps();
+        UpdateSkybox();
     }
 
     private void Update()
@@ -60,6 +62,7 @@ public class MapRotator : MonoBehaviour
             AdjustPlayerPosition();
             AdjustEnemiesPositionAndModels();
             AdjustOrbsPosition();
+            UpdateSkybox();
         }
     }
 
@@ -153,6 +156,18 @@ public class MapRotator : MonoBehaviour
                     characterController.enabled = true;
                 }
             }
+        }
+    }
+
+    private void UpdateSkybox()
+    {
+        if (skyboxes == null || skyboxes.Count == 0) return;
+
+        int skyboxIndex = currentMapIndex % skyboxes.Count;
+
+        if (skyboxes[skyboxIndex] != null)
+        {
+            RenderSettings.skybox = skyboxes[skyboxIndex];
         }
     }
 }
