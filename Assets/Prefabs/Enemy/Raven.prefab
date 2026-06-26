@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 526693213494692273}
   - component: {fileID: 2246864030411459659}
   - component: {fileID: 1869981500200614026}
+  - component: {fileID: -1385554077186902620}
   m_Layer: 6
   m_Name: Raven
   m_TagString: Enemy
@@ -226,6 +227,21 @@ MonoBehaviour:
   popupCameraOffset: 0.5
   isBoss: 0
   bossName: Boss
+--- !u!114 &-1385554077186902620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4738378936942436316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3e85754ac069346aae7cd2a78f77c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyModelSwitcher
+  models:
+  - {fileID: 9012221882715933632}
+  - {fileID: 8527110283286116236}
 --- !u!1001 &3174076160204699783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -299,6 +315,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e1309a2faddb14a8525b740ac55d76, type: 3}
+--- !u!1 &8527110283286116236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6510785508464922379, guid: 63e1309a2faddb14a8525b740ac55d76, type: 3}
+  m_PrefabInstance: {fileID: 3174076160204699783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9015556863167114550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5841490049952142769, guid: 63e1309a2faddb14a8525b740ac55d76, type: 3}
@@ -376,5 +397,10 @@ PrefabInstance:
 --- !u!4 &8528138332750303610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4570055991495031451, guid: 15cc3224f63d11440b0a8875119de63e, type: 3}
+  m_PrefabInstance: {fileID: 5275422804635659233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9012221882715933632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3758193530020077601, guid: 15cc3224f63d11440b0a8875119de63e, type: 3}
   m_PrefabInstance: {fileID: 5275422804635659233}
   m_PrefabAsset: {fileID: 0}

@@ -801,6 +801,7 @@ GameObject:
   - component: {fileID: 7108117565081798542}
   - component: {fileID: 3942511567034350348}
   - component: {fileID: 668255896527863715}
+  - component: {fileID: 4517082236763548437}
   - component: {fileID: 127691941163206411}
   m_Layer: 6
   m_Name: Neko_Buffed
@@ -981,6 +982,21 @@ MonoBehaviour:
   popupCameraOffset: 0.5
   isBoss: 0
   bossName: Boss
+--- !u!114 &4517082236763548437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8512006060929322856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3e85754ac069346aae7cd2a78f77c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyModelSwitcher
+  models:
+  - {fileID: 6931229495232278594}
+  - {fileID: 158973917183541189}
 --- !u!114 &127691941163206411
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4215642106333107141}
   - component: {fileID: 6731047760641834477}
   - component: {fileID: 3333330114043626533}
+  - component: {fileID: 678193642911679943}
   m_Layer: 6
   m_Name: MadMarchHare
   m_TagString: Enemy
@@ -195,6 +196,21 @@ MonoBehaviour:
   popupCameraOffset: 0.5
   isBoss: 0
   bossName: Boss
+--- !u!114 &678193642911679943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757684665641491754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3e85754ac069346aae7cd2a78f77c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyModelSwitcher
+  models:
+  - {fileID: 4261583414562709031}
+  - {fileID: 1273674542323263064}
 --- !u!1 &2447241023517108560
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +316,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 374600806520641432, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
   m_PrefabInstance: {fileID: 3845271812388180741}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4261583414562709031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1042875639940287778, guid: 49a508721b5c98f42b1296ecd643d268, type: 3}
+  m_PrefabInstance: {fileID: 3845271812388180741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5789498703666617529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,6 +382,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5f59f35d8041564ea080c09c4f9aba7, type: 3}
+--- !u!1 &1273674542323263064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4752826318427585249, guid: b5f59f35d8041564ea080c09c4f9aba7, type: 3}
+  m_PrefabInstance: {fileID: 5789498703666617529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1938466023234780386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5385952170295205979, guid: b5f59f35d8041564ea080c09c4f9aba7, type: 3}

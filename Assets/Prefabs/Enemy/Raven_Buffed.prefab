@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 5563772222555714697}
   - component: {fileID: 7600211172993859113}
   - component: {fileID: 3378418661102685878}
+  - component: {fileID: 686855669371174744}
   m_Layer: 6
   m_Name: Raven_Buffed
   m_TagString: Enemy
@@ -300,6 +301,21 @@ MonoBehaviour:
   popupCameraOffset: 0.5
   isBoss: 0
   bossName: Boss
+--- !u!114 &686855669371174744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871369957382418423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3e85754ac069346aae7cd2a78f77c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyModelSwitcher
+  models:
+  - {fileID: 6291587878708255632}
+  - {fileID: 1831725493246492019}
 --- !u!1 &5524210215570352547
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +425,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5841490049952142769, guid: 63e1309a2faddb14a8525b740ac55d76, type: 3}
   m_PrefabInstance: {fileID: 4841770153277125240}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1831725493246492019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6510785508464922379, guid: 63e1309a2faddb14a8525b740ac55d76, type: 3}
+  m_PrefabInstance: {fileID: 4841770153277125240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7167475293501504433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -478,6 +499,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15cc3224f63d11440b0a8875119de63e, type: 3}
+--- !u!1 &6291587878708255632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3758193530020077601, guid: 15cc3224f63d11440b0a8875119de63e, type: 3}
+  m_PrefabInstance: {fileID: 7167475293501504433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6637150796553077034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4570055991495031451, guid: 15cc3224f63d11440b0a8875119de63e, type: 3}

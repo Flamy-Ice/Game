@@ -29,8 +29,6 @@ Gameplay
 		Scripts
 			Szymon - Map Prefabs
 				Flamy - Map Change Script
-					Flamy - Different Map depend on map site
-					Flamy - Different Enemy Variants depend on map site
 					Flamy - Different Skyboxes depend on map site
 		Gambling
 			Tomes

@@ -58,7 +58,7 @@ public class MapRotator : MonoBehaviour
         {
             maps[currentMapIndex].SetActive(true);
             AdjustPlayerPosition();
-            AdjustEnemiesPosition();
+            AdjustEnemiesPositionAndModels();
             AdjustOrbsPosition();
         }
     }
@@ -88,7 +88,7 @@ public class MapRotator : MonoBehaviour
         }
     }
 
-    private void AdjustEnemiesPosition()
+    private void AdjustEnemiesPositionAndModels()
     {
         if (string.IsNullOrEmpty(enemyTag)) return;
 
@@ -115,6 +115,12 @@ public class MapRotator : MonoBehaviour
                 {
                     characterController.enabled = true;
                 }
+            }
+
+            EnemyModelSwitcher modelSwitcher = enemy.GetComponent<EnemyModelSwitcher>();
+            if (modelSwitcher != null)
+            {
+                modelSwitcher.SwitchModel(currentMapIndex);
             }
         }
     }
