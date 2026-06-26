@@ -1,6 +1,5 @@
 Taski
 	Szymon
-		Wyłączenie animacji trawy lub jej zmiana
 		Zrobienie Zdjęć Tomów
 		Zrobienie Zdjęć Broni
 	Alex
@@ -18,8 +17,6 @@ Gameplay
 			Alex - Kaleria Animations
 				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
 					Flamy - Animation Script
-	Map
-		Szymon - Wyłączenie animacji trawy lub jej zmiana
 	Gambling
 		Tomes
 			Flamy - Dodanie Sprite Do Tomów
@@ -30,10 +27,13 @@ Gameplay
 		Items
 			Flamy - Random Drop
 			Flamy - Implement Luck Mechanic
+	Map
+		Flamy - Chest Mechanic
+			Flamy - Chest Placement
+			Szymon - Confetti Animation Fade Out
+				Flamy - Confetti Animation
 	Canvas
 		Flamy - Map Change Animation Screen
-		Szymon - Confetti Animation
-			Szymon - Chest Placement
-				Flamy - Chest Screen
-					Flamy - Random Chest Counter and Replacement Script
+		Flamy - Chest Screen Opening Screen
+			Szymon - Confetti Animation
 	DODAJ DŹWIĘKI!!!

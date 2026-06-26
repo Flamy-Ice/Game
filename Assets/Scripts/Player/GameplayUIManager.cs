@@ -39,6 +39,7 @@ public class GameplayUIManager : MonoBehaviour
     private bool isGameOver = false;
     private bool isLevelUpActive = false;
     private bool isDeathSequenceActive = false;
+    private bool isMapChanging = false;
     private EnemyHealth activeBoss;
     private float bossTargetFill = 1f;
 
@@ -112,19 +113,19 @@ public class GameplayUIManager : MonoBehaviour
     {
         if (bossHealthBarContainer != null && bossHealthBarContainer.activeSelf && bossHealthBarImage != null)
         {
-            bossHealthBarImage.fillAmount = Mathf.Lerp(bossHealthBarImage.fillAmount, bossTargetFill, Time.deltaTime * bossBarLerpSpeed);
+            bossHealthBarImage.fillAmount = Mathf.Lerp(bossHealthBarImage.fillAmount, bossTargetFill, Time.unscaledDeltaTime * bossBarLerpSpeed);
         }
     }
 
     private void OnPausePerformed(InputAction.CallbackContext context)
     {
-        if (isGameOver || isDeathSequenceActive || isLevelUpActive) return;
+        if (isGameOver || isDeathSequenceActive || isLevelUpActive || isMapChanging) return;
         TogglePause();
     }
 
     public void TogglePause()
     {
-        if (isGameOver || isDeathSequenceActive || isLevelUpActive) return;
+        if (isGameOver || isDeathSequenceActive || isLevelUpActive || isMapChanging) return;
         isPaused = !isPaused;
         pauseMenuCanvas.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : 1f;
@@ -132,7 +133,7 @@ public class GameplayUIManager : MonoBehaviour
 
     private void ShowLevelUpScreen()
     {
-        if (isGameOver || isDeathSequenceActive) return;
+        if (isGameOver || isDeathSequenceActive || isMapChanging) return;
 
         PlayerStats playerStats = Object.FindFirstObjectByType<PlayerStats>();
 
@@ -319,7 +320,7 @@ public class GameplayUIManager : MonoBehaviour
 
         while (elapsed < duration)
         {
-            elapsed += Time.deltaTime;
+            elapsed += Time.unscaledDeltaTime;
             canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
             yield return null;
         }
@@ -355,5 +356,10 @@ public class GameplayUIManager : MonoBehaviour
         {
             canvasManager.ShowMainMenu();
         }
+    }
+
+    public void SetMapChanging(bool state)
+    {
+        isMapChanging = state;
     }
 }
