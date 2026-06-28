@@ -17,11 +17,8 @@ Gameplay
 	Gambling
 		Weapons
 			Flamy - Add Weapons
-			Flamy - Implement Them To Canvas
-			Flamy - Implement Luck Mechanic
 		Items
 			Flamy - Random Drop
-			Flamy - Implement Luck Mechanic
 	Map
 		Flamy - Chest Mechanic
 			Flamy - Chest Placement
