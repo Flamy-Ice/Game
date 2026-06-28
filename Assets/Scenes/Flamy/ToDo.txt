@@ -1,7 +1,4 @@
 Taski
-	Szymon
-		Zrobienie Zdjęć Tomów
-		Zrobienie Zdjęć Broni
 	Alex
 		Prefaby postaci (Kaleria Animacje)
 
@@ -18,8 +15,6 @@ Gameplay
 				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
 					Flamy - Animation Script
 	Gambling
-		Tomes
-			Flamy - Dodanie Sprite Do Tomów
 		Weapons
 			Flamy - Add Weapons
 			Flamy - Implement Them To Canvas
@@ -33,7 +28,6 @@ Gameplay
 			Szymon - Confetti Animation Fade Out
 				Flamy - Confetti Animation
 	Canvas
-		Flamy - Map Change Animation Screen
 		Flamy - Chest Screen Opening Screen
 			Szymon - Confetti Animation
 	DODAJ DŹWIĘKI!!!

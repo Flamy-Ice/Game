@@ -23,6 +23,7 @@ public class MapRotator : MonoBehaviour
     [SerializeField] private GameObject animationPrefab2;
     [SerializeField] private Transform animationContainer;
     [SerializeField] private float defaultAnimationDuration = 2.0f;
+    [SerializeField] private float animationScale = 1f;
 
     private int currentMapIndex = 0;
     private float timer = 0f;
@@ -93,6 +94,13 @@ public class MapRotator : MonoBehaviour
         if (selectedPrefab != null && animationContainer != null)
         {
             spawnedAnim = Instantiate(selectedPrefab, animationContainer);
+
+            RectTransform rect = spawnedAnim.GetComponent<RectTransform>();
+            if (rect != null)
+            {
+                rect.anchoredPosition = Vector2.zero;
+                rect.localScale = new Vector3(animationScale, animationScale, 1f);
+            }
         }
 
         float currentAnimDuration = defaultAnimationDuration;

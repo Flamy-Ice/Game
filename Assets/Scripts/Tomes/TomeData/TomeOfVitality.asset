@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TomeData
   tomeName: Tome Of Vitality
   description: Increasing Your Max HP per Lv.
-  icon: {fileID: 21300000, guid: 929ed0fa50a0e2f46992c53dfb1dd442, type: 3}
+  icon: {fileID: 21300000, guid: f352a44614a62e945ad4c5e6383c1bd0, type: 3}
   statToModify: 3
   baseValue: 20
   scaleByLevel: 3

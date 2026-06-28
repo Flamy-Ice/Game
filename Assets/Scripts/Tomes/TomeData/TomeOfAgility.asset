@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TomeData
   tomeName: Tome Of Fortitude
   description: Increasing Your Dodge Chance per Lv. (20lvl cap)
-  icon: {fileID: 21300000, guid: 929ed0fa50a0e2f46992c53dfb1dd442, type: 3}
+  icon: {fileID: 21300000, guid: b97eb02acaca2124d9c74b644a8414d0, type: 3}
   statToModify: 11
   baseValue: 0.05
   scaleByLevel: 0.01
