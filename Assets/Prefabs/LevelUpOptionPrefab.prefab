@@ -213,10 +213,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45da07b435ad9648b3d68a439a33361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelUpOptionButton
-  iconImage: {fileID: 7961983653644588195}
   nameText: {fileID: 4921649092532888618}
   descriptionText: {fileID: 7164728621165554386}
-  actionButton: {fileID: 7446227949177029721}
+  iconImage: {fileID: 7961983653644588195}
+  buttonComponent: {fileID: 7446227949177029721}
 --- !u!114 &6154370562489536060
 MonoBehaviour:
   m_ObjectHideFlags: 0

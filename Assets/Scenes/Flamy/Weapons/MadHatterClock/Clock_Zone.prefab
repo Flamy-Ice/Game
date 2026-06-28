@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3593106673182977548}
   - component: {fileID: 4537147721982242936}
   - component: {fileID: 3243725721242305721}
+  - component: {fileID: 8890349949241909975}
   m_Layer: 0
   m_Name: Clock_Zone
   m_TagString: Untagged
@@ -118,3 +119,15 @@ VFXRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
+--- !u!114 &8890349949241909975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3449715788481007160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55939c5393a1f754cbf6a9a73ff32f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MadHatterClockZone
