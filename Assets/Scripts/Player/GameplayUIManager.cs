@@ -28,6 +28,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject levelUpOptionPrefab;
     [SerializeField] private Transform optionsContainer;
     [SerializeField] private TomeData[] allTomesPool;
+    [SerializeField] private WeaponData[] allWeaponsPool;
 
     [Header("Boss UI")]
     [SerializeField] private GameObject bossHealthBarContainer;
@@ -136,6 +137,7 @@ public class GameplayUIManager : MonoBehaviour
         if (isGameOver || isDeathSequenceActive || isMapChanging) return;
 
         PlayerStats playerStats = Object.FindFirstObjectByType<PlayerStats>();
+        WeaponManager weaponManager = Object.FindFirstObjectByType<WeaponManager>();
 
         isLevelUpActive = true;
         if (levelUpCanvas != null)
@@ -158,18 +160,42 @@ public class GameplayUIManager : MonoBehaviour
             }
         }
 
-        int optionsCount = Mathf.Min(3, availableTomes.Count);
+        List<WeaponData> availableWeapons = new List<WeaponData>();
+        foreach (var weapon in allWeaponsPool)
+        {
+            if (weapon != null && weaponManager != null && weaponManager.GetWeaponLevel(weapon) < weapon.maxLevel)
+            {
+                availableWeapons.Add(weapon);
+            }
+        }
+
+        int totalAvailable = availableTomes.Count + availableWeapons.Count;
+        int optionsCount = Mathf.Min(3, totalAvailable);
+
         for (int i = 0; i < optionsCount; i++)
         {
-            int randomIndex = Random.Range(0, availableTomes.Count);
-            TomeData selectedTome = availableTomes[randomIndex];
-            availableTomes.RemoveAt(randomIndex);
-
+            int randomIndex = Random.Range(0, availableTomes.Count + availableWeapons.Count);
             GameObject optionGO = Instantiate(levelUpOptionPrefab, optionsContainer);
             LevelUpOptionButton optionButton = optionGO.GetComponent<LevelUpOptionButton>();
-            if (optionButton != null)
+
+            if (randomIndex < availableTomes.Count)
             {
-                optionButton.Setup(selectedTome);
+                TomeData selectedTome = availableTomes[randomIndex];
+                availableTomes.RemoveAt(randomIndex);
+                if (optionButton != null)
+                {
+                    optionButton.Setup(selectedTome);
+                }
+            }
+            else
+            {
+                int weaponIndex = randomIndex - availableTomes.Count;
+                WeaponData selectedWeapon = availableWeapons[weaponIndex];
+                availableWeapons.RemoveAt(weaponIndex);
+                if (optionButton != null)
+                {
+                    optionButton.Setup(selectedWeapon, weaponManager.GetWeaponLevel(selectedWeapon));
+                }
             }
         }
 
@@ -189,6 +215,22 @@ public class GameplayUIManager : MonoBehaviour
         if (playerStats != null)
         {
             playerStats.AddTome(tome);
+        }
+
+        if (playerHealth != null)
+        {
+            playerHealth.FullRestore();
+        }
+
+        CloseLevelUpScreen();
+    }
+
+    public void OnWeaponSelected(WeaponData weapon)
+    {
+        WeaponManager weaponManager = Object.FindFirstObjectByType<WeaponManager>();
+        if (weaponManager != null)
+        {
+            weaponManager.AddOrUpgradeWeapon(weapon);
         }
 
         if (playerHealth != null)

@@ -2822,6 +2822,7 @@ GameObject:
   - component: {fileID: 599249078}
   - component: {fileID: 599249079}
   - component: {fileID: 599249080}
+  - component: {fileID: 599249081}
   m_Layer: 3
   m_Name: PlayerManager
   m_TagString: Player
@@ -3026,6 +3027,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   baseStats: {fileID: 11400000, guid: 074551ec90b742b4cbfa8abb347d65d4, type: 2}
+--- !u!114 &599249081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599249067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43153aec3ded06f4c8f6c7431e10955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
+  startingWeapons:
+  - {fileID: 11400000, guid: 8d3f5e677c75ab849b118ada11eae66a, type: 2}
 --- !u!1 &643482790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3637,6 +3652,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4ff9fde5963cbd648843f34e7fa58251, type: 2}
   - {fileID: 11400000, guid: dbc909be5b86fe949807f8e321ced2f1, type: 2}
   - {fileID: 11400000, guid: cfbaebf88abf03c45bb646fc21aa03a5, type: 2}
+  allWeaponsPool:
+  - {fileID: 11400000, guid: 8d3f5e677c75ab849b118ada11eae66a, type: 2}
   bossHealthBarContainer: {fileID: 1312758395}
   bossHealthBarImage: {fileID: 53957791}
   bossNameText: {fileID: 1388663849}

@@ -4930,6 +4930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1302773845982842582}
+  - component: {fileID: 6667502198957590731}
   m_Layer: 0
   m_Name: VapSlash_Prefab 1
   m_TagString: Untagged
@@ -4945,11 +4946,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5364439782624176738}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0.51461, y: 0.956, z: -4.3032}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5931042797599319073}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &6667502198957590731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5364439782624176738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c630337629f829d40a9e8a9467e91166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VorpalBlade
+  shaderVisualPrefab: {fileID: 5364439782624176738, guid: e9320911c42c9994c88ec23f53114ad4, type: 3}
+  visualDuration: 1
+  forwardOffset: 0.5
