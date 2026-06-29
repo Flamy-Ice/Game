@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a682870ad8797ef46a6db7591e0ebdbd, type: 3}
+  m_Name: PenanceChainData
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponName: Chain of Penance
+  description: A heavy, rusty chain ending in a spiked ball executing broad sweeps.
+  icon: {fileID: 21300000, guid: 221c28518102862409a7649aeabb8f9b, type: 3}
+  weaponPrefab: {fileID: 7444647619924575691, guid: 6ca0dd78e0f4fe243ad378be88291cf3, type: 3}
+  maxLevel: 10
