@@ -22,9 +22,9 @@ Gameplay
 	Map
 		Flamy - Chest Mechanic
 			Flamy - Chest Placement
-			Szymon - Confetti Animation Fade Out
-				Flamy - Confetti Animation
 	Canvas
 		Flamy - Chest Screen Opening Screen
-			Szymon - Confetti Animation
+	Map
+		Flamt - Bake Light
 	DODAJ DŹWIĘKI!!!
+	Ułożenie folderów i usunięcie zbędnych plików

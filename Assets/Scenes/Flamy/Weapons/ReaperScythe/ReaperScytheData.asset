@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a682870ad8797ef46a6db7591e0ebdbd, type: 3}
+  m_Name: ReaperScytheData
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponName: Reaper's Scythe
+  description: A large thrown scythe that orbits around the player like a boomerang.
+  icon: {fileID: 21300000, guid: 153994fa921c6374dbdf5d847cf90aac, type: 3}
+  weaponPrefab: {fileID: 5564282296075263725, guid: 6444e39fba885ab4197a4d8d55d0b449, type: 3}
+  maxLevel: 10

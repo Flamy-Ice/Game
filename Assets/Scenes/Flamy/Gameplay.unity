@@ -2989,7 +2989,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599249067}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86faffd4bd23bcf43ace29a024eda27d, type: 3}
   m_Name: 
@@ -3040,7 +3040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
   startingWeapons:
-  - {fileID: 11400000, guid: 5053b2af8094e62428ef7839268bec11, type: 2}
+  - {fileID: 11400000, guid: ce7272171158cbe4482fe846364b86bd, type: 2}
 --- !u!1 &643482790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3656,6 +3656,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d3f5e677c75ab849b118ada11eae66a, type: 2}
   - {fileID: 11400000, guid: 5b818ed81c2c6124fbccdc6228ab533f, type: 2}
   - {fileID: 11400000, guid: 5053b2af8094e62428ef7839268bec11, type: 2}
+  - {fileID: 11400000, guid: ce7272171158cbe4482fe846364b86bd, type: 2}
   bossHealthBarContainer: {fileID: 1312758395}
   bossHealthBarImage: {fileID: 53957791}
   bossNameText: {fileID: 1388663849}
