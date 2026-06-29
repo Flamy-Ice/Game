@@ -2450,6 +2450,7 @@ GameObject:
   - component: {fileID: 522118639}
   - component: {fileID: 522118640}
   - component: {fileID: 522118641}
+  - component: {fileID: 522118642}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2617,6 +2618,26 @@ MonoBehaviour:
   animationContainer: {fileID: 1984847345}
   defaultAnimationDuration: 2
   animationScale: 5
+--- !u!114 &522118642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522118633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc45956b631d604f9c4c3d8664a5cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChestSpawner
+  playerTransform: {fileID: 599249074}
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 895
+  chestPrefab: {fileID: 7596703757110369235, guid: dd6676be098bc014aa4965dc0b6a9558, type: 3}
+  spawnInterval: 30
+  minSpawnDistance: 12
+  maxSpawnDistance: 50
 --- !u!1 &539762186
 GameObject:
   m_ObjectHideFlags: 0

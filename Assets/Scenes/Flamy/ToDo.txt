@@ -15,8 +15,6 @@ Gameplay
 				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
 					Flamy - Animation Script
 	Gambling
-		Weapons
-			Flamy - Add Weapons
 		Items
 			Flamy - Random Drop
 	Map
