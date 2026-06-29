@@ -19,8 +19,6 @@ Gameplay
 			Flamy - Chest Screen Opening Screen
 		Script
 			Flamy - Random Drop
-	Map
-		Flamy - Bake Light
 
 	DODAJ DŹWIĘKI!!!
 	Ułożenie folderów i usunięcie zbędnych plików
