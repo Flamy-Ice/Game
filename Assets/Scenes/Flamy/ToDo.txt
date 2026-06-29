@@ -14,15 +14,13 @@ Gameplay
 			Alex - Kaleria Animations
 				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
 					Flamy - Animation Script
-	Gambling
-		Items
+	Chest
+		Canvas
+			Flamy - Chest Screen Opening Screen
+		Script
 			Flamy - Random Drop
 	Map
-		Flamy - Chest Mechanic
-			Flamy - Chest Placement
-	Canvas
-		Flamy - Chest Screen Opening Screen
-	Map
-		Flamt - Bake Light
+		Flamy - Bake Light
+
 	DODAJ DŹWIĘKI!!!
 	Ułożenie folderów i usunięcie zbędnych plików
