@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Flamy/Main Menu.unity
     guid: bfe9c5dadd80d7b4fb73a320aa86210c
   - enabled: 1
-    path: Assets/Scenes/Flamy/Gameplay.unity
+    path: Assets/Scenes/Gameplay.unity
     guid: 80af1cd661e60064daf47d33b5c8759e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

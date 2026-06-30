@@ -1,0 +1,24 @@
+Taski
+	Alex
+		Prefaby postaci (Kaleria Animacje)
+
+Main Menu
+	Play
+		Alex - Kaleria Animations
+			Szymon - Prefaby postaci (Kaleria Animacje)
+
+Gameplay
+	Player
+		Models and Animations
+			Alex - Kaleria Animations
+				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
+					Flamy - Animation Script
+
+	DODAJ DŹWIĘKI!!!
+
+
+
+
+	Ułożenie folderów i usunięcie zbędnych plików
+		Plugins
+			FMOD
