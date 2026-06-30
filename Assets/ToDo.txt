@@ -6,7 +6,6 @@ Main Menu
 	Play
 		Alex - Kaleria Animations
 			Szymon - Prefaby postaci (Kaleria Animacje)
-
 Gameplay
 	Player
 		Models and Animations
@@ -14,11 +13,16 @@ Gameplay
 				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
 					Flamy - Animation Script
 
-	DODAJ DŹWIĘKI!!!
 
 
 
-
-	Ułożenie folderów i usunięcie zbędnych plików
-		Plugins
-			FMOD
+	Sounds:
+		Gameplay Music
+		Clock Zone
+		Orb Collect
+		Damage
+		Game Over
+		Chest (Item Collect)
+		Jump
+		Level Up
+		Player Damage (Melee Hit)
