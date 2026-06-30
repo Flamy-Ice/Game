@@ -14,11 +14,7 @@ Gameplay
 			Alex - Kaleria Animations
 				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
 					Flamy - Animation Script
-	Chest
-		Canvas
-			Flamy - Chest Screen Opening Screen
-		Script
-			Flamy - Random Drop
+	Skrzynki zmieniają kolor
 
 	DODAJ DŹWIĘKI!!!
 	Ułożenie folderów i usunięcie zbędnych plików

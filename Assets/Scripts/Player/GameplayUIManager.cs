@@ -197,7 +197,6 @@ public class GameplayUIManager : MonoBehaviour
                 if (rectTransform != null)
                 {
                     rectTransform.anchoredPosition = Vector2.zero;
-                    rectTransform.localScale = Vector3.one;
                 }
             }
 
@@ -340,7 +339,6 @@ public class GameplayUIManager : MonoBehaviour
                 if (buttonRect != null)
                 {
                     buttonRect.anchoredPosition = Vector2.zero;
-                    buttonRect.localScale = Vector3.one;
                 }
             }
         }
