@@ -5,6 +5,10 @@ public class PlayerPickup : MonoBehaviour
     public float basePickupRange = 3f;
     public float attractionSpeed = 10f;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource currencyPickupAudio;
+    [SerializeField] private AudioSource expPickupAudio;
+
     private PlayerStats playerStats;
 
     void Start()
@@ -46,6 +50,11 @@ public class PlayerPickup : MonoBehaviour
             {
                 CurrencyManager.Instance.AddCurrency(finalAmount);
             }
+
+            if (currencyPickupAudio != null)
+            {
+                currencyPickupAudio.Play();
+            }
         }
         else if (item.itemType == DroppedItem.ItemType.Exp)
         {
@@ -55,6 +64,11 @@ public class PlayerPickup : MonoBehaviour
             if (LevelManager.Instance != null)
             {
                 LevelManager.Instance.AddXp(finalAmount);
+            }
+
+            if (expPickupAudio != null)
+            {
+                expPickupAudio.Play();
             }
         }
 

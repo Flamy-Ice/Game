@@ -17,12 +17,6 @@ Gameplay
 
 
 	Sounds:
-		Gameplay Music
-		Clock Zone
-		Orb Collect
-		Damage
-		Game Over
-		Chest (Item Collect)
-		Jump
-		Level Up
-		Player Damage (Melee Hit)
+		Music Volume
+		Music Lower Volume when on different Canvas
+		Music UnMute

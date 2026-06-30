@@ -37,6 +37,10 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private Transform chestAnimationContainer;
     [SerializeField] private GameObject chestOptionPrefab;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource gameOverAudioSource;
+    [SerializeField] private AudioSource chestOpenAudioSource;
+
     [Header("Boss UI")]
     [SerializeField] private GameObject bossHealthBarContainer;
     [SerializeField] private Image bossHealthBarImage;
@@ -246,6 +250,11 @@ public class GameplayUIManager : MonoBehaviour
         }
         Time.timeScale = 0f;
 
+        if (chestOpenAudioSource != null)
+        {
+            chestOpenAudioSource.Play();
+        }
+
         foreach (Transform child in chestOptionsContainer)
         {
             Destroy(child.gameObject);
@@ -425,6 +434,11 @@ public class GameplayUIManager : MonoBehaviour
         isDeathSequenceActive = false;
 
         UpdateGameOverSummary();
+
+        if (gameOverAudioSource != null)
+        {
+            gameOverAudioSource.Play();
+        }
 
         hudCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);

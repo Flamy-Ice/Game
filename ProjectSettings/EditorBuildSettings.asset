@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Flamy/Main Menu.unity
     guid: bfe9c5dadd80d7b4fb73a320aa86210c
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: bf5a78a8bf9096e41b6590710707296f
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: 80af1cd661e60064daf47d33b5c8759e

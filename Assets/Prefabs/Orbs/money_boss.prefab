@@ -109,3 +109,5 @@ MonoBehaviour:
   scatterDistance: 1.5
   animationDuration: 0.5
   gravity: -20
+  currencyPickupSound: {fileID: 8300000, guid: fa5e2b5169574fe4295cbb407b98140d, type: 3}
+  expPickupSound: {fileID: 8300000, guid: fa5e2b5169574fe4295cbb407b98140d, type: 3}

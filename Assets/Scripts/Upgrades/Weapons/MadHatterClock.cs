@@ -4,6 +4,9 @@ public class MadHatterClock : MonoBehaviour, IWeapon
 {
     [SerializeField] private GameObject clockZonePrefab;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource attackAudioSource;
+
     private int currentLevel = 1;
     private float cooldownTimer = 0f;
     private float attackCooldown = 5f;
@@ -41,6 +44,11 @@ public class MadHatterClock : MonoBehaviour, IWeapon
     private void ExecuteAttack()
     {
         if (clockZonePrefab == null) return;
+
+        if (attackAudioSource != null)
+        {
+            attackAudioSource.Play();
+        }
 
         Transform target = FindClosestEnemy();
         Quaternion spawnRotation = Quaternion.identity;

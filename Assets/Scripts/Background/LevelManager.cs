@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour
     public float xpExponent = 1.5f;
     public float smoothSpeed = 5f;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource levelUpAudioSource;
+
     private int currentLevel = 1;
     private int currentXp = 0;
     private int xpToNextLevel;
@@ -62,6 +65,11 @@ public class LevelManager : MonoBehaviour
             if (xpFillImage != null)
             {
                 xpFillImage.fillAmount = 0f;
+            }
+
+            if (levelUpAudioSource != null)
+            {
+                levelUpAudioSource.Play();
             }
 
             OnLevelUp?.Invoke();

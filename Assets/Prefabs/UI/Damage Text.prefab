@@ -194,3 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c5eaf2873dd434a930dd908d4e60f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DamagePopup
+  cameraOffset: 1.2
+  enemyDamageSound: {fileID: 8300000, guid: 9d0e294c869feae4dada7f0564b6a117, type: 3}
+  enemyCritSound: {fileID: 8300000, guid: 9d0e294c869feae4dada7f0564b6a117, type: 3}
+  playerDamageSound: {fileID: 8300000, guid: 3fa5f8325c6f97147a690568bdb3d0eb, type: 3}
+  playerDodgeSound: {fileID: 8300000, guid: 3fa5f8325c6f97147a690568bdb3d0eb, type: 3}

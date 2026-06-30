@@ -25,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField][Range(0f, 1f)] private float coyoteTime = 0.15f;
     [SerializeField][Range(0f, 1f)] private float jumpBufferTime = 0.2f;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource jumpAudioSource;
+
     private InputAction moveAction;
     private InputAction jumpAction;
     private InputAction walkAction;
@@ -146,6 +149,11 @@ public class PlayerMovement : MonoBehaviour
     {
         float effectiveJumpHeight = baseJumpHeight * stats.JumpHeightMultiplier;
         verticalVelocity = Mathf.Sqrt(effectiveJumpHeight * -2f * gravity);
+
+        if (jumpAudioSource != null)
+        {
+            jumpAudioSource.Play();
+        }
 
         jumpBufferCounter = 0f;
         jumpCooldownTimer = jumpCooldown;
