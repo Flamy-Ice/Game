@@ -2884,6 +2884,8 @@ MonoBehaviour:
   enemyHeightOffset: 0
   orbTag: Orb
   orbHeightOffset: 0
+  chestTag: Chest
+  chestHeightOffset: 0
   skyboxes:
   - {fileID: 2100000, guid: 6475c86dc16762c44814cfbd8c9af5d2, type: 2}
   - {fileID: 2100000, guid: 6816ee2792af6744ebf879ef9f851b81, type: 2}

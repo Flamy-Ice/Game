@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6d045ea73f7814b95b4fd44380528d, type: 3}
   m_Name: KairaStats
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStatsData
-  movementSpeed: 50
+  movementSpeed: 5
   jumpHeightMultiplier: 1
   extraJumps: 0
   maxHp: 100
   hpRegen: 0.5
   shield: 0
   armor: 10
-  damage: 150
+  damage: 15
   attackSpeedMultiplier: 1
   critChance: 0.05
   critDamageMultiplier: 1.5
@@ -32,5 +32,5 @@ MonoBehaviour:
   durationMultiplier: 1
   luckMultiplier: 1
   pickupRangeMultiplier: 1
-  xpGainMultiplier: 10
+  xpGainMultiplier: 1
   currencyGainMultiplier: 1

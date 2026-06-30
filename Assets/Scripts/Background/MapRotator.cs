@@ -13,6 +13,8 @@ public class MapRotator : MonoBehaviour
     [SerializeField] private float enemyHeightOffset = 0f;
     [SerializeField] private string orbTag = "Orb";
     [SerializeField] private float orbHeightOffset = 0f;
+    [SerializeField] private string chestTag = "Chest";
+    [SerializeField] private float chestHeightOffset = 0f;
     [SerializeField] private List<Material> skyboxes;
 
     [Header("UI Transition Settings")]
@@ -28,6 +30,8 @@ public class MapRotator : MonoBehaviour
     private int currentMapIndex = 0;
     private float timer = 0f;
     private bool isTransitioning = false;
+
+    public int CurrentMapIndex => currentMapIndex;
 
     private void Start()
     {
@@ -181,6 +185,7 @@ public class MapRotator : MonoBehaviour
             AdjustPlayerPosition();
             AdjustEnemiesPositionAndModels();
             AdjustOrbsPosition();
+            AdjustChestsPositionAndModels();
             UpdateSkybox();
         }
     }
@@ -240,6 +245,32 @@ public class MapRotator : MonoBehaviour
             }
 
             EnemyModelSwitcher modelSwitcher = enemy.GetComponent<EnemyModelSwitcher>();
+            if (modelSwitcher != null)
+            {
+                modelSwitcher.SwitchModel(currentMapIndex);
+            }
+        }
+    }
+
+    private void AdjustChestsPositionAndModels()
+    {
+        if (string.IsNullOrEmpty(chestTag)) return;
+
+        GameObject[] chests = GameObject.FindGameObjectsWithTag(chestTag);
+
+        foreach (GameObject chest in chests)
+        {
+            if (chest == null) continue;
+
+            Vector3 rayOrigin = new Vector3(chest.transform.position.x, 500f, chest.transform.position.z);
+            RaycastHit hit;
+
+            if (Physics.Raycast(rayOrigin, Vector3.down, out hit, 1000f))
+            {
+                chest.transform.position = new Vector3(chest.transform.position.x, hit.point.y + chestHeightOffset, chest.transform.position.z);
+            }
+
+            ChestModelSwitcher modelSwitcher = chest.GetComponent<ChestModelSwitcher>();
             if (modelSwitcher != null)
             {
                 modelSwitcher.SwitchModel(currentMapIndex);

@@ -45,7 +45,17 @@ public class ChestSpawner : MonoBehaviour
         Vector3 spawnPosition = CalculateValidTerrainPosition();
         if (spawnPosition != Vector3.zero)
         {
-            Instantiate(chestPrefab, spawnPosition, Quaternion.identity);
+            GameObject spawnedChest = Instantiate(chestPrefab, spawnPosition, Quaternion.identity);
+
+            MapRotator rotator = Object.FindFirstObjectByType<MapRotator>();
+            if (rotator != null)
+            {
+                ChestModelSwitcher modelSwitcher = spawnedChest.GetComponent<ChestModelSwitcher>();
+                if (modelSwitcher != null)
+                {
+                    modelSwitcher.SwitchModel(rotator.CurrentMapIndex);
+                }
+            }
         }
     }
 

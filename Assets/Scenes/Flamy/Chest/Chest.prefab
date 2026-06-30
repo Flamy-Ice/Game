@@ -573,9 +573,10 @@ GameObject:
   - component: {fileID: 3616183781033720423}
   - component: {fileID: -8526995251878985210}
   - component: {fileID: 6615340283251830288}
+  - component: {fileID: -1491235044118559314}
   m_Layer: 0
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: Chest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,6 +635,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad5d2c1f6daea40ba7320c7487d9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chest
+--- !u!114 &-1491235044118559314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7596703757110369235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 836f17eeaca5fbc44b8979fc78537c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChestModelSwitcher
+  models:
+  - {fileID: 3007271282958380232}
+  - {fileID: 8511170448900702470}
 --- !u!1 &8511170448900702470
 GameObject:
   m_ObjectHideFlags: 0

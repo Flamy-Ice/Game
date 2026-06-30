@@ -14,7 +14,6 @@ Gameplay
 			Alex - Kaleria Animations
 				Szymon - Prefaby postaci (Kaleria Animacje + Tekstury)
 					Flamy - Animation Script
-	Skrzynki zmieniają kolor
 
 	DODAJ DŹWIĘKI!!!
 	Ułożenie folderów i usunięcie zbędnych plików
