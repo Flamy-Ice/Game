@@ -41,6 +41,10 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private AudioSource gameOverAudioSource;
     [SerializeField] private AudioSource chestOpenAudioSource;
 
+    [Header("Music Settings")]
+    [SerializeField] private AudioSource mainMusicAudioSource;
+    [SerializeField] private float defaultMusicVolume = 0.5f;
+
     [Header("Boss UI")]
     [SerializeField] private GameObject bossHealthBarContainer;
     [SerializeField] private Image bossHealthBarImage;
@@ -70,6 +74,11 @@ public class GameplayUIManager : MonoBehaviour
 
     private void Start()
     {
+        if (mainMusicAudioSource != null)
+        {
+            mainMusicAudioSource.volume = defaultMusicVolume;
+        }
+
         if (bossHealthBarContainer != null)
         {
             bossHealthBarContainer.SetActive(false);
@@ -147,6 +156,19 @@ public class GameplayUIManager : MonoBehaviour
         isPaused = !isPaused;
         pauseMenuCanvas.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : 1f;
+
+        if (mainMusicAudioSource != null)
+        {
+            if (isPaused)
+            {
+                mainMusicAudioSource.Pause();
+            }
+            else
+            {
+                mainMusicAudioSource.UnPause();
+                mainMusicAudioSource.volume = defaultMusicVolume;
+            }
+        }
     }
 
     private void ShowLevelUpScreen()
@@ -162,6 +184,11 @@ public class GameplayUIManager : MonoBehaviour
             levelUpCanvas.SetActive(true);
         }
         Time.timeScale = 0f;
+
+        if (mainMusicAudioSource != null)
+        {
+            mainMusicAudioSource.volume = 0.02f;
+        }
 
         foreach (Transform child in optionsContainer)
         {
@@ -249,6 +276,11 @@ public class GameplayUIManager : MonoBehaviour
             chestScreenCanvas.SetActive(true);
         }
         Time.timeScale = 0f;
+
+        if (mainMusicAudioSource != null)
+        {
+            mainMusicAudioSource.volume = 0.02f;
+        }
 
         if (chestOpenAudioSource != null)
         {
@@ -406,6 +438,10 @@ public class GameplayUIManager : MonoBehaviour
         if (!isPaused)
         {
             Time.timeScale = 1f;
+            if (mainMusicAudioSource != null)
+            {
+                mainMusicAudioSource.volume = defaultMusicVolume;
+            }
         }
 
         if (hudCanvas != null && !isPaused && !isGameOver)
@@ -434,6 +470,11 @@ public class GameplayUIManager : MonoBehaviour
         isDeathSequenceActive = false;
 
         UpdateGameOverSummary();
+
+        if (mainMusicAudioSource != null)
+        {
+            mainMusicAudioSource.Stop();
+        }
 
         if (gameOverAudioSource != null)
         {
