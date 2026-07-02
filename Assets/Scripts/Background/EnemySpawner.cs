@@ -119,7 +119,8 @@ public class EnemySpawner : MonoBehaviour
             GameObject prefabToSpawn = DetermineEnemyTierAndVariant();
             if (prefabToSpawn != null)
             {
-                Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+                GameObject spawnedEnemy = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+                ApplyCurrentMapModel(spawnedEnemy);
             }
         }
     }
@@ -138,6 +139,28 @@ public class EnemySpawner : MonoBehaviour
         {
             activeBossInstance = Instantiate(selectedBossPrefab, spawnPosition, Quaternion.identity);
             isBossCurrentlyActive = true;
+            ApplyCurrentMapModel(activeBossInstance);
+        }
+    }
+
+    private void ApplyCurrentMapModel(GameObject enemy)
+    {
+        if (enemy == null) return;
+
+        MapRotator rotator = Object.FindFirstObjectByType<MapRotator>();
+        if (rotator != null)
+        {
+            // Szukamy komponentu na głównym obiekcie lub w jego dzieciach (np. jeśli grafika jest głębiej)
+            EnemyModelSwitcher modelSwitcher = enemy.GetComponent<EnemyModelSwitcher>();
+            if (modelSwitcher == null)
+            {
+                modelSwitcher = enemy.GetComponentInChildren<EnemyModelSwitcher>();
+            }
+
+            if (modelSwitcher != null)
+            {
+                modelSwitcher.SwitchModel(rotator.CurrentMapIndex);
+            }
         }
     }
 

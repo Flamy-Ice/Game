@@ -1,7 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: ccbc0fe7b9d413f4287ca4c10d9c2ed8
-=======
 guid: ccbc0fe7b9d413f4287ca4c10d9c2ed8
 PluginImporter:
   externalObjects: {}
@@ -22,11 +19,18 @@ PluginImporter:
       settings:
         CPU: x86_64
         DefaultValueInitialized: true
-        OS: Windows
+    Win:
+      enabled: 0
+      settings:
+        CPU: None
     Win64:
       enabled: 1
-      settings: {}
+      settings:
+        CPU: x86_64
+    WindowsStoreApps:
+      enabled: 0
+      settings:
+        CPU: x64
   userData: 
   assetBundleName: 
   assetBundleVariant: 
->>>>>>> main

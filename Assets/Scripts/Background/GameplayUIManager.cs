@@ -74,6 +74,8 @@ public class GameplayUIManager : MonoBehaviour
 
     private void Start()
     {
+        SetCursorState(false);
+
         if (mainMusicAudioSource != null)
         {
             mainMusicAudioSource.volume = defaultMusicVolume;
@@ -142,6 +144,34 @@ public class GameplayUIManager : MonoBehaviour
         {
             bossHealthBarImage.fillAmount = Mathf.Lerp(bossHealthBarImage.fillAmount, bossTargetFill, Time.unscaledDeltaTime * bossBarLerpSpeed);
         }
+
+        // WYMUSZENIE: Sprawdzaj i blokuj kursor w każdej klatce animacji gry
+        MaintainCursorState();
+    }
+
+    // Pilnuje, aby podczas czystej rozgrywki myszka nie miała prawa się pojawić
+    private void MaintainCursorState()
+    {
+        if (!isPaused && !isGameOver && !isLevelUpActive && !isChestActive && !isDeathSequenceActive)
+        {
+            if (Cursor.lockState != CursorLockMode.Locked || Cursor.visible)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        }
+    }
+
+    // Obsługa Alt + Tab (powrót do okna aplikacji automatycznie zablokuje myszkę)
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus)
+        {
+            if (!isPaused && !isGameOver && !isLevelUpActive && !isChestActive && !isDeathSequenceActive)
+            {
+                SetCursorState(false);
+            }
+        }
     }
 
     private void OnPausePerformed(InputAction.CallbackContext context)
@@ -156,6 +186,8 @@ public class GameplayUIManager : MonoBehaviour
         isPaused = !isPaused;
         pauseMenuCanvas.SetActive(isPaused);
         Time.timeScale = isPaused ? 0f : 1f;
+
+        SetCursorState(isPaused);
 
         if (mainMusicAudioSource != null)
         {
@@ -184,6 +216,8 @@ public class GameplayUIManager : MonoBehaviour
             levelUpCanvas.SetActive(true);
         }
         Time.timeScale = 0f;
+
+        SetCursorState(true);
 
         if (mainMusicAudioSource != null)
         {
@@ -276,6 +310,8 @@ public class GameplayUIManager : MonoBehaviour
             chestScreenCanvas.SetActive(true);
         }
         Time.timeScale = 0f;
+
+        SetCursorState(true);
 
         if (mainMusicAudioSource != null)
         {
@@ -438,6 +474,8 @@ public class GameplayUIManager : MonoBehaviour
         if (!isPaused)
         {
             Time.timeScale = 1f;
+            SetCursorState(false);
+
             if (mainMusicAudioSource != null)
             {
                 mainMusicAudioSource.volume = defaultMusicVolume;
@@ -484,6 +522,14 @@ public class GameplayUIManager : MonoBehaviour
         hudCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);
         Time.timeScale = 0f;
+
+        SetCursorState(true);
+    }
+
+    private void SetCursorState(bool showCursor)
+    {
+        Cursor.visible = showCursor;
+        Cursor.lockState = showCursor ? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     private void UpdateGameOverSummary()
